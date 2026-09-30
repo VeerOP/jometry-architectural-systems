@@ -834,16 +834,57 @@
 }
 
 .btn-hero-primary {
-  background: var(--btn-hero-primary-bg) !important;
-  color: var(--btn-hero-primary-text) !important;
-  border: 1px solid var(--btn-hero-primary-border) !important;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: #ffffff !important;
+  color: #0b0d11 !important;
+  border: 1px solid #ffffff !important;
+  padding: 12px 24px;
+  border-radius: var(--radius-subtle);
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .btn-hero-primary:hover {
-  background: var(--btn-hero-primary-hover-bg) !important;
-  color: var(--btn-hero-primary-hover-text) !important;
-  border-color: var(--btn-hero-primary-hover-bg) !important;
+  background: var(--color-service-blue) !important;
+  color: #ffffff !important;
+  border-color: var(--color-service-blue) !important;
+  transform: translateY(-1px);
+}
+
+.btn-hero-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 12px 24px;
+  border-radius: var(--radius-subtle);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
 }
 
 /* Concept Visual Badge Overlay */

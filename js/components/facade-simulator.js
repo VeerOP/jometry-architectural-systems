@@ -12,6 +12,19 @@ export function initFacadeSimulator() {
   const facadeStage = document.getElementById('facade-light-stage');
   const facadeStatus = document.getElementById('facade-lighting-status');
 
+  if (facadeStage) {
+    const gridContainer = facadeStage.querySelector('div[style*="grid"]') || facadeStage.firstElementChild;
+    if (gridContainer && (gridContainer.children.length < 12 || gridContainer.innerHTML.includes('Array.from'))) {
+      gridContainer.innerHTML = Array.from({ length: 12 }).map(() => `
+        <div style="height: 100%; background: #1c2028; border-radius: 2px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-around; align-items: center; border: 1px solid rgba(255,255,255,0.08);">
+          <div class="slit-light" style="width: 4px; height: 30%; border-radius: 2px; background: #ffa528; margin: 4px 0; transition: all 0.2s ease;"></div>
+          <div class="slit-light" style="width: 4px; height: 40%; border-radius: 2px; background: #ffa528; margin: 4px 0; transition: all 0.2s ease;"></div>
+          <div class="slit-light" style="width: 4px; height: 20%; border-radius: 2px; background: #ffa528; margin: 4px 0; transition: all 0.2s ease;"></div>
+        </div>
+      `).join('');
+    }
+  }
+
   let isNight = true;
   let brightness = 90;
   let currentCCT = '2700K';
