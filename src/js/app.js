@@ -116,13 +116,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  // Header Scroll Progress Bar
+  // Header Scroll Progress Bar & Fixed Sticky Elevation
   const progressBar = document.getElementById('scroll-progress-bar');
+  const navbar = document.querySelector('.navbar');
+  
   window.addEventListener('scroll', () => {
-    if (!progressBar) return;
-    const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = totalScroll > 0 ? (window.scrollY / totalScroll) * 100 : 0;
-    progressBar.style.width = `${progress}%`;
+    const scrollY = window.scrollY || window.pageYOffset;
+    
+    // Toggle elevated shadow on scroll
+    if (navbar) {
+      if (scrollY > 15) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+
+    if (progressBar) {
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalScroll > 0 ? (scrollY / totalScroll) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+    }
   }, { passive: true });
 });
 

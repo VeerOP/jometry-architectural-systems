@@ -32,36 +32,35 @@
 </head>
 <body class="page-transition">
 
-  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR ===== -->
-  <header class="navbar">
-    <div class="container">
-      <a href="index.html" class="brand-logo">
+  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR (FIXED STICKY) ===== -->
+  <header class="navbar" id="main-navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="JOMETRY Modular Wall Systems">
         <div class="brand-symbol">J</div>
-        <div>
-          <div class="brand-title">JOMETRY</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">JOMETRY</span>
+          <span class="brand-edition">2026</span>
         </div>
-        <span class="brand-sub">MACR MAYR INDIA · MUMBAI</span>
       </a>
 
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Main Navigation">
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Overview</a></li>
           <li><a href="service-wall.html" class="nav-link active">Service Wall</a></li>
-          <li><a href="acoustics.html" class="nav-link">Acoustic Control</a></li>
-          <li><a href="living-wall.html" class="nav-link">Living Bio-Wall</a></li>
+          <li><a href="acoustics.html" class="nav-link">Acoustics</a></li>
+          <li><a href="living-wall.html" class="nav-link">Living Wall</a></li>
           <li><a href="facade-light.html" class="nav-link">Facade &amp; Light</a></li>
-          <li><a href="specifications.html" class="nav-link">Catalogue &amp; Specs</a></li>
+          <li><a href="specifications.html" class="nav-link">Specifications</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Color Theme" title="Toggle Theme">
           <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="theme-icon">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
-          <span class="theme-label">Dark</span>
         </button>
-        <button id="nav-enquire-btn" class="btn-nav-action">Specification Enquiry</button>
+        <button id="nav-enquire-btn" class="btn-nav-action" title="Request Architectural Specification">Enquire</button>
         <button id="mobile-menu-toggle" class="btn-mobile-menu" aria-label="Toggle Navigation Menu">
           <span class="hamburger-bar"></span>
           <span class="hamburger-bar"></span>
@@ -75,17 +74,20 @@
       <div class="mobile-menu-header">
         <div class="brand-logo">
           <div class="brand-symbol">J</div>
-          <div class="brand-title">JOMETRY</div>
+          <div class="brand-title-wrap">
+            <span class="brand-title">JOMETRY</span>
+            <span class="brand-edition">2026</span>
+          </div>
         </div>
         <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
       </div>
       <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link">00. Overview</a></li>
-        <li><a href="service-wall.html" class="mobile-nav-link active">01. Service Wall System</a></li>
-        <li><a href="acoustics.html" class="mobile-nav-link">02. Acoustic Control &amp; Studio</a></li>
-        <li><a href="living-wall.html" class="mobile-nav-link">03. Living Bio-Wall &amp; Facades</a></li>
-        <li><a href="facade-light.html" class="mobile-nav-link">04. Facade &amp; Light</a></li>
-        <li><a href="specifications.html" class="mobile-nav-link">05. Catalogue &amp; CSI Specs</a></li>
+        <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
+        <li><a href="service-wall.html" class="mobile-nav-link active"><span class="nav-num">01</span> Service Wall System</a></li>
+        <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
+        <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
+        <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
+        <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
       </ul>
       <div class="mobile-menu-footer">
         <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">

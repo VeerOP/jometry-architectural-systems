@@ -26,17 +26,17 @@ export function initTheme() {
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-        <span class="theme-label">Light</span>
       `;
       toggleBtn.setAttribute('title', 'Switch to Light Mode');
+      toggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
     } else {
       toggleBtn.innerHTML = `
         <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="theme-icon">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
-        <span class="theme-label">Dark</span>
       `;
       toggleBtn.setAttribute('title', 'Switch to Dark Mode');
+      toggleBtn.setAttribute('aria-label', 'Switch to Dark Mode');
     }
   }
 

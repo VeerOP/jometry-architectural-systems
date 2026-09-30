@@ -14,6 +14,7 @@ import { chromium } from 'playwright';
   const viewports = [
     { name: 'Mobile (iPhone SE - 375px)', width: 375, height: 667 },
     { name: 'Tablet (iPad - 768px)', width: 768, height: 1024 },
+    { name: 'Laptop (1100px)', width: 1100, height: 800 },
     { name: 'Desktop (1440px)', width: 1440, height: 900 }
   ];
 
@@ -37,16 +38,41 @@ import { chromium } from 'playwright';
       const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
       const isOverflowing = scrollWidth > clientWidth;
 
-      // Test mobile menu toggle if on mobile
-      if (vp.width < 768) {
+      // Verify Navbar position is fixed and sticking at top
+      const navPosition = await page.evaluate(() => {
+        const nav = document.querySelector('.navbar');
+        if (!nav) return null;
+        const style = window.getComputedStyle(nav);
+        return {
+          position: style.position,
+          top: style.top,
+          height: style.height
+        };
+      });
+
+      // Scroll down and test sticky navbar
+      await page.evaluate(() => window.scrollTo(0, 500));
+      await page.waitForTimeout(100);
+
+      const navScrolledState = await page.evaluate(() => {
+        const nav = document.querySelector('.navbar');
+        const rect = nav.getBoundingClientRect();
+        return {
+          hasScrolledClass: nav.classList.contains('scrolled'),
+          topBounding: rect.top
+        };
+      });
+
+      // Test mobile menu toggle if under 1080px
+      if (vp.width <= 1080) {
         const toggle = await page.$('#mobile-menu-toggle');
         if (toggle) {
           await toggle.click();
-          await page.waitForTimeout(200);
+          await page.waitForTimeout(150);
           const isOpen = await page.evaluate(() => document.getElementById('mobile-menu-drawer')?.classList.contains('active'));
           const closeBtn = await page.$('#mobile-menu-close');
           if (closeBtn) await closeBtn.click();
-          await page.waitForTimeout(200);
+          await page.waitForTimeout(150);
         }
       }
 
@@ -63,8 +89,11 @@ import { chromium } from 'playwright';
       } else if (isOverflowing) {
         console.warn(`  [WARN] ${vp.name} Horizontal overflow: scrollWidth=${scrollWidth}, clientWidth=${clientWidth}`);
         hasErrors = true;
+      } else if (navPosition.position !== 'fixed' || navScrolledState.topBounding !== 0) {
+        console.error(`  [FAIL] ${vp.name} Navbar sticking issue: position=${navPosition.position}, topBounding=${navScrolledState.topBounding}`);
+        hasErrors = true;
       } else {
-        console.log(`  [PASS] ${vp.name} (scrollWidth: ${scrollWidth}px, clientWidth: ${clientWidth}px)`);
+        console.log(`  [PASS] ${vp.name} (Fixed Sticky Nav verified, scrolledClass: ${navScrolledState.hasScrolledClass})`);
       }
 
       await page.close();
@@ -76,6 +105,6 @@ import { chromium } from 'playwright';
     console.log('\n❌ Tests finished with issues.');
     process.exit(1);
   } else {
-    console.log('\n✅ All pages passed flawlessly across Mobile, Tablet, and Desktop!');
+    console.log('\n✅ All pages passed with 100% Fixed Sticky Nav, zero horizontal overflow, and clean responsiveness!');
   }
 })();
