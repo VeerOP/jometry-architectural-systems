@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOMETRY Facade &amp; Light — Illuminated Architectural Elevations</title>
+  <meta name="description" content="Concealed LED backlighting, DALI-2 dimmable protocols down to 0.1%, and exterior rainscreens sharing universal JOMETRY node geometry. MACR MAYR India Pvt Ltd.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  
+  <!-- Anti-FOUC Theme Initializer -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('dwall_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body class="page-transition">
+
+  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <span class="brand-sub">MACR MAYR INDIA · MUMBAI</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="service-wall.html" class="nav-link">Service Wall</a></li>
+          <li><a href="acoustics.html" class="nav-link">Acoustic Control</a></li>
+          <li><a href="living-wall.html" class="nav-link">Living Bio-Wall</a></li>
+          <li><a href="facade-light.html" class="nav-link active">Facade &amp; Light</a></li>
+          <li><a href="specifications.html" class="nav-link">Catalogue &amp; Specs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="theme-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button id="nav-enquire-btn" class="btn-nav-action">Specification Enquiry</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-menu" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <div class="brand-logo">
+          <div class="brand-symbol">J</div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">00. Overview</a></li>
+        <li><a href="service-wall.html" class="mobile-nav-link">01. Service Wall System</a></li>
+        <li><a href="acoustics.html" class="mobile-nav-link">02. Acoustic Control &amp; Studio</a></li>
+        <li><a href="living-wall.html" class="mobile-nav-link">03. Living Bio-Wall &amp; Facades</a></li>
+        <li><a href="facade-light.html" class="mobile-nav-link active">04. Facade &amp; Light</a></li>
+        <li><a href="specifications.html" class="mobile-nav-link">05. Catalogue &amp; CSI Specs</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+          Request Specification Package
+        </button>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+          MACR MAYR India Pvt Ltd · Mumbai<br>
+          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-progress-container">
+      <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== PAGE HERO BANNER ===== -->
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('assets/images/illuminated-facade-01.png');"></div>
+      <div class="container page-hero-content">
+        <div class="hero-metric-tag" style="background: rgba(245, 158, 11, 0.25); border-color: rgba(245, 158, 11, 0.5);">
+          <span class="status-beacon amber"></span>Typology 04 · Museum-Grade CRI &gt; 90 · DALI-2 Dimmable
+        </div>
+        <span class="eyebrow" style="color: rgba(255,255,255,0.7);">Section 10 · Illuminated Facades &amp; References</span>
+        <h1>Concealed LED Backlighting &amp; Exterior Rainscreens</h1>
+        <p class="lead">
+          Dual-function architectural elevations sharing identical node geometry. Solid fluted architectural surface during the day; radiates fine glowing linear accents at night with museum-grade color rendering and flicker-free DALI-2 dimming.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+          <a href="#lighting-simulator-section" class="btn-primary" style="width: auto; padding: 12px 24px; text-decoration: none;">
+            Launch Day/Night Lighting Simulator
+          </a>
+          <a href="#project-references" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 12px 24px; text-decoration: none;">
+            Delivered Project References
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERFORMANCE PILLARS (PAGE 11) ===== -->
+    <section class="section" style="padding-top: var(--space-lg); padding-bottom: var(--space-lg);">
+      <div class="container">
+        <div class="grid-3 reveal">
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-backlit-amber);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-backlit-amber); text-transform: uppercase;">COLOR TEMPERATURE</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">2700K / 3000K / Tunable</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">High CRI &gt; 90 museum-grade concealed LED illumination embedded in cavity channels.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-backlit-amber);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-backlit-amber); text-transform: uppercase;">DRIVER &amp; PROTOCOL</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">DALI-2 / 0–10V Dimmable</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Flicker-free architectural dimming down to 0.1% depth for ambient luxury settings.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-backlit-amber);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-backlit-amber); text-transform: uppercase;">THERMAL MANAGEMENT</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">Integrated Heat Sink</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Concealed extruded aluminum channel with 50,000h L80 rating and passive cavity ventilation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INTERACTIVE DAY/NIGHT FACADE LIGHTING SIMULATOR ===== -->
+    <section id="lighting-simulator-section" class="section" style="background: var(--color-ink-deep); color: #fff;">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-backlit-amber);">Interactive Lighting Engine · Day / Night Transition</span>
+            <h2 class="section-title" style="color: #fff; border-color: rgba(255,255,255,0.25);">
+              <span class="section-num" style="color: var(--color-backlit-amber);">01</span> Concealed LED Elevation Simulator
+            </h2>
+          </div>
+          <button id="facade-daynight-toggle" class="btn-toggle-backlit active">
+            🌙 Night Mode Active (Concealed 2700K Glow)
+          </button>
+        </div>
+
+        <p class="lead" style="color: rgba(255,255,255,0.88); max-width: 78ch; margin-bottom: var(--space-lg);">
+          Observe how the JOMETRY precision-fluted elevation transitions from an architectural daylight surface to a warm linear ambient luminaire at night. Use the DALI-2 dimmer and CCT protocol controls below.
+        </p>
+
+        <!-- Lighting Control Panel -->
+        <div class="studio-controls-bar reveal" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-md);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.6); margin: 0;">CCT Protocol:</span>
+            <button class="facade-cct-btn active" data-cct="2700K">2700K Museum Warm</button>
+            <button class="facade-cct-btn" data-cct="3000K">3000K Neutral Warm</button>
+            <button class="facade-cct-btn" data-cct="tunable">Tunable White</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; flex: 1; min-width: 240px; max-width: 440px;">
+            <label class="eyebrow" style="color: rgba(255,255,255,0.6); margin: 0; white-space: nowrap;">DALI-2 Dimmer:</label>
+            <input type="range" id="facade-dimmer-slider" min="1" max="100" value="90" class="custom-range-slider" style="flex: 1;" />
+            <span id="facade-dimmer-val" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-backlit-amber); min-width: 40px;">90%</span>
+          </div>
+        </div>
+
+        <!-- Facade Interactive Stage -->
+        <div id="facade-light-stage" class="diagram-wrap hover-lift reveal night-mode" style="border-radius: var(--radius-card); background: #07080a; padding: 30px; position: relative; overflow: hidden;">
+          <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; height: 320px; align-items: center;">
+            <!-- 12 Architectural Fluted Louver Strips with Slit Lights -->
+            ${Array.from({ length: 12 }).map((_, i) => `
+              <div style="height: 100%; background: #1c2028; border-radius: 2px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-around; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
+                <div class="slit-light" style="width: 4px; height: 30%; border-radius: 2px; background: #ffa528; margin: 4px 0;"></div>
+                <div class="slit-light" style="width: 4px; height: 40%; border-radius: 2px; background: #ffa528; margin: 4px 0;"></div>
+                <div class="slit-light" style="width: 4px; height: 20%; border-radius: 2px; background: #ffa528; margin: 4px 0;"></div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div id="facade-lighting-status" style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.15); padding-top: var(--space-sm); text-transform: uppercase;">
+            <span><strong>Elevation Mode:</strong> 🌙 Night Luminescence</span> &nbsp;·&nbsp;
+            <span><strong>CCT:</strong> 2700K Museum Warm Gold</span> &nbsp;·&nbsp;
+            <span><strong>DALI-2 Dimmer:</strong> 90% Intensity</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 10: DELIVERED PROJECTS & REFERENCES (PAGE 11) ===== -->
+    <section id="project-references" class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 10 · Project References &amp; Consultation</span>
+            <h2 class="section-title"><span class="section-num">02</span> 10.0 Illuminated Facades &amp; Delivered Projects</h2>
+          </div>
+          <span class="prod-badge">Mumbai Delivered</span>
+        </div>
+
+        <!-- References Table (Exact from Page 11) -->
+        <div class="reveal">
+          <div class="table-responsive">
+            <table class="spec-table table-theme-card">
+              <thead>
+                <tr>
+                  <th>Project Reference</th>
+                  <th>Application Typology</th>
+                  <th>Location</th>
+                  <th>Delivery Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>SAKET WORLD</strong></td>
+                  <td>Commercial AV Screening Suite Acoustic Wall (180mm Cavity)</td>
+                  <td>Mumbai</td>
+                  <td><span class="status-badge production">DELIVERED &amp; HANDED OVER</span></td>
+                </tr>
+                <tr>
+                  <td><strong>OYSTER HOUSING</strong></td>
+                  <td>Corporate Headquarters Active Air Bio-Wall Cladding (120 m²)</td>
+                  <td>Mumbai</td>
+                  <td><span class="status-badge production">DELIVERED &amp; HANDED OVER</span></td>
+                </tr>
+                <tr>
+                  <td><strong>OYSTER HOUSING</strong></td>
+                  <td>High-Rise Exterior Living Wall Rainscreen Facade (450 m²)</td>
+                  <td>Mumbai</td>
+                  <td><span class="status-badge testing">COMMISSIONED</span></td>
+                </tr>
+                <tr>
+                  <td><strong>BOMBAY PRESIDENCY CLUB</strong></td>
+                  <td>Backlit Illuminated Architectural Feature Elevation (2700K LED)</td>
+                  <td>Mumbai</td>
+                  <td><span class="status-badge production">DELIVERED &amp; HANDED OVER</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Reference Images Grid (Page 11) -->
+        <div class="grid-2 reveal" style="margin-top: var(--space-xl);">
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 280px; overflow: hidden; position: relative;">
+              <img src="assets/images/illuminated-facade-01.png" alt="Backlit Architectural Feature Mumbai" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Ref 01 · Mumbai Installation</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-backlit-amber);">REF 01: BACKLIT ARCHITECTURAL FEATURE</span>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 6px;">Bombay Presidency Club Feature Wall</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); margin: 0;">
+                Backlit illuminated architectural feature elevation (2700K LED) delivering fine ambient linear glow and tuned acoustic dampening.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 280px; overflow: hidden; position: relative;">
+              <img src="assets/images/illuminated-facade-02.png" alt="Linear Night Glow Facade" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Ref 02 · Delivered Project</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-backlit-amber);">REF 02: LINEAR NIGHT GLOW FACADE</span>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 6px;">Linear Night Glow Architectural Elevation</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); margin: 0;">
+                Concealed extruded aluminum channel heat sinks with 50,000h L80 rating and DALI-2 architectural dimming down to 0.1%.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer style="background: var(--color-ink-deep); color: #fff; padding: var(--space-lg) 0; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-sm);">
+      <div>JOMETRY · Facade &amp; Light Platform</div>
+      <div>MACR MAYR India Pvt Ltd · Mumbai, Maharashtra, India</div>
+      <div>A4 Portrait Edition · 2026</div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

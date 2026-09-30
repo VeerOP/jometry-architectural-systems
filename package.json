@@ -1,0 +1,14 @@
+{
+  "name": "jometry-dwall-catalogue",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Jometry / D'WALL Architectural Product Catalogue - Digital Web App & A4 Print PDF",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "npx serve src -p 3050",
+    "generate-pdf": "node scripts/generate-pdf.js"
+  },
+  "dependencies": {
+    "playwright": "^1.62.1"
+  }
+}

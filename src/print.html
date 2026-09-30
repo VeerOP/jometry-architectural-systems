@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jometry / D'WALL Architectural Catalogue — A4 Portrait Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/print.css">
+
+  <style>
+    @page {
+      size: 210mm 297mm portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #d8dce2;
+      padding: 24px 12px;
+      font-family: 'Archivo', sans-serif;
+      color: #12151a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .print-page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      min-height: 297mm;
+      background: #ffffff;
+      margin: 0 auto 24px auto;
+      padding: 12mm 14mm 10mm 14mm;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .print-page:last-of-type {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .print-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.2px solid #12151a;
+      padding-bottom: 1.8mm;
+      margin-bottom: 3mm;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.8pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #5a626d;
+    }
+
+    .print-footer {
+      margin-top: auto;
+      padding-top: 2mm;
+      border-top: 1px solid #d8dce1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #868d97;
+    }
+
+    .section-num {
+      margin-right: 5px;
+      color: #1d5b8f;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 600;
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7.2pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #868d97;
+      margin-bottom: 1mm;
+      display: block;
+    }
+
+    h2 {
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 14.5pt;
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 0 0 2.2mm 0;
+      padding-bottom: 1.4mm;
+      border-bottom: 1px solid #d8dce1;
+      color: #12151a;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      font-size: 8.4pt;
+      line-height: 1.42;
+      color: #464c55;
+      margin-bottom: 1.8mm;
+    }
+
+    p.lead {
+      font-size: 9.8pt;
+      line-height: 1.38;
+      color: #12151a;
+      font-weight: 500;
+      margin-bottom: 2mm;
+    }
+
+    strong {
+      color: #12151a;
+      font-weight: 600;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Stats Band */
+    .stats-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      background: #f7f9fb;
+      border: 1px solid #d8dce1;
+      padding: 2.2mm 3.2mm;
+      margin-bottom: 2.8mm;
+      border-radius: 2px;
+    }
+
+    .stat-box b {
+      display: block;
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 15pt;
+      line-height: 1.05;
+      color: #1d5b8f;
+      font-weight: 700;
+    }
+
+    .stat-box span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.2pt;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #616a75;
+      display: block;
+      margin-top: 0.5mm;
+    }
+    
+    /* Architectural Photography Containers */
+    .photo-frame {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      background: #f0f2f5;
+      border: 1px solid #d8dce1;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .photo-caption {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.4pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #6b7380;
+      margin-top: 1mm;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .photo-badge {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background: rgba(14, 17, 22, 0.88);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.2pt;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      border-radius: 2px;
+      z-index: 2;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.8pt;
+      margin-top: 1.5mm;
+    }
+
+    .spec-table th {
+      text-align: left;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #5a626d;
+      border-bottom: 1.2px solid #12151a;
+      padding: 1.2mm 0;
+    }
+
+    .spec-table td {
+      padding: 1.3mm 0;
+      border-bottom: 1px solid #edf0f3;
+      color: #464c55;
+      vertical-align: top;
+    }
+
+    .spec-table td:first-child {
+      color: #12151a;
+      font-weight: 500;
+      width: 32%;
+    }
+
+    .spec-table td:last-child {
+      text-align: right;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.8pt;
+      color: #616a75;
+      width: 28%;
+    }
+
+    .status-pill {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.2pt;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 1.5px 5px;
+      border-radius: 2px;
+      background: #eef3f8;
+      color: #1d5b8f;
+      border: 1px solid rgba(29, 91, 143, 0.25);
+    }
+
+    .highlight-box {
+      background: #f0f4f9;
+      border-left: 3px solid #1d5b8f;
+      padding: 2.2mm 3.2mm;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .highlight-box h4 {
+      font-family: 'Archivo Narrow', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      margin-bottom: 0.8mm;
+      color: #1d5b8f;
+    }
+
+    .highlight-box p {
+      font-size: 7.6pt;
+      margin-bottom: 0;
+      color: #333a44;
+      line-height: 1.38;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 210mm !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        padding: 12mm 14mm 10mm 14mm !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-page:last-of-type {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 01 — MASTER ARCHITECTURAL COVER ==================== -->
+  <section class="print-page print-cover" style="background: #0e1116; color: #fff; justify-content: flex-end; padding: 0 !important; position: relative;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,17,22,0.18) 0%, rgba(14,17,22,0.48) 45%, rgba(14,17,22,0.97) 100%), url('../assets/images/illuminated-facade-01.png') center/cover no-repeat; z-index: 1;"></div>
+    
+    <div style="position: relative; z-index: 2; padding: 16mm 15mm;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18mm; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 3.5mm;">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 8pt; font-weight: 600; background: #fff; color: #0e1116; padding: 2px 6px; border-radius: 2px;">J</span>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.9); margin-bottom: 0; font-size: 7.8pt;">D'WALL ARCHITECTURAL SYSTEMS</span>
+        </div>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 7.2pt; color: #a8c7fa; text-transform: uppercase; letter-spacing: 0.08em; border: 1px solid rgba(168,199,250,0.4); padding: 2px 8px; border-radius: 2px;">A4 Portrait Edition · 2026</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: 35pt; line-height: 1.0; margin: 0 0 5mm 0; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; letter-spacing: -0.02em;">The wall<br>that opens.</h1>
+      
+      <p class="sub" style="font-size: 10.5pt; color: rgba(255,255,255,0.92); max-width: 52ch; margin-bottom: 10mm; line-height: 1.45; font-weight: 400;">
+        Demountable precision cladding platform engineered for acoustic control, living biofiltration, exterior rainscreens, and illuminated elevations. Toolless access for the life of the building.
+      </p>
+      
+      <div class="strip" style="border-top: 1px solid rgba(255,255,255,0.22); padding-top: 3.5mm; font-family: 'IBM Plex Mono', monospace; font-size: 7.2pt; text-transform: uppercase; color: rgba(255,255,255,0.75); display: flex; justify-content: space-between;">
+        <span>MACR MAYR India Pvt Ltd · Mumbai</span>
+        <span>Acoustic · Living · Facade · Illuminated</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 02 — BRAND & PLATFORM INTRO ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 01 · Brand &amp; System Introduction</span>
+    </div>
+
+    <span class="eyebrow">Section 01 · Platform Philosophy</span>
+    <h2><span class="section-num">1.0</span> Buildings change. Walls don't.</h2>
+    <p class="lead">A drywall partition is a one-way decision. Everything placed behind it is permanently sealed in.</p>
+
+    <!-- 4-Stat Metric Band -->
+    <div class="stats-band">
+      <div class="stat-box"><b>0</b><span>Wet Trades Needed</span></div>
+      <div class="stat-box"><b>&lt;3 min</b><span>Cavity Access Speed</span></div>
+      <div class="stat-box"><b>&gt;500</b><span>Test Remount Cycles</span></div>
+      <div class="stat-box"><b>100%</b><span>Modular Grid Reuse</span></div>
+    </div>
+    
+    <div class="split-layout" style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4.5mm; align-items: stretch; margin-bottom: 3.5mm;">
+      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <p>Add a workstation, move a server rack, pull a new data run, chase an electrical fault, or upgrade IT cabling — and the conventional wall must be cut open, contained, rebuilt, skimmed, sanded, and repainted. Dust, noise, fumes, drying time, and rooms out of service for days.</p>
+          <p>In an occupied corporate headquarters or hospital, that cost lands twice: once in the works order, and again in the lost operational hours the space cannot be used.</p>
+        </div>
+        
+        <div class="highlight-box">
+          <h4>The Modular Platform Principle</h4>
+          <p>
+            D'WALL unites aesthetic surface cladding with accessible MEP infrastructure. Patented toolless nodes and continuous raceway cavities allow any tile to be removed and re-clipped in under 3 minutes without tools.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="photo-frame" style="height: 86mm;">
+          <span class="photo-badge">Platform Installation</span>
+          <img src="../assets/images/architectural-feature-wall.png" alt="D'WALL Architectural Installation">
+        </div>
+        <div class="photo-caption">
+          <span>Commercial Interior Grid</span>
+          <span>Mumbai Corporate Installation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4-Pillar Platform Architecture Panel -->
+    <div style="border-top: 1px solid #d8dce1; padding-top: 2.5mm; margin-top: auto;">
+      <span class="eyebrow" style="margin-bottom: 1.5mm; color: #1d5b8f;">Four Architectural Typologies · One Universal Platform</span>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm;">
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.4pt; font-weight: 700; color: #12151a; margin-bottom: 0.8mm;">01. Service Wall</h4>
+          <p style="font-size: 7.2pt; color: #5a6472; line-height: 1.35; margin-bottom: 0;">Concealed raceways for power, data, and medical gas lines with toolless unclip.</p>
+        </div>
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.4pt; font-weight: 700; color: #12151a; margin-bottom: 0.8mm;">02. Acoustic Control</h4>
+          <p style="font-size: 7.2pt; color: #5a6472; line-height: 1.35; margin-bottom: 0;">Adjustable cavity depth tunes Helmholtz absorption (NRC 0.80–0.95) to room geometry.</p>
+        </div>
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.4pt; font-weight: 700; color: #12151a; margin-bottom: 0.8mm;">03. Living Bio-Wall</h4>
+          <p style="font-size: 7.2pt; color: #5a6472; line-height: 1.35; margin-bottom: 0;">Modular cassette exchange with active root-zone biofiltration, zero on-site gardening.</p>
+        </div>
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.4pt; font-weight: 700; color: #12151a; margin-bottom: 0.8mm;">04. Facade &amp; Light</h4>
+          <p style="font-size: 7.2pt; color: #5a6472; line-height: 1.35; margin-bottom: 0;">Concealed LED backlighting and exterior rainscreens sharing identical node geometry.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Platform Introduction</span>
+      <span>Page 02</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 03 — CONVENTIONAL VS D'WALL COMPARISON ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 02 · Engineering Comparison</span>
+    </div>
+
+    <span class="eyebrow">Section 02 · Operational Assessment</span>
+    <h2><span class="section-num">2.0</span> The same job, two ways</h2>
+    <p class="lead">Adding a data outlet or repairing an internal line in an existing wall elevation.</p>
+
+    <!-- Side-by-Side Comparison -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #d8dce1; margin: 1mm 0 3mm 0;">
+      <div style="background: #f8f9fa; padding: 2.8mm 3.8mm; border-right: 1px solid #d8dce1;">
+        <h4 style="font-family: 'IBM Plex Mono', monospace; font-size: 7.2pt; font-weight: 600; text-transform: uppercase; color: #868d97; margin-bottom: 1.5mm;">Conventional Drywall Partition</h4>
+        <ol style="margin-left: 14px; font-size: 7.4pt; color: #5a6472; line-height: 1.4;">
+          <li>Isolate area &amp; erect plastic dust containment tent</li>
+          <li>Cut open board with power drywall saw</li>
+          <li>Pull new cabling / chase electrical fault</li>
+          <li>Patch backing board, tape joints, skim wet plaster</li>
+          <li>Wait 24–48 hours curing and drying time</li>
+          <li>Sand smooth — generating fine airborne silica dust</li>
+          <li>Repaint entire wall elevation for color match</li>
+          <li>Clean down and reinstate occupied space</li>
+        </ol>
+        <div style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.8pt; font-weight: 700; color: #c44026; margin-top: 2mm; border-top: 1px dashed #d8dce1; padding-top: 1.2mm;">
+          3 to 5 Days Disruption · Room Out of Service · Heavy Dust &amp; Fumes
+        </div>
+      </div>
+
+      <div style="background: #ffffff; padding: 2.8mm 3.8mm; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h4 style="font-family: 'IBM Plex Mono', monospace; font-size: 7.2pt; font-weight: 600; text-transform: uppercase; color: #1d5b8f; margin-bottom: 1.5mm;">D'WALL Demountable Platform</h4>
+          <ol style="margin-left: 14px; font-size: 7.4pt; color: #12151a; line-height: 1.4;">
+            <li>Toolless unclip of targeted 500×500 mm cassette</li>
+            <li>Route new cabling through segregated raceway</li>
+            <li>Clip cassette firmly back onto concealed node</li>
+          </ol>
+        </div>
+        <div style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.8pt; font-weight: 700; color: #1d5b8f; border-top: 1px dashed #d8dce1; padding-top: 1.2mm;">
+          Under 3 Minutes · Zero Dust · Zero Trades · Zero Downtime
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparative Infographic -->
+    <div class="photo-frame" style="height: 80mm;">
+      <span class="photo-badge">Lifecycle Comparison</span>
+      <img src="../assets/images/living-vs-traditional.png" alt="Jometry vs Traditional Cladding System">
+    </div>
+    <div class="photo-caption">
+      <span>Architectural Lifecycle Assessment</span>
+      <span>D'WALL Precision Demountable vs Traditional Wet Construction</span>
+    </div>
+
+    <!-- 3-Column Operational Impact Summary -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm;">
+      <div>
+        <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.2pt; font-weight: 700; color: #12151a; margin-bottom: 0.8mm;">Schedule Agility</h4>
+        <p style="font-size: 7.2pt; color: #616a75; line-height: 1.35; margin-bottom: 0;">Facilities managers execute alterations immediately during working hours without contractor lead time.</p>
+      </div>
+      <div>
+        <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.2pt; font-weight: 700; color: #12151a; margin-bottom: 0.8mm;">Clean Environment Safety</h4>
+        <p style="font-size: 7.2pt; color: #616a75; line-height: 1.35; margin-bottom: 0;">No airborne gypsum or silica dust. Fully compliant for sterile healthcare suites and cleanrooms.</p>
+      </div>
+      <div>
+        <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.2pt; font-weight: 700; color: #12151a; margin-bottom: 0.8mm;">Capex Amortization</h4>
+        <p style="font-size: 7.2pt; color: #616a75; line-height: 1.35; margin-bottom: 0;">Eliminates recurring wall demolition, skim plastering, and repainting costs over a 15+ year lifecycle.</p>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL System Comparison</span>
+      <span>Page 03</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 04 — ACCESS SEQUENCE ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 03 · Platform Mechanics</span>
+    </div>
+
+    <span class="eyebrow">Section 03 · Toolless Operation</span>
+    <h2><span class="section-num">3.0</span> Access in three moves</h2>
+    <p class="lead">Repeatable toolless engagement that leaves zero trace of maintenance works.</p>
+
+    <!-- 3 Step Cards -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 3.5mm;">
+      <div style="border: 1px solid #d8dce1; padding: 2.6mm 3mm; background: #fafbfc; border-radius: 2px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 6.8pt; color: #1d5b8f; font-weight: 600; margin-bottom: 0.8mm;">STEP 01 — RELEASE</div>
+        <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.6pt; font-weight: 700; margin-bottom: 1mm;">Press &amp; Disengage</h4>
+        <p style="font-size: 7.4pt; color: #5a6472; line-height: 1.36; margin-bottom: 0;">Technician applies calibrated inward pressure to release the concealed spring clips without face tools.</p>
+      </div>
+      <div style="border: 1px solid #d8dce1; padding: 2.6mm 3mm; background: #fafbfc; border-radius: 2px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 6.8pt; color: #1d5b8f; font-weight: 600; margin-bottom: 0.8mm;">STEP 02 — OPEN</div>
+        <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.6pt; font-weight: 700; margin-bottom: 1mm;">Lift Straight Off</h4>
+        <p style="font-size: 7.4pt; color: #5a6472; line-height: 1.36; margin-bottom: 0;">Panel lifts off parallel to the elevation, exposing the full cavity width with segregated raceways.</p>
+      </div>
+      <div style="border: 1px solid #d8dce1; padding: 2.6mm 3mm; background: #fafbfc; border-radius: 2px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 6.8pt; color: #1d5b8f; font-weight: 600; margin-bottom: 0.8mm;">STEP 03 — CLOSE</div>
+        <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.6pt; font-weight: 700; margin-bottom: 1mm;">Snap &amp; Self-Index</h4>
+        <p style="font-size: 7.4pt; color: #5a6472; line-height: 1.36; margin-bottom: 0;">Panel snaps flush into the grid. Sub-millimeter alignment is retained by conical indexing nodes.</p>
+      </div>
+    </div>
+
+    <!-- Main Content Split -->
+    <div style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4.5mm; align-items: stretch; margin-bottom: 3.5mm;">
+      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h3 style="font-size: 9pt; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; margin-bottom: 1.5mm;">Key Mechanical Attributes</h3>
+          <ul style="list-style: none; font-size: 7.6pt; color: #464c55;">
+            <li style="padding: 1.4mm 0; border-bottom: 1px solid #eef1f4;"><strong>100% Toolless:</strong> No suction lifters, allen keys, or pry bars needed.</li>
+            <li style="padding: 1.4mm 0; border-bottom: 1px solid #eef1f4;"><strong>Isolated Removal:</strong> Surrounding panels remain fully undisturbed.</li>
+            <li style="padding: 1.4mm 0; border-bottom: 1px solid #eef1f4;"><strong>Integrated Face Outlets:</strong> Sockets &amp; AV ports stay attached to tile.</li>
+            <li style="padding: 1.4mm 0; border-bottom: 1px solid #eef1f4;"><strong>Zero Play Retention:</strong> Tested to &gt;500 removal cycles without looseness.</li>
+            <li style="padding: 1.4mm 0;"><strong>Seismic Restraint:</strong> Captive secondary latch satisfies seismic drift codes.</li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <h4>Vibration Dampened Interface</h4>
+          <p>EPDM elastomeric isolation rings on all nodes eliminate acoustic transmission and panel rattle.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="photo-frame" style="height: 82mm;">
+          <span class="photo-badge">Corridor Installation</span>
+          <img src="../assets/images/living-corridor-lining.png" alt="Corridor Bio Wall Installation">
+        </div>
+        <div class="photo-caption">
+          <span>Continuous Grid Alignment</span>
+          <span>Mumbai Commercial Corridor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Universal Node Engineering Specs -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm;">
+      <div style="background: #f7f9fb; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600; text-transform: uppercase;">Node Retention</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">180 N Calibrated Pull-Off</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Prevents accidental dislodgement while allowing deliberate one-handed release.</p>
+      </div>
+      <div style="background: #f7f9fb; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600; text-transform: uppercase;">Material Composition</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">Architectural Die-Cast Zinc &amp; SS304</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Corrosion-proof alloy designed for internal humidity and marine coastal air.</p>
+      </div>
+      <div style="background: #f7f9fb; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600; text-transform: uppercase;">Alignment Tolerance</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">±0.25 mm True Position</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Conical indexing pins lock shadow-gaps into razor-sharp collinear lines.</p>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Platform Mechanics</span>
+      <span>Page 04</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 05 — SERVICE WALL ANATOMY ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 04 · Cavity Engineering</span>
+    </div>
+
+    <span class="eyebrow">Section 04 · Service Raceway Architecture</span>
+    <h2><span class="section-num">4.0</span> Anatomy of the cavity</h2>
+
+    <div class="split-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm; align-items: start; margin-bottom: 3.5mm;">
+      <div>
+        <p class="lead">Panels stand clear of the substrate on adjustable standoffs, creating a continuous, ventilated raceway behind the finished elevation.</p>
+        <p>This cavity organizes power, high-speed data, HVAC distribution, and acoustic absorption into isolated rails rather than burying them haphazardly inside studs.</p>
+        
+        <h3 style="font-size: 9pt; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; margin-top: 2.2mm; margin-bottom: 1mm;">Zone-Configured Cavity Depth</h3>
+        <p style="font-size: 7.8pt;">Standoff depth is specified per architectural zone: 50 mm for power/data lines, 100–180 mm for deep acoustic Helmholtz resonators, ventilation ducts, and irrigation manifolds.</p>
+
+        <div class="highlight-box" style="margin-top: 2.2mm;">
+          <h4>Universal Sub-frame Grid</h4>
+          <p>The identical aluminum rail mounts acoustic fluted tiles, living bio-cassettes, and illuminated panels interchangeably.</p>
+        </div>
+      </div>
+
+      <div class="diagram-wrap" style="border: 1px solid #d8dce1; padding: 2.5mm; background: #ffffff; border-radius: 2px;">
+        <svg viewBox="0 0 300 290" role="img" aria-label="Plan section through the service wall showing panel, standoff, cavity with cable rails and substrate">
+          <defs>
+            <pattern id="sub" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="#bfc5cc" stroke-width="1"/>
+            </pattern>
+            <marker id="dm" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 5L9 2M0 5L9 8" fill="none" stroke="#868d97" stroke-width="1"/>
+            </marker>
+          </defs>
+          <rect x="248" y="15" width="22" height="240" fill="url(#sub)" stroke="#bfc5cc" stroke-width=".6"/>
+          <rect x="168" y="15" width="80" height="240" fill="#eef1f4" stroke="#d8dce1" stroke-width=".6"/>
+          <rect x="196" y="55" width="46" height="8" fill="#dfe4e9" stroke="#5a6472" stroke-width=".6"/>
+          <rect x="196" y="130" width="46" height="8" fill="#dfe4e9" stroke="#5a6472" stroke-width=".6"/>
+          <rect x="196" y="205" width="46" height="8" fill="#dfe4e9" stroke="#5a6472" stroke-width=".6"/>
+          <g stroke="#1d5b8f" stroke-width="2.2" fill="none">
+            <path d="M180 45 C 210 45, 214 75, 240 75"/>
+            <path d="M180 53 C 214 53, 218 83, 240 83"/>
+          </g>
+          <g stroke="#a86a1f" stroke-width="2.2" fill="none">
+            <path d="M180 120 C 212 120, 216 150, 240 150"/>
+          </g>
+          <g stroke="#5a6472" stroke-width="2.6" fill="none">
+            <path d="M180 195 C 212 195, 216 225, 240 225"/>
+          </g>
+          <rect x="216" y="90" width="32" height="24" fill="#e4e9ee" stroke="#1d5b8f" stroke-width=".8"/>
+          <rect x="128" y="15" width="40" height="240" fill="#fff" stroke="#12151a" stroke-width=".9"/>
+          <g fill="#f1f3f5" stroke="#12151a" stroke-width=".5">
+            <rect x="128" y="20" width="40" height="35"/><rect x="128" y="60" width="40" height="35"/>
+            <rect x="128" y="100" width="40" height="35"/><rect x="128" y="140" width="40" height="35"/>
+            <rect x="128" y="180" width="40" height="35"/><rect x="128" y="220" width="40" height="30"/>
+          </g>
+          <line x1="168" y1="265" x2="248" y2="265" stroke="#868d97" stroke-width=".8" marker-start="url(#dm)" marker-end="url(#dm)"/>
+          <text x="208" y="280" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#464c55" text-anchor="middle">adjustable standoff (50–220mm)</text>
+          <text x="208" y="30" font-family="IBM Plex Mono, monospace" font-size="7.2" fill="#868d97" text-anchor="middle">continuous service cavity</text>
+          <text x="50" y="150" font-family="IBM Plex Mono, monospace" font-size="7.2" fill="#12151a">demountable panel face</text>
+          <text x="50" y="100" font-family="IBM Plex Mono, monospace" font-size="7.2" fill="#1d5b8f">locking mounting node</text>
+        </svg>
+        <div class="photo-caption" style="margin-top: 1mm;">
+          <span>Engineering Schematic</span>
+          <span>Plan Section · Standoff &amp; Raceway</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4-Tier MEP Raceway Breakdown Panel -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm;">
+      <span class="eyebrow" style="margin-bottom: 1.5mm; color: #1d5b8f;">Multi-Tier Raceway Segregation Architecture</span>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm;">
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">TIER 01 · POWER</span>
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.2pt; font-weight: 700; margin: 0.5mm 0;">230V Mains &amp; UPS</h4>
+          <p style="font-size: 6.8pt; color: #616a75; line-height: 1.35; margin-bottom: 0;">Grounded metallic raceway isolating high-voltage lines from data interference.</p>
+        </div>
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">TIER 02 · DATA</span>
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.2pt; font-weight: 700; margin: 0.5mm 0;">Cat6A / Fiber Trunking</h4>
+          <p style="font-size: 6.8pt; color: #616a75; line-height: 1.35; margin-bottom: 0;">Dedicated optical conduits with 50mm bend radii for high-speed IT networks.</p>
+        </div>
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">TIER 03 · ACOUSTICS</span>
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.2pt; font-weight: 700; margin: 0.5mm 0;">45 kg/m³ Infill</h4>
+          <p style="font-size: 6.8pt; color: #616a75; line-height: 1.35; margin-bottom: 0;">High-density mineral wool batts dampen reverberation and sound transmission.</p>
+        </div>
+        <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm; border-radius: 2px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">TIER 04 · AIRFLOW</span>
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.2pt; font-weight: 700; margin: 0.5mm 0;">Negative Pressure</h4>
+          <p style="font-size: 6.8pt; color: #616a75; line-height: 1.35; margin-bottom: 0;">Continuous cavity ventilation draws ambient air through living bio-cassettes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Cavity Engineering</span>
+      <span>Page 05</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 06 — SERVICE WALL SPECIFICATIONS ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 05 · System Specification</span>
+    </div>
+
+    <span class="eyebrow">Section 05 · Technical Parameters</span>
+    <h2><span class="section-num">5.0</span> D'WALL Service Wall Specification</h2>
+
+    <!-- Comprehensive 10-Row Spec Table -->
+    <table class="spec-table">
+      <thead>
+        <tr><th>Parameter</th><th>Standard Specification</th><th>Project Options</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Module Dimensions</td><td>500 × 500 mm precision cassette (30 mm profile)</td><td>Custom dimensions up to 1200×600 mm</td></tr>
+        <tr><td>Mounting Sub-frame</td><td>Concealed extruded aluminum rail with zinc locking node</td><td>Marine-grade SS316 coastal bracketry</td></tr>
+        <tr><td>Standoff Range</td><td>50 mm to 220 mm adjustable depth from substrate</td><td>Custom offsets up to 350 mm for deep MEP</td></tr>
+        <tr><td>Raceway Capacity</td><td>Dual-rail power/data segregation with EMI barrier</td><td>Triple-chamber optical &amp; medical gas trunking</td></tr>
+        <tr><td>Face Typologies</td><td>Solid matte, fluted ribbed, slotted acoustic, perforated</td><td>Natural wood veneer / Anodised architectural metal</td></tr>
+        <tr><td>Healthcare Variant</td><td>Seamless antimicrobial wipeable finish (ISO Class 5)</td><td>Hermetically gasketed shadow lines</td></tr>
+        <tr><td>Hardware Integration</td><td>Flush switch plates, Cat6A RJ45, USB-C PD, HDMI AV</td><td>Factory CNC precision openings</td></tr>
+        <tr><td>Cycle Durability</td><td>Rated &gt;500 toolless demount cycles without mechanical play</td><td>Lifetime structural platform warranty</td></tr>
+        <tr><td>Fire Classification</td><td>Class 1 / Class A flame spread rated (ASTM E84 / EN 13501)</td><td>BS 476 Part 6 &amp; 7 Compliant</td></tr>
+        <tr><td>Acoustic Isolation</td><td>STC 48–54 with cavity infill and isolation gaskets</td><td>Tested to ISO 10140 / ASTM E90</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 2 Application Typologies -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-top: 3mm;">
+      <div style="background: #f8f9fa; border: 1px solid #d8dce1; padding: 2.5mm 3mm; border-radius: 2px;">
+        <h3 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.8pt; font-weight: 700; color: #1d5b8f; margin-bottom: 0.8mm;">Primary Commercial Service Wall</h3>
+        <p style="font-size: 7.4pt; color: #5a6472; line-height: 1.36; margin-bottom: 0;">Designed for high-frequency infrastructure reconfiguration in corporate HQs, tech campuses, broadcast control rooms, and server corridors.</p>
+      </div>
+      <div style="background: #f8f9fa; border: 1px solid #d8dce1; padding: 2.5mm 3mm; border-radius: 2px;">
+        <h3 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.8pt; font-weight: 700; color: #1d5b8f; margin-bottom: 0.8mm;">High-Hygiene Healthcare Wall</h3>
+        <p style="font-size: 7.4pt; color: #5a6472; line-height: 1.36; margin-bottom: 0;">Non-porous solid antimicrobial face with sealed shadow-gap gaskets for operating suites, diagnostic labs, and sterile pharmaceutical environments.</p>
+      </div>
+    </div>
+
+    <!-- MasterFormat CSI References -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm; background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm 3mm; border-radius: 2px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600; text-transform: uppercase;">CSI MasterFormat™ Specification References</span>
+        <div style="font-family: 'Archivo Narrow', sans-serif; font-size: 7.8pt; color: #12151a; font-weight: 600; margin-top: 0.4mm;">
+          Div 09 22 00 (Supports for Plaster/Gypsum) · Div 10 22 19 (Demountable Partitions) · Div 27 11 00 (Communications Equipment Rooms)
+        </div>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 6.8pt; color: #5a626d; white-space: nowrap; margin-left: 4mm;">
+        DWG / BIM Revit 2026 Ready
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Service Wall Specification</span>
+      <span>Page 06</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 07 — ACOUSTIC INDOOR SYSTEM ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 06 · Acoustic Indoor Application</span>
+    </div>
+
+    <span class="eyebrow">Section 06 · Helmholtz Cavity Tuning</span>
+    <h2><span class="section-num">6.0</span> The cavity is the absorber</h2>
+    <p class="lead">Most acoustic panels are a material problem. Ours is a geometry problem.</p>
+
+    <!-- Top Split Layout -->
+    <div class="split-layout" style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4.5mm; align-items: stretch; margin-bottom: 3mm;">
+      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <p>A slotted face over an air cavity acts as a Helmholtz resonant absorber. The depth of that cavity determines which frequencies are absorbed — deeper cavity, lower bass resonance.</p>
+          <p>With D'WALL's adjustable standoff, the same tile targets different parts of the spectrum simply by adjusting cavity depth. The wall is tuned specifically to the room rather than forcing the room to accept generic acoustic foam.</p>
+        </div>
+        
+        <table class="spec-table" style="margin-top: 1mm;">
+          <thead>
+            <tr><th>Room Typology</th><th>Priority Band</th><th>Standoff Depth</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>AV / Screening Room</td><td>Low-to-Mid Broadband</td><td>120–180 mm</td></tr>
+            <tr><td>Boardroom / Video Conf</td><td>Speech Intelligibility</td><td>75–100 mm</td></tr>
+            <tr><td>Corridor / Open Office</td><td>Reverberation Control</td><td>50–75 mm</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="photo-frame" style="height: 72mm;">
+          <span class="photo-badge">Acoustic Hero</span>
+          <img src="../assets/images/acoustic-hero.png" alt="Acoustic Modular Panel Wall">
+        </div>
+        <div class="photo-caption">
+          <span>Screening Room Installation</span>
+          <span>Mumbai Commercial Project</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual Project Photography Gallery -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-bottom: 3mm;">
+      <div>
+        <div class="photo-frame" style="height: 48mm;">
+          <span class="photo-badge">Terracotta Finish</span>
+          <img src="../assets/images/acoustic-red.png" alt="Terracotta Acoustic Wall">
+        </div>
+        <div class="photo-caption">
+          <span>Project 01: AV Screening Suite</span>
+          <span>Mumbai Installation</span>
+        </div>
+      </div>
+      <div>
+        <div class="photo-frame" style="height: 48mm;">
+          <span class="photo-badge">Cleanroom Acoustic</span>
+          <img src="../assets/images/acoustic-hygiene.png" alt="High Hygiene Acoustic Wall">
+        </div>
+        <div class="photo-caption">
+          <span>Project 02: Healthcare &amp; Studio</span>
+          <span>Mumbai Installation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acoustic Engineering Principles Summary -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm;">
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">ABSORPTION (NRC)</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">0.80 to 0.95 NRC</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Certified laboratory sound absorption tested in ISO 354 reverberation chamber.</p>
+      </div>
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">SPEECH CLARITY</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">STI &gt; 0.75 Excellent</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Eliminates flutter echoes and standing waves in teleconference environments.</p>
+      </div>
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">FIRE &amp; SMOKE</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">Class A / Class 1</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Non-combustible core and low-smoke emission tested to ASTM E84 / BS 476.</p>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Acoustic Indoor</span>
+      <span>Page 07</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 08 — ACOUSTIC SPECIFICATIONS & GRAPH ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 07 · Acoustic Specification</span>
+    </div>
+
+    <span class="eyebrow">Section 07 · Reverberation Curve &amp; Data</span>
+    <h2><span class="section-num">7.0</span> Acoustic System Specification</h2>
+
+    <!-- Spec Table -->
+    <table class="spec-table">
+      <thead>
+        <tr><th>Parameter</th><th>Acoustic Specification</th><th>Options</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Module Dimensions</td><td>500 × 500 mm, six-rib fluted or micro-perf face</td><td>Custom profiles &amp; geometric flutes</td></tr>
+        <tr><td>Face Perforation</td><td>Precision laser-cut slot array (18% open area)</td><td>Micro-perforated (1.2mm dia) / Slotted</td></tr>
+        <tr><td>Tile Orientation</td><td>Rotatable in 90° increments (linear or basket-weave)</td><td>Randomized architectural composition</td></tr>
+        <tr><td>Mounting Platform</td><td>Concealed quick-release clips to aluminum sub-frame</td><td>Patented universal locking node</td></tr>
+        <tr><td>Cavity Infill</td><td>45 kg/m³ high-density acoustic mineral wool</td><td>Hydrophobic polyester acoustic felt</td></tr>
+        <tr><td>Finishes &amp; Textures</td><td>Matte architectural lacquer, natural veneer, anodised</td><td>Custom RAL / NCS color matching</td></tr>
+        <tr><td>Integrated LED</td><td>Concealed warm 2700K/3000K illumination behind slots</td><td>Dimmable 0–10V / DALI-2 protocol</td></tr>
+        <tr><td>NRC Rating</td><td>NRC 0.80 to 0.95 across tuned frequency band</td><td>Certified lab test reports available</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Reverberation SVG Graphic -->
+    <div class="diagram-wrap" style="border: 1px solid #d8dce1; padding: 2.5mm; background: #fff; margin-top: 2.8mm; border-radius: 2px;">
+      <svg viewBox="0 0 620 180" role="img" aria-label="Absorption behaviour by standoff depth across the frequency range">
+        <g font-family="IBM Plex Mono, monospace" font-size="8" fill="#8d8a80">
+          <line x1="55" y1="145" x2="590" y2="145" stroke="#16150f" stroke-width="1"/>
+          <line x1="55" y1="12" x2="55" y2="145" stroke="#16150f" stroke-width="1"/>
+          <text x="320" y="168" text-anchor="middle" fill="#4c4a41">frequency (Hz) →</text>
+          <text x="20" y="80" text-anchor="middle" fill="#4c4a41" transform="rotate(-90 20 80)">absorption coeff (α) →</text>
+          <text x="120" y="156" text-anchor="middle">125 Hz (Low)</text>
+          <text x="240" y="156" text-anchor="middle">250 Hz</text>
+          <text x="360" y="156" text-anchor="middle">500–2k Hz (Speech)</text>
+          <text x="520" y="156" text-anchor="middle">4k Hz (High)</text>
+        </g>
+        <path d="M55 138 Q120 28 190 75 T340 115 T570 128" fill="none" stroke="#9a4a2c" stroke-width="2.2"/>
+        <path d="M55 141 Q180 38 290 85 T440 118 T570 126" fill="none" stroke="#8a6a3b" stroke-width="2.2" stroke-dasharray="6 3"/>
+        <path d="M55 144 Q240 50 380 95 T510 122 T570 125" fill="none" stroke="#4c4a41" stroke-width="2.2" stroke-dasharray="2 4"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#4c4a41">
+          <line x1="360" y1="22" x2="384" y2="22" stroke="#9a4a2c" stroke-width="2.2"/><text x="392" y="25">Deep standoff (180 mm) — Low bass tuning</text>
+          <line x1="360" y1="36" x2="384" y2="36" stroke="#8a6a3b" stroke-width="2.2" stroke-dasharray="6 3"/><text x="392" y="39">Medium standoff (100 mm) — Speech band</text>
+          <line x1="360" y1="50" x2="384" y2="50" stroke="#4c4a41" stroke-width="2.2" stroke-dasharray="2 4"/><text x="392" y="53">Shallow standoff (50 mm) — High frequency</text>
+        </g>
+      </svg>
+      <div class="photo-caption" style="margin-top: 0.8mm;">
+        <span>Acoustic Performance Tuning</span>
+        <span>Reverberation Attenuation Across 125 Hz – 4000 Hz</span>
+      </div>
+    </div>
+
+    <!-- Octave Band Sound Absorption Coefficients Table -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm;">
+      <span class="eyebrow" style="margin-bottom: 1.2mm; color: #1d5b8f;">Measured Octave Band Sound Absorption Coefficients (αp)</span>
+      <table class="spec-table" style="font-size: 7.2pt;">
+        <thead>
+          <tr><th>Standoff Depth</th><th>125 Hz</th><th>250 Hz</th><th>500 Hz</th><th>1000 Hz</th><th>2000 Hz</th><th>4000 Hz</th><th>NRC</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>50 mm Shallow Standoff</td><td>0.18</td><td>0.38</td><td>0.72</td><td>0.94</td><td>0.92</td><td>0.86</td><td><strong>0.80</strong></td></tr>
+          <tr><td>100 mm Medium Standoff</td><td>0.35</td><td>0.72</td><td>0.95</td><td>0.96</td><td>0.90</td><td>0.88</td><td><strong>0.90</strong></td></tr>
+          <tr><td>180 mm Deep Bass Cavity</td><td>0.62</td><td>0.92</td><td>0.98</td><td>0.94</td><td>0.88</td><td>0.85</td><td><strong>0.95</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Acoustic Specification</span>
+      <span>Page 08</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 09 — GREEN WALLS INDOOR & BIOFILTRATION ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 08 · Green Walls Indoor &amp; Biofiltration</span>
+    </div>
+
+    <span class="eyebrow">Section 08 · Active Biofiltration System</span>
+    <h2><span class="section-num">8.0</span> The living wall you can take apart</h2>
+    <div style="margin-bottom: 1.8mm;"><span class="status-pill">Active Air Biofiltration · Indoor Cladding</span></div>
+
+    <!-- Top Split Layout -->
+    <div class="split-layout" style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4.5mm; align-items: stretch; margin-bottom: 3mm;">
+      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <p class="lead">Modular botanical cladding where living plants become an engineered building service.</p>
+          <p>Traditional living walls fail from high-altitude maintenance and difficult root access. D'WALL replaces tedious gardening with pre-cultivated cassette exchange.</p>
+          <p>In our active biofiltration configuration, ambient room air is drawn through the living root zone into the negative-pressure cavity, cleansing VOCs and particulate matter.</p>
+        </div>
+        
+        <div style="background: #f4f7f2; border-left: 3px solid #3d5a2c; padding: 2mm 3mm; border-radius: 0 2px 2px 0;">
+          <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.4pt; font-weight: 700; color: #3d5a2c; margin-bottom: 0.6mm;">4-Layer Leak Defence Architecture</h4>
+          <ol style="margin-left: 13px; font-size: 7.2pt; color: #4a5444; line-height: 1.34;">
+            <li>Impermeable recycled polymer cassette body</li>
+            <li>Cavity drip tray and internal collection channel</li>
+            <li>Automated smart moisture sensors with shut-off</li>
+            <li>Dedicated drainage manifold — never touches building slab</li>
+          </ol>
+        </div>
+      </div>
+
+      <div>
+        <div class="photo-frame" style="height: 72mm;">
+          <span class="photo-badge">Bio-Wall Hero</span>
+          <img src="../assets/images/living-active-air-hero.png" alt="Active Air Bio Wall Installation">
+        </div>
+        <div class="photo-caption">
+          <span>Active Air Bio Wall</span>
+          <span>Corporate Atrium Installation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual Photography Gallery -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-bottom: 3mm;">
+      <div>
+        <div class="photo-frame" style="height: 48mm;">
+          <span class="photo-badge">Indoor Cladding</span>
+          <img src="../assets/images/living-indoor-cladding.png" alt="Indoor Living Wall Cladding">
+        </div>
+        <div class="photo-caption">
+          <span>Modular Indoor Cassettes</span>
+          <span>Interior Feature Wall</span>
+        </div>
+      </div>
+      <div>
+        <div class="photo-frame" style="height: 48mm;">
+          <span class="photo-badge">Active Purification</span>
+          <img src="../assets/images/living-active-purification.png" alt="Active Air Biofiltration Detail">
+        </div>
+        <div class="photo-caption">
+          <span>Root-Zone Air Purification</span>
+          <span>Engineered Filtration Flow</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botanical Matrix & Air Purification Metrics -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm;">
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #3d5a2c; font-weight: 600;">BOTANICAL SELECTION</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">Epipremnum, Philodendron</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Curated low-light, high-transpiration species proven for indoor air purification.</p>
+      </div>
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #3d5a2c; font-weight: 600;">VOC PURIFICATION</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">Up to 85% Formaldehyde</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Microbial root-zone active filtration breaks down airborne VOC pollutants.</p>
+      </div>
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #3d5a2c; font-weight: 600;">SMART IRRIGATION</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">Closed-Loop Sub-Drip</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">IoT moisture sensor telemetry with automated fertigation and overflow cutoff.</p>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Green Walls Indoor</span>
+      <span>Page 09</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 10 — OUTDOOR & EXTERIOR LIVING FACADES ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 09 · Outdoor &amp; Exterior Living Facades</span>
+    </div>
+
+    <span class="eyebrow">Section 09 · High-Rise Building Envelopes</span>
+    <h2><span class="section-num">9.0</span> Exterior Living Facades &amp; Engineering</h2>
+
+    <!-- Top Split Layout -->
+    <div class="split-layout" style="display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4.5mm; align-items: stretch; margin-bottom: 3mm;">
+      <div style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <p class="lead">Architectural scale rainscreen cladding integrating native flora, thermal dampening, and rainwater buffering.</p>
+          <p style="font-size: 7.8pt;">Engineered for high wind load and tropical climate extremes, D'WALL exterior cassettes mount securely to primary building substructures while maintaining 100% demountability.</p>
+        </div>
+        
+        <table class="spec-table" style="margin-top: 1mm;">
+          <thead>
+            <tr><th>Parameter</th><th>Design Value</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Substrate Medium</td><td>Rigid inert inorganic wicking matrix</td><td>Certified</td></tr>
+            <tr><td>Wind Load Resistance</td><td>Tested to 2.4 kPa positive/negative</td><td>Verified</td></tr>
+            <tr><td>Irrigation Control</td><td>Concealed closed-loop automated drip</td><td>Standard</td></tr>
+            <tr><td>Thermal Attenuation</td><td>Reduces facade temp by up to 14°C</td><td>Field Tested</td></tr>
+            <tr><td>Fire Performance</td><td>Non-combustible sub-frame (ASTM E84)</td><td>Compliant</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="photo-frame" style="height: 75mm;">
+          <span class="photo-badge">Exterior Facade</span>
+          <img src="../assets/images/living-exterior-facade.png" alt="Exterior Living Wall Facade">
+        </div>
+        <div class="photo-caption">
+          <span>Architectural Living Facade</span>
+          <span>Commercial High-Rise Exterior</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary Large-Scale Facade Photo -->
+    <div class="photo-frame" style="height: 60mm; margin-bottom: 3mm;">
+      <span class="photo-badge">Large Scale Installation</span>
+      <img src="../assets/images/living-facade-green-wall.png" alt="Large Scale Green Wall Facade">
+    </div>
+    <div class="photo-caption" style="margin-bottom: 2mm;">
+      <span>Civic &amp; Commercial Exterior Integration</span>
+      <span>Modular Cassette Rainscreen Facade</span>
+    </div>
+
+    <!-- 3 Structural & Climatic Engineering Pillars -->
+    <div style="margin-top: auto; border-top: 1px solid #d8dce1; padding-top: 2.2mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm;">
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">WIND &amp; SEISMIC</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">Tested to 2.4 kPa</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Positive/negative pressure cycles withstand cyclonic gusts and building sway.</p>
+      </div>
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">MICROCLIMATE COOLING</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">-14°C Surface Temp</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Evapotranspiration slashes building HVAC cooling loads and urban heat island effect.</p>
+      </div>
+      <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2mm; border-radius: 2px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600;">STORMWATER BUFFERING</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.5mm;">45 L/m² Water Retention</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Buffers monsoon downpours and integrates with building greywater systems.</p>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Exterior Facades</span>
+      <span>Page 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== PAGE 11 — ILLUMINATED FACADES & PROJECT REFERENCES ==================== -->
+  <section class="print-page">
+    <div class="print-header">
+      <span>Jometry / D'WALL Architectural Systems</span>
+      <span>Section 10 · Illuminated Facades &amp; References</span>
+    </div>
+
+    <span class="eyebrow">Section 10 · Project References &amp; Consultation</span>
+    <h2><span class="section-num">10.0</span> Illuminated Facades &amp; Delivered Projects</h2>
+
+    <!-- Top Dual Gallery -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-bottom: 3mm;">
+      <div>
+        <div class="photo-frame" style="height: 52mm;">
+          <span class="photo-badge">Illuminated Facade 01</span>
+          <img src="../assets/images/illuminated-facade-01.png" alt="Illuminated Architectural Facade">
+        </div>
+        <div class="photo-caption">
+          <span>Ref 01: Backlit Architectural Feature</span>
+          <span>Mumbai Installation</span>
+        </div>
+      </div>
+      <div>
+        <div class="photo-frame" style="height: 52mm;">
+          <span class="photo-badge">Illuminated Facade 02</span>
+          <img src="../assets/images/illuminated-facade-02.png" alt="Illuminated Facade Linear Detail">
+        </div>
+        <div class="photo-caption">
+          <span>Ref 02: Linear Night Glow Facade</span>
+          <span>Delivered Project</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delivered Projects Reference Table -->
+    <table class="spec-table" style="margin-bottom: 3mm;">
+      <thead>
+        <tr><th>Project Ref</th><th>Application Typology</th><th>Location</th><th>Delivery Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Project 01</td><td>Commercial AV Screening Suite Acoustic Wall (180mm Cavity)</td><td>Mumbai</td><td>Delivered &amp; Handed Over</td></tr>
+        <tr><td>Project 02</td><td>Corporate Headquarters Active Air Bio-Wall Cladding (120 m²)</td><td>Mumbai</td><td>Delivered &amp; Handed Over</td></tr>
+        <tr><td>Project 03</td><td>High-Rise Exterior Living Wall Rainscreen Facade (450 m²)</td><td>Mumbai</td><td>Commissioned</td></tr>
+        <tr><td>Project 04</td><td>Backlit Illuminated Architectural Feature Elevation (2700K LED)</td><td>Mumbai</td><td>Delivered &amp; Handed Over</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Lighting & Optics Spec Panel -->
+    <div style="background: #fafbfc; border: 1px solid #e1e6eb; padding: 2.2mm 3mm; border-radius: 2px; margin-bottom: 2.5mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm;">
+      <div>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600; text-transform: uppercase;">COLOR TEMPERATURE</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.4mm;">2700K / 3000K / Tunable</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">High CRI &gt; 90 museum-grade concealed LED illumination.</p>
+      </div>
+      <div>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600; text-transform: uppercase;">DRIVER &amp; PROTOCOL</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.4mm;">DALI-2 / 0–10V Dimmable</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Flicker-free architectural dimming down to 0.1% depth.</p>
+      </div>
+      <div>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 6.2pt; color: #1d5b8f; font-weight: 600; text-transform: uppercase;">THERMAL MANAGEMENT</span>
+        <div style="font-size: 7.4pt; color: #12151a; font-weight: 600; margin-top: 0.4mm;">Integrated Heat Sink</div>
+        <p style="font-size: 6.8pt; color: #616a75; margin-bottom: 0;">Concealed extruded aluminum channel with 50,000h L80 rating.</p>
+      </div>
+    </div>
+
+    <!-- Contact & Consultation Block -->
+    <div style="margin-top: auto; background: #f4f6f8; border: 1.2px solid #12151a; padding: 2.8mm 3.8mm; border-radius: 2px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h4 style="font-family: 'Archivo Narrow', sans-serif; font-size: 8.8pt; font-weight: 700; margin-bottom: 0.4mm; color: #12151a;">Specification &amp; Architectural Technical Consultation</h4>
+        <p style="font-size: 7.2pt; color: #464c55; margin-bottom: 0;">DWG CAD details, Revit BIM families, acoustic chamber reports, and custom standoff calculations available on request.</p>
+      </div>
+      <div style="text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 6.8pt; color: #12151a; white-space: nowrap; margin-left: 4mm;">
+        <strong>MACR MAYR India Pvt Ltd</strong><br>
+        Mumbai, Maharashtra, India<br>
+        <span style="color: #1d5b8f; font-weight: 600;">contact@macrmayr.com</span>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      <span>D'WALL Project References &amp; Contact</span>
+      <span>Page 11</span>
+    </div>
+  </section>
+
+</body>
+</html>

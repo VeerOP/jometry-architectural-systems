@@ -1,0 +1,185 @@
+/* ==========================================================================
+   JOMETRY / D'WALL ARCHITECTURAL DESIGN SYSTEM - VARIABLES & TOKENS
+   Inspired by Clestra, Gustafs, Naava, Autex Acoustics & Mobilane
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Swiss & Nordic Architectural Editorial Tones */
+  --color-paper: #faf9f6;
+  --color-paper-card: #ffffff;
+  --color-paper-alt: #f2f0eb;
+  --color-paper-subtle: #f5f6f8;
+  
+  --color-ink: #0b0d11;
+  --color-ink-deep: #060709;
+  --color-ink-soft: #2e343e;
+  --color-ink-faint: #636b78;
+  --color-ink-light: #949da9;
+  
+  --color-rule: #dce1e8;
+  --color-rule-subtle: #eaedf2;
+  --color-rule-hairline: rgba(11, 13, 17, 0.08);
+  --color-rule-dark: #0b0d11;
+  
+  /* Brand Accent Colors */
+  --color-service-blue: #145899;
+  --color-service-blue-light: #e8f1f9;
+  --color-service-blue-glow: rgba(20, 88, 153, 0.28);
+  
+  --color-acoustic-clay: #b85333;
+  --color-acoustic-clay-light: #fcf1ec;
+  --color-acoustic-clay-glow: rgba(184, 83, 51, 0.28);
+  
+  --color-living-moss: #244d2d;
+  --color-living-moss-light: #ebf3ec;
+  --color-living-moss-glow: rgba(36, 77, 45, 0.25);
+  
+  --color-living-bronze: #8c6a38;
+  --color-living-bronze-light: #f8f4ed;
+  
+  --color-backlit-amber: #f59e0b;
+  --color-backlit-glow: rgba(245, 158, 11, 0.6);
+  
+  /* Status Colors */
+  --color-status-production: #145899;
+  --color-status-development: #b85333;
+  --color-status-testing: #8c6a38;
+  
+  /* Typography */
+  --font-body: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Archivo Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  
+  /* Spacing Scale */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 36px;
+  --space-xl: 56px;
+  --space-xxl: 88px;
+  --space-hero: 120px;
+  
+  /* Page Geometry */
+  --max-content-width: 1380px;
+  --header-height: 76px;
+  
+  /* Border Radius */
+  --radius-sharp: 0px;
+  --radius-subtle: 2px;
+  --radius-pill: 9999px;
+  --radius-card: 4px;
+  
+  /* Elevation Shadows & Glass */
+  --shadow-subtle: 0 1px 4px rgba(11, 13, 17, 0.04), 0 4px 12px rgba(11, 13, 17, 0.03);
+  --shadow-card: 0 2px 8px rgba(11, 13, 17, 0.05), 0 12px 28px rgba(11, 13, 17, 0.06);
+  --shadow-hover: 0 4px 16px rgba(11, 13, 17, 0.08), 0 20px 40px rgba(11, 13, 17, 0.1);
+  --shadow-floating: 0 24px 64px rgba(11, 13, 17, 0.28);
+  
+  --glass-bg: rgba(250, 249, 246, 0.88);
+  --glass-border: rgba(220, 225, 232, 0.85);
+  --glass-dark-bg: rgba(11, 13, 17, 0.88);
+  --glass-dark-border: rgba(255, 255, 255, 0.12);
+  
+  /* Button Tokens */
+  --btn-primary-bg: #0b0d11;
+  --btn-primary-text: #ffffff;
+  --btn-primary-border: #0b0d11;
+  --btn-primary-hover-bg: #145899;
+  --btn-primary-hover-text: #ffffff;
+  
+  --btn-action-bg: #0b0d11;
+  --btn-action-text: #ffffff;
+  --btn-action-border: #0b0d11;
+  --btn-action-hover-bg: #145899;
+  --btn-action-hover-text: #ffffff;
+  
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: #0b0d11;
+  --btn-secondary-border: #dce1e8;
+  --btn-secondary-hover-bg: #f2f0eb;
+  --btn-secondary-hover-text: #0b0d11;
+
+  --btn-hero-primary-bg: #ffffff;
+  --btn-hero-primary-text: #0b0d11;
+  --btn-hero-primary-border: #ffffff;
+  --btn-hero-primary-hover-bg: #145899;
+  --btn-hero-primary-hover-text: #ffffff;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   DARK MODE ARCHITECTURAL THEME OVERRIDES
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* Dark Color Palette - Deep Obsidian & Titanium */
+  --color-paper: #090a0e;
+  --color-paper-card: #12151d;
+  --color-paper-alt: #0e1117;
+  --color-paper-subtle: #171b24;
+  
+  --color-ink: #f4f5f7;
+  --color-ink-deep: #040507;
+  --color-ink-soft: #c8ced8;
+  --color-ink-faint: #858f9f;
+  --color-ink-light: #525b68;
+  
+  --color-rule: #232834;
+  --color-rule-subtle: #1a1e27;
+  --color-rule-hairline: rgba(255, 255, 255, 0.08);
+  --color-rule-dark: #f4f5f7;
+  
+  /* Accent Colors & background tints in dark mode */
+  --color-service-blue: #38bdf8;
+  --color-service-bg: #0e2236;
+  --color-service-blue-light: #0d243a;
+  
+  --color-acoustic-clay: #fb923c;
+  --color-acoustic-bg: #29150f;
+  --color-acoustic-clay-light: #28140e;
+  
+  --color-living-moss: #4ade80;
+  --color-living-bg: #0f2414;
+  --color-living-moss-light: #102616;
+  --color-living-bronze-light: #261e12;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(14, 17, 24, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  
+  /* Dark Elevation Shadows */
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-hover: 0 14px 36px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.14);
+  --shadow-floating: 0 24px 64px rgba(0, 0, 0, 0.9);
+
+  /* Button Tokens - Dark Mode */
+  --btn-primary-bg: #145899;
+  --btn-primary-text: #ffffff;
+  --btn-primary-border: #145899;
+  --btn-primary-hover-bg: #196ec2;
+  --btn-primary-hover-text: #ffffff;
+  
+  --btn-action-bg: #145899;
+  --btn-action-text: #ffffff;
+  --btn-action-border: #145899;
+  --btn-action-hover-bg: #196ec2;
+  --btn-action-hover-text: #ffffff;
+  
+  --btn-secondary-bg: rgba(255, 255, 255, 0.08);
+  --btn-secondary-text: #f4f5f7;
+  --btn-secondary-border: rgba(255, 255, 255, 0.2);
+  --btn-secondary-hover-bg: rgba(255, 255, 255, 0.16);
+  --btn-secondary-hover-text: #ffffff;
+
+  --btn-hero-primary-bg: #145899;
+  --btn-hero-primary-text: #ffffff;
+  --btn-hero-primary-border: #145899;
+  --btn-hero-primary-hover-bg: #196ec2;
+  --btn-hero-primary-hover-text: #ffffff;
+}

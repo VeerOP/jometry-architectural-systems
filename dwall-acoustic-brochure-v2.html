@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'WALL Acoustic — Modular Acoustic Panel System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@page {
+  size: 210mm 297mm portrait;
+  margin: 0;
+}
+
+:root{
+  --ink:#16150f;
+  --ink-soft:#4c4a41;
+  --ink-faint:#8d8a80;
+  --paper:#ffffff;
+  --rule:#ddd9cf;
+  --clay:#9a4a2c;
+  --brass:#8a6a3b;
+  --green:#3f6b3a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e7e4dd;font-family:'Archivo',system-ui,sans-serif;color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.42;padding:24px 12px}
+.page{
+  width:210mm;
+  height:297mm;
+  max-height:297mm;
+  min-height:297mm;
+  background:#ffffff;
+  margin:0 auto 24px;
+  padding:12mm 14mm 10mm 14mm;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 4px 30px rgba(0,0,0,.12);
+  page-break-after:always;
+  break-after:page;
+  page-break-inside:avoid;
+  break-inside:avoid;
+  box-sizing:border-box;
+}
+
+.page:last-of-type{
+  page-break-after:auto;
+  break-after:auto;
+}
+
+h1,h2,h3,h4{font-family:'Archivo Narrow',sans-serif;font-weight:700;letter-spacing:-0.01em;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:7.2pt;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:1mm;display:block;}
+h2{font-size:14.5pt;line-height:1.15;margin:0 0 2.2mm;padding-bottom:1.4mm;border-bottom:1px solid var(--rule);color:var(--ink);}
+h2 .num{color:var(--clay);font-family:'IBM Plex Mono',monospace;font-size:9.5pt;margin-right:2.5mm;font-weight:600;}
+h3{font-size:9pt;margin:2mm 0 1mm;color:var(--ink);font-weight:700;}
+p{font-size:8.4pt;color:var(--ink-soft);line-height:1.42;margin-bottom:1.8mm;}
+p.lead{font-size:9.8pt;color:var(--ink);line-height:1.38;font-weight:500;margin-bottom:2mm;}
+strong{color:var(--ink);font-weight:600}
+
+.foot{margin-top:auto;padding-top:2mm;border-top:1px solid var(--rule);display:flex;
+  justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:6.8pt;
+  letter-spacing:.05em;color:var(--ink-faint);text-transform:uppercase;}
+
+/* cover */
+.cover{padding:0 !important;justify-content:flex-end;background:var(--ink);position:relative;}
+.cover-img{position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom,rgba(22,21,15,.18) 0%,rgba(22,21,15,.48) 45%,rgba(22,21,15,.97) 100%),
+    url('assets/images/acoustic-hero.png') center/cover no-repeat;}
+.cover-body{position:relative;padding:16mm 15mm;color:#fff;z-index:2;}
+.cover-body .eyebrow{color:rgba(255,255,255,.9)}
+.cover h1{font-size:35pt;line-height:1.0;margin:4mm 0 4mm;color:#fff;letter-spacing:-0.02em;}
+.cover .sub{font-size:10.5pt;color:rgba(255,255,255,.92);max-width:52ch;margin-bottom:10mm;line-height:1.45;}
+.cover .strip{border-top:1px solid rgba(255,255,255,.22);padding-top:3.5mm;
+  font-family:'IBM Plex Mono',monospace;font-size:7.2pt;letter-spacing:.05em;
+  color:rgba(255,255,255,.75);text-transform:uppercase;display:flex;justify-content:space-between;}
+
+/* stat band */
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;
+  background:#faf8f4;border:1px solid var(--rule);padding:2.2mm 3.2mm;margin-bottom:2.8mm;border-radius:2px;}
+.stat-box b{display:block;font-family:'Archivo Narrow',sans-serif;font-size:15pt;color:var(--clay);line-height:1.05;font-weight:700;}
+.stat-box span{font-family:'IBM Plex Mono',monospace;font-size:6.2pt;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-top:0.5mm;}
+
+/* photo frames */
+.photo-frame{
+  position:relative;border-radius:2px;overflow:hidden;background:#eceae3;border:1px solid var(--rule);
+}
+.photo-frame img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.photo-caption{
+  font-family:'IBM Plex Mono',monospace;font-size:6.4pt;letter-spacing:.04em;
+  color:var(--ink-faint);margin-top:1mm;text-transform:uppercase;display:flex;justify-content:space-between;
+}
+.photo-badge{
+  position:absolute;top:5px;left:5px;background:rgba(22,21,15,.88);backdrop-filter:blur(4px);
+  color:#fff;font-family:'IBM Plex Mono',monospace;font-size:6.2pt;letter-spacing:.05em;
+  text-transform:uppercase;padding:2px 5px;border-radius:2px;z-index:2;
+}
+
+.callout{border-left:3px solid var(--clay);background:#faf5f0;padding:2.2mm 3.2mm;margin:2mm 0;border-radius:0 2px 2px 0;}
+.callout h4{font-family:'Archivo Narrow',sans-serif;font-size:8.5pt;font-weight:700;margin-bottom:0.8mm;color:var(--clay);}
+.callout p{font-size:7.6pt;margin-bottom:0;color:#333a44;line-height:1.38;}
+
+table{width:100%;border-collapse:collapse;font-size:7.8pt;margin-top:1.5mm}
+th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:6.5pt;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--ink-faint);border-bottom:1.2px solid var(--ink);padding:1.2mm 0;font-weight:600}
+td{padding:1.3mm 0;border-bottom:1px solid var(--rule);color:var(--ink-soft);vertical-align:top}
+td:first-child{color:var(--ink);width:32%;font-weight:500;}
+td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:6.8pt;
+  letter-spacing:.04em;width:28%;color:var(--ink-soft);}
+
+svg{display:block;width:100%;height:auto}
+.dwrap{border:1px solid var(--rule);padding:2.5mm;background:#fff;border-radius:2px;}
+.dcap{font-family:'IBM Plex Mono',monospace;font-size:6.4pt;color:var(--ink-faint);
+  margin-top:1mm;text-transform:uppercase;letter-spacing:.04em}
+
+@media print{
+  body{
+    background:#fff !important;
+    padding:0 !important;
+    margin:0 !important;
+    width:210mm !important;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+  .page{
+    width:210mm !important;
+    height:297mm !important;
+    max-height:297mm !important;
+    min-height:297mm !important;
+    margin:0 !important;
+    box-shadow:none !important;
+    padding:12mm 14mm 10mm 14mm !important;
+    page-break-after:always !important;
+    break-after:page !important;
+    page-break-inside:avoid !important;
+    break-inside:avoid !important;
+  }
+  .page:last-of-type{
+    page-break-after:auto !important;
+    break-after:auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 1 COVER ===== -->
+<section class="page cover">
+  <div class="cover-img"></div>
+  <div class="cover-body">
+    <div class="eyebrow">D'WALL Architectural Systems &nbsp;·&nbsp; Acoustic Indoor Platform</div>
+    <h1>Sound absorption<br>you can tune.</h1>
+    <p class="sub">A modular acoustic panel where the cavity behind the tile does the work. Set the standoff, set the absorption. Installed toolless, serviced by exchange.</p>
+    <div class="strip">
+      <span>Product Brochure · MACR MAYR India Pvt Ltd · Mumbai</span>
+      <span>A4 Portrait Edition · 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2 SELECTED PROJECTS ===== -->
+<section class="page">
+  <div class="eyebrow">Section 01 · Delivered References</div>
+  <h2><span class="num">1.0</span>Built, installed, in daily use</h2>
+
+  <div class="stats-band">
+    <div class="stat-box"><b>4+</b><span>Delivered Projects</span></div>
+    <div class="stat-box"><b>500</b><span>mm Precision Grid</span></div>
+    <div class="stat-box"><b>NRC 0.95</b><span>Peak Lab Absorption</span></div>
+    <div class="stat-box"><b>Mumbai</b><span>Engineered &amp; Built</span></div>
+  </div>
+
+  <p class="lead">Our panels are in service in commercial AV suites, screening rooms, feature elevations, and acoustic corridors across Mumbai.</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; margin-bottom:3mm;">
+    <div>
+      <div class="photo-frame" style="height:62mm;">
+        <span class="photo-badge">Project 01: AV Suite</span>
+        <img src="assets/images/acoustic-red.png" alt="AV Room Acoustic Wall">
+      </div>
+      <div class="photo-caption">
+        <span>Terracotta Fluted Tile Grid</span>
+        <span>Mumbai Screening Room</span>
+      </div>
+    </div>
+    <div>
+      <div class="photo-frame" style="height:62mm;">
+        <span class="photo-badge">Project 02: Healthcare &amp; Studio</span>
+        <img src="assets/images/acoustic-hygiene.png" alt="High Hygiene Acoustic Wall">
+      </div>
+      <div class="photo-caption">
+        <span>Cleanroom Solid Acoustic Variant</span>
+        <span>Mumbai Studio</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; margin-bottom:3mm;">
+    <div>
+      <div class="photo-frame" style="height:55mm;">
+        <span class="photo-badge">Project 03: Illuminated Elevation</span>
+        <img src="assets/images/illuminated-facade-01.png" alt="Illuminated Feature Wall">
+      </div>
+      <div class="photo-caption">
+        <span>Integrated LED Platform</span>
+        <span>Mumbai Installation</span>
+      </div>
+    </div>
+    <div>
+      <div class="photo-frame" style="height:55mm;">
+        <span class="photo-badge">Project 04: Architectural Grid</span>
+        <img src="assets/images/architectural-feature-wall.png" alt="Architectural Feature Wall">
+      </div>
+      <div class="photo-caption">
+        <span>Modular Platform Grid</span>
+        <span>Delivered Project</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm; display:grid; grid-template-columns:repeat(3,1fr); gap:3.5mm;">
+    <div>
+      <h4 style="font-size:8.2pt; color:var(--ink); margin-bottom:0.6mm;">AV Screening Rooms</h4>
+      <p style="font-size:7.2pt; color:var(--ink-soft); margin-bottom:0;">Deep standoff tuning captures low-frequency reverberation for clean cinema bass response.</p>
+    </div>
+    <div>
+      <h4 style="font-size:8.2pt; color:var(--ink); margin-bottom:0.6mm;">Executive Boardrooms</h4>
+      <p style="font-size:7.2pt; color:var(--ink-soft); margin-bottom:0;">Targets 500–2000 Hz speech bands for crisp teleconferencing and zero echo.</p>
+    </div>
+    <div>
+      <h4 style="font-size:8.2pt; color:var(--ink); margin-bottom:0.6mm;">Commercial Corridors</h4>
+      <p style="font-size:7.2pt; color:var(--ink-soft); margin-bottom:0;">Shallow 50mm profile dampens high-traffic footstep echo and ambient noise.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Acoustic Panel System</span><span>Page 02</span></div>
+</section>
+
+<!-- ===== 3 THE IDEA ===== -->
+<section class="page">
+  <div class="eyebrow">Section 02 · Helmholtz Geometry</div>
+  <h2><span class="num">2.0</span>The cavity is the absorber</h2>
+
+  <div class="stats-band">
+    <div class="stat-box"><b>0.95</b><span>Peak NRC absorption</span></div>
+    <div class="stat-box"><b>50–220</b><span>mm adjustable cavity</span></div>
+    <div class="stat-box"><b>125–4k</b><span>Hz tuned frequency range</span></div>
+    <div class="stat-box"><b>0 tools</b><span>Toolless tile exchange</span></div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:4.5mm; align-items:stretch; margin-bottom:3.5mm;">
+    <div style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <p class="lead">Most acoustic panels are a material problem. Ours is a geometry problem.</p>
+        <p>A slotted face over an air cavity behaves as a resonant Helmholtz absorber. The depth of that cavity determines which frequencies it absorbs — deeper cavity, lower bass frequencies.</p>
+        <p>Our mounting standoff is adjustable. The same tile, set at a different depth, targets a different part of the spectrum. The wall is tuned specifically to the room rather than forcing the room to accept standard generic foam.</p>
+      </div>
+      
+      <div class="callout">
+        <h4>Long-Term Reconfigurability</h4>
+        <p>Because every tile is demountable, the wall can be re-tuned, repaired, or reconfigured long after handover without wet trades or repainting.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="photo-frame" style="height:86mm;">
+        <span class="photo-badge">Acoustic Tuning</span>
+        <img src="assets/images/acoustic-hero.png" alt="Acoustic Modular Fluted Panel Wall">
+      </div>
+      <div class="photo-caption">
+        <span>Resonant Cavity Panel Grid</span>
+        <span>Mumbai Screening Room</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm; display:grid; grid-template-columns:repeat(3,1fr); gap:3.5mm;">
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:6.2pt; color:var(--clay); font-weight:600;">PRECISION SLOTS</span>
+      <div style="font-size:7.4pt; color:var(--ink); font-weight:600; margin-top:0.5mm;">18% Open Area Array</div>
+      <p style="font-size:6.8pt; color:var(--ink-soft); margin-bottom:0;">Laser-cut acoustic apertures guide sound waves into internal resonator matrix.</p>
+    </div>
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:6.2pt; color:var(--clay); font-weight:600;">CAVITY INFILL</span>
+      <div style="font-size:7.4pt; color:var(--ink); font-weight:600; margin-top:0.5mm;">45 kg/m³ Mineral Wool</div>
+      <p style="font-size:6.8pt; color:var(--ink-soft); margin-bottom:0;">Non-combustible recycled core converts acoustic pressure into thermal dissipation.</p>
+    </div>
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:6.2pt; color:var(--clay); font-weight:600;">SERVICE ACCESS</span>
+      <div style="font-size:7.4pt; color:var(--ink); font-weight:600; margin-top:0.5mm;">Instant Toolless Unclip</div>
+      <p style="font-size:6.8pt; color:var(--ink-soft); margin-bottom:0;">Behind the acoustic face lies continuous MEP raceway for cables and conduits.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Acoustic Panel System</span><span>Page 03</span></div>
+</section>
+
+<!-- ===== 4 HOW IT WORKS ===== -->
+<section class="page">
+  <div class="eyebrow">Section 03 · Acoustic Mechanics</div>
+  <h2><span class="num">3.0</span>How the system absorbs</h2>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:4.5mm; align-items:start; margin-bottom:3.5mm;">
+    <div>
+      <p class="lead">Sound enters through the slots and perforations in the tile face. Within the cavity, the air mass and the absorptive infill convert acoustic energy to heat.</p>
+      <p>The <strong>standoff depth</strong> sets the absorption peak. The <strong>open area</strong> of the face and the <strong>infill density</strong> set how much is absorbed and how broadly across octaves.</p>
+      
+      <h3 style="margin-top:2.5mm;">Three variables, one tile</h3>
+      <p style="font-size:7.8pt;">Standoff depth, face open area and cavity infill are specified per zone — so a single tile family serves a control room, a boardroom and a corridor without a different product for each.</p>
+      
+      <div class="callout" style="margin-top:2.2mm;">
+        <h4>Performance Validation</h4>
+        <p>Panels are tested to ASTM C423 and ISO 354 reverberation standards. Certified absorption coefficients are provided with every engineering specification.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="dwrap">
+        <svg viewBox="0 0 300 290" role="img" aria-label="Section through acoustic tile showing slotted face, cavity, infill and adjustable standoff">
+          <defs>
+            <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="#9a4a2c" stroke-width="1.6" stroke-linecap="round"/>
+            </marker>
+            <marker id="a2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 5L9 2M0 5L9 8" fill="none" stroke="#8d8a80" stroke-width="1"/>
+            </marker>
+            <pattern id="wall" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="#c6c1b5" stroke-width="1"/>
+            </pattern>
+            <pattern id="fill" width="5" height="5" patternUnits="userSpaceOnUse">
+              <circle cx="2.5" cy="2.5" r="1" fill="#cfc9ba"/>
+            </pattern>
+          </defs>
+          <rect x="252" y="15" width="20" height="240" fill="url(#wall)" stroke="#c6c1b5" stroke-width=".6"/>
+          <rect x="176" y="15" width="76" height="240" fill="url(#fill)" stroke="#ddd9cf" stroke-width=".6"/>
+          <rect x="140" y="15" width="36" height="240" fill="#fff" stroke="#16150f" stroke-width=".9"/>
+          <g fill="#f2efe7" stroke="#16150f" stroke-width=".5">
+            <rect x="140" y="20" width="36" height="35"/><rect x="140" y="60" width="36" height="35"/>
+            <rect x="140" y="100" width="36" height="35"/><rect x="140" y="140" width="36" height="35"/>
+            <rect x="140" y="180" width="36" height="35"/><rect x="140" y="220" width="36" height="30"/>
+          </g>
+          <g stroke="#9a4a2c" stroke-width="1.7" marker-end="url(#a1)" fill="none">
+            <path d="M60 55 L136 55"/><path d="M60 120 L136 120"/><path d="M60 185 L136 185"/>
+          </g>
+          <line x1="176" y1="265" x2="252" y2="265" stroke="#8d8a80" stroke-width=".8" marker-start="url(#a2)" marker-end="url(#a2)"/>
+          <text x="214" y="280" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#4c4a41" text-anchor="middle">adjustable standoff (50–220mm)</text>
+        </svg>
+        <div class="dcap">Section — slotted face, cavity absorber, adjustable standoff</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm; display:grid; grid-template-columns:repeat(3,1fr); gap:3.5mm;">
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:6.2pt; color:var(--clay); font-weight:600;">VARIABLE 01</span>
+      <h4 style="font-size:8.2pt; margin:0.5mm 0;">Standoff Depth</h4>
+      <p style="font-size:6.8pt; color:var(--ink-soft); margin-bottom:0;">Shifts resonance center frequency from 125 Hz (deep bass) to 4000 Hz (treble).</p>
+    </div>
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:6.2pt; color:var(--clay); font-weight:600;">VARIABLE 02</span>
+      <h4 style="font-size:8.2pt; margin:0.5mm 0;">Perforation Ratio</h4>
+      <p style="font-size:6.8pt; color:var(--ink-soft); margin-bottom:0;">Custom laser slot geometry (12% to 24% open area) controls Q-factor bandwidth.</p>
+    </div>
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:6.2pt; color:var(--clay); font-weight:600;">VARIABLE 03</span>
+      <h4 style="font-size:8.2pt; margin:0.5mm 0;">Acoustic Felt / Wool</h4>
+      <p style="font-size:6.8pt; color:var(--ink-soft); margin-bottom:0;">Hydrophobic polyester or mineral wool density modulates flow resistivity.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Acoustic Panel System</span><span>Page 04</span></div>
+</section>
+
+<!-- ===== 5 SELECTION GUIDE & ABSORPTION GRAPH ===== -->
+<section class="page">
+  <div class="eyebrow">Section 04 · Reverberation Curve &amp; Data</div>
+  <h2><span class="num">4.0</span>Specification selection guide</h2>
+  <p class="lead">Select the standoff depth by the frequency range the room needs to control.</p>
+
+  <div class="dwrap">
+    <svg viewBox="0 0 620 180" role="img" aria-label="Absorption behaviour by standoff depth across the frequency range">
+      <g font-family="IBM Plex Mono, monospace" font-size="8" fill="#8d8a80">
+        <line x1="55" y1="145" x2="590" y2="145" stroke="#16150f" stroke-width="1"/>
+        <line x1="55" y1="12" x2="55" y2="145" stroke="#16150f" stroke-width="1"/>
+        <text x="320" y="168" text-anchor="middle" fill="#4c4a41">frequency (Hz) →</text>
+        <text x="20" y="80" text-anchor="middle" fill="#4c4a41" transform="rotate(-90 20 80)">absorption coeff (α) →</text>
+        <text x="120" y="156" text-anchor="middle">125 Hz (Low)</text>
+        <text x="240" y="156" text-anchor="middle">250 Hz</text>
+        <text x="360" y="156" text-anchor="middle">500–2k Hz (Speech)</text>
+        <text x="520" y="156" text-anchor="middle">4k Hz (High)</text>
+      </g>
+      <path d="M55 138 Q120 28 190 75 T340 115 T570 128" fill="none" stroke="#9a4a2c" stroke-width="2.2"/>
+      <path d="M55 141 Q180 38 290 85 T440 118 T570 126" fill="none" stroke="#8a6a3b" stroke-width="2.2" stroke-dasharray="6 3"/>
+      <path d="M55 144 Q240 50 380 95 T510 122 T570 125" fill="none" stroke="#4c4a41" stroke-width="2.2" stroke-dasharray="2 4"/>
+      <g font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#4c4a41">
+        <line x1="360" y1="22" x2="384" y2="22" stroke="#9a4a2c" stroke-width="2.2"/><text x="392" y="25">Deep standoff (180 mm) — Low bass tuning</text>
+        <line x1="360" y1="36" x2="384" y2="36" stroke="#8a6a3b" stroke-width="2.2" stroke-dasharray="6 3"/><text x="392" y="39">Medium standoff (100 mm) — Speech band</text>
+        <line x1="360" y1="50" x2="384" y2="50" stroke="#4c4a41" stroke-width="2.2" stroke-dasharray="2 4"/><text x="392" y="53">Shallow standoff (50 mm) — High frequency</text>
+      </g>
+    </svg>
+    <div class="dcap">Absorption behaviour by cavity depth — configuration data issued per specification</div>
+  </div>
+
+  <table style="margin-top:2.5mm">
+    <thead><tr><th>Room Typology</th><th>Acoustic Priority</th><th>Standoff Depth</th></tr></thead>
+    <tbody>
+      <tr><td>Control Room / Studio</td><td>Low-frequency bass resonance &amp; modal control</td><td>140–180 mm</td></tr>
+      <tr><td>AV / Screening Room</td><td>Broadband audio clarity across dialogue &amp; effects</td><td>100–160 mm</td></tr>
+      <tr><td>Boardroom / Teleconference</td><td>Speech intelligibility &amp; flutter echo suppression</td><td>75–100 mm</td></tr>
+      <tr><td>Open Office / Co-Working</td><td>Speech privacy &amp; background chatter dampening</td><td>50–75 mm</td></tr>
+      <tr><td>Corridor / Public Lobby</td><td>Footstep attenuation &amp; reverberation containment</td><td>50 mm</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm;">
+    <span class="eyebrow" style="margin-bottom:1.2mm; color:var(--clay);">Measured Octave Band Sound Absorption Coefficients (αp)</span>
+    <table style="font-size:7.2pt;">
+      <thead>
+        <tr><th>Standoff Depth</th><th>125 Hz</th><th>250 Hz</th><th>500 Hz</th><th>1000 Hz</th><th>2000 Hz</th><th>4000 Hz</th><th>NRC</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>50 mm Shallow Standoff</td><td>0.18</td><td>0.38</td><td>0.72</td><td>0.94</td><td>0.92</td><td>0.86</td><td><strong>0.80</strong></td></tr>
+        <tr><td>100 mm Medium Standoff</td><td>0.35</td><td>0.72</td><td>0.95</td><td>0.96</td><td>0.90</td><td>0.88</td><td><strong>0.90</strong></td></tr>
+        <tr><td>180 mm Deep Bass Cavity</td><td>0.62</td><td>0.92</td><td>0.98</td><td>0.94</td><td>0.88</td><td>0.85</td><td><strong>0.95</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot"><span>D'WALL Acoustic Panel System</span><span>Page 05</span></div>
+</section>
+
+<!-- ===== 6 SPEC & CONTACT ===== -->
+<section class="page">
+  <div class="eyebrow">Section 05 · Specification &amp; Consultation</div>
+  <h2><span class="num">5.0</span>System specification &amp; Contact</h2>
+
+  <table>
+    <thead><tr><th>Parameter</th><th>Specification</th><th>Options</th></tr></thead>
+    <tbody>
+      <tr><td>Module Dimensions</td><td>500 × 500 mm, six-rib fluted face</td><td>Custom dimensions to grid</td></tr>
+      <tr><td>Face Perforation</td><td>Solid or laser-cut slotted, aligned with ribs</td><td>Custom slot pattern / Micro-perf</td></tr>
+      <tr><td>Tile Orientation</td><td>Rotatable in 90° increments</td><td>Directional / Basket-weave</td></tr>
+      <tr><td>Mounting Interface</td><td>Toolless clip to concealed backer plate</td><td>Patented universal node</td></tr>
+      <tr><td>Standoff Range</td><td>Adjustable cavity depth (50–220 mm)</td><td>Zone-specific depth tuning</td></tr>
+      <tr><td>Cavity Infill</td><td>45 kg/m³ high-density acoustic layer</td><td>Hydrophobic polyester felt</td></tr>
+      <tr><td>Finishes &amp; Textures</td><td>Matte architectural lacquer, natural veneer, anodised</td><td>Custom RAL / NCS colors</td></tr>
+      <tr><td>Integrated Lighting</td><td>Concealed warm 2700K/3000K LED behind slots</td><td>Dimmable DALI-2 protocol</td></tr>
+      <tr><td>NRC Rating</td><td>0.80 to 0.95 across tuned spectrum</td><td>Certified lab reports available</td></tr>
+    </tbody>
+  </table>
+
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:3.5mm; margin-top:3mm;">
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <h4 style="font-size:8.2pt; color:var(--ink); margin-bottom:0.6mm;">Natural Veneer</h4>
+      <p style="font-size:7.2pt; color:var(--ink-soft); margin-bottom:0;">Architectural teak, oak, and walnut with fire-retardant matte lacquer coat.</p>
+    </div>
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <h4 style="font-size:8.2pt; color:var(--ink); margin-bottom:0.6mm;">Anodised Metal</h4>
+      <p style="font-size:7.2pt; color:var(--ink-soft); margin-bottom:0;">Satin bronze, black, and natural aluminum with micro-perforated facing.</p>
+    </div>
+    <div style="background:#faf8f4; border:1px solid var(--rule); padding:2mm; border-radius:2px;">
+      <h4 style="font-size:8.2pt; color:var(--ink); margin-bottom:0.6mm;">Solid Matte Color</h4>
+      <p style="font-size:7.2pt; color:var(--ink-soft); margin-bottom:0;">Zero-VOC architectural powder coat matched to any RAL/NCS palette.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm; background:#faf8f4; border:1px solid var(--rule); padding:2.5mm 3.5mm; border-radius:2px; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <h4 style="font-size:8.6pt; color:var(--ink); margin-bottom:0.4mm;">Acoustic Consultation &amp; Laboratory Data</h4>
+      <p style="font-size:7.2pt; color:var(--ink-soft); margin-bottom:0;">Sample tiles, reverberation calculations, and ISO 354 lab data available on request.</p>
+    </div>
+    <div style="text-align:right; font-family:'IBM Plex Mono',monospace; font-size:6.8pt; color:var(--ink); white-space:nowrap; margin-left:4mm;">
+      <strong>MACR MAYR India Pvt Ltd</strong><br>
+      Mumbai, India &nbsp;·&nbsp; <span style="color:var(--clay); font-weight:600;">contact@macrmayr.com</span>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Acoustic · Product Brochure</span><span>Page 06</span></div>
+</section>
+
+</body>
+</html>

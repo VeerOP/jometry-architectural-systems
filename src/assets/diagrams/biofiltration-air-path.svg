@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 210" role="img" aria-label="Air path diagram from room through root zone to cavity, particulate stage and exhaust">
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#8a6a3b" stroke-width="1.6" stroke-linecap="round"/>
+    </marker>
+  </defs>
+  <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4f47" text-anchor="middle">
+    <rect x="20" y="70" width="86" height="66" fill="#fff" stroke="#dedbd3"/>
+    <text x="63" y="100">Room</text><text x="63" y="114">air</text>
+
+    <rect x="150" y="70" width="96" height="66" fill="#f0f4ec" stroke="#3d5a2c"/>
+    <text x="198" y="96">Planted</text><text x="198" y="110">face &amp;</text><text x="198" y="124">root zone</text>
+
+    <rect x="290" y="70" width="96" height="66" fill="#f2f4f0" stroke="#dedbd3"/>
+    <text x="338" y="100">Ventilated</text><text x="338" y="114">cavity</text>
+
+    <rect x="430" y="70" width="86" height="66" fill="#f7f1e8" stroke="#8a6a3b"/>
+    <text x="473" y="96">Particulate</text><text x="473" y="110">stage</text><text x="473" y="124">(optional)</text>
+
+    <rect x="556" y="70" width="44" height="66" fill="#fff" stroke="#dedbd3"/>
+    <text x="578" y="107">Out</text>
+  </g>
+  <g stroke="#8a6a3b" stroke-width="1.8" marker-end="url(#ar2)" fill="none">
+    <line x1="110" y1="103" x2="144" y2="103"/>
+    <line x1="250" y1="103" x2="284" y2="103"/>
+    <line x1="390" y1="103" x2="424" y2="103"/>
+    <line x1="520" y1="103" x2="550" y2="103"/>
+  </g>
+  <text x="198" y="164" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8b8f86" text-anchor="middle">air passes through the medium, not across it</text>
+</svg>

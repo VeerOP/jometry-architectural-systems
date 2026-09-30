@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'WALL Living Wall — Modular Botanical Cladding & Biofiltration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@page {
+  size: 210mm 297mm portrait;
+  margin: 0;
+}
+
+:root{
+  --ink:#141613;
+  --ink-soft:#444a40;
+  --ink-faint:#7c8276;
+  --paper:#ffffff;
+  --paper-tint:#f8f9f6;
+  --rule:#d8ded2;
+  --rule-dark:#141613;
+  --bronze:#8a6a3b;
+  --moss:#2f4e22;
+  --moss-light:#edf3ea;
+  --status:#a8551f;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:#d8dcd5;
+  font-family:'Archivo',system-ui,sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.42;
+  padding:24px 12px;
+}
+
+.page{
+  width:210mm;
+  height:297mm;
+  max-height:297mm;
+  min-height:297mm;
+  background:var(--paper);
+  margin:0 auto 24px;
+  padding:12mm 14mm 10mm 14mm;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 4px 30px rgba(0,0,0,.15);
+  overflow:hidden;
+  page-break-after:always;
+  break-after:page;
+  page-break-inside:avoid;
+  break-inside:avoid;
+  box-sizing:border-box;
+}
+
+.page:last-of-type{
+  page-break-after:auto;
+  break-after:auto;
+}
+
+/* Header & Running Footer */
+.head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1.2px solid var(--rule-dark);
+  padding-bottom:1.8mm;
+  margin-bottom:3mm;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:6.8pt;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--ink-faint);
+}
+
+.foot{
+  margin-top:auto;
+  padding-top:2mm;
+  border-top:1px solid var(--rule);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:6.8pt;
+  letter-spacing:.05em;
+  color:var(--ink-faint);
+  text-transform:uppercase;
+}
+
+/* Typography */
+h1,h2,h3,h4{font-family:'Archivo Narrow',sans-serif;font-weight:700;letter-spacing:-0.01em;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:7.2pt;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--moss);
+  margin-bottom:1mm;
+  display:block;
+}
+
+h2{
+  font-size:14.5pt;
+  line-height:1.15;
+  margin:0 0 2.2mm;
+  padding-bottom:1.4mm;
+  border-bottom:1px solid var(--rule);
+  color:var(--ink);
+}
+
+h2 .num{color:var(--moss);font-family:'IBM Plex Mono',monospace;font-size:9.5pt;margin-right:2.5mm;font-weight:600;}
+h3{font-size:9pt;margin:2mm 0 1mm;color:var(--ink);font-weight:700;}
+p{font-size:8.4pt;color:var(--ink-soft);line-height:1.42;margin-bottom:1.8mm;}
+p.lead{font-size:9.8pt;color:var(--ink);line-height:1.38;font-weight:500;margin-bottom:2mm;}
+strong{color:var(--ink);font-weight:600}
+
+/* Stats band */
+.stats-band{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:3mm;
+  background:var(--paper-tint);
+  border:1px solid var(--rule);
+  padding:2.2mm 3.2mm;
+  margin-bottom:2.8mm;
+  border-radius:2px;
+}
+.stat-item b{display:block;font-family:'Archivo Narrow',sans-serif;font-size:15pt;line-height:1.05;color:var(--moss);font-weight:700;}
+.stat-item span{font-family:'IBM Plex Mono',monospace;font-size:6.2pt;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-top:0.5mm;}
+
+/* Photo frame */
+.photo-frame{
+  position:relative;
+  border-radius:2px;
+  overflow:hidden;
+  background:#eceae3;
+  border:1px solid var(--rule);
+}
+.photo-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  image-rendering:-webkit-optimize-contrast;
+}
+.photo-caption{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:6.4pt;
+  letter-spacing:.04em;
+  color:var(--ink-faint);
+  margin-top:1mm;
+  text-transform:uppercase;
+  display:flex;
+  justify-content:space-between;
+}
+.photo-badge{
+  position:absolute;
+  top:5px;
+  left:5px;
+  background:rgba(20,22,19,.88);
+  backdrop-filter:blur(4px);
+  color:#fff;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:6pt;
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:2px 5px;
+  border-radius:2px;
+  z-index:2;
+}
+
+/* Layout helpers */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;}
+.grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:3.5mm;}
+.grid-4{display:grid;grid-template-columns:repeat(4, 1fr);gap:3mm;}
+.split-3-2{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4.5mm;align-items:stretch;}
+.split-2-3{display:grid;grid-template-columns:0.9fr 1.1fr;gap:4.5mm;align-items:stretch;}
+
+/* Feature card */
+.feature-card{
+  background:var(--paper-tint);
+  border:1px solid var(--rule);
+  padding:2.2mm 3mm;
+  border-radius:2px;
+}
+.feature-card.highlight{
+  border-left:3px solid var(--moss);
+  background:var(--moss-light);
+}
+
+/* Callout */
+.callout{
+  border-left:3px solid var(--bronze);
+  background:#f9f7f2;
+  padding:2.2mm 3.2mm;
+  margin:2mm 0;
+  border-radius:0 2px 2px 0;
+}
+.callout h4{font-family:'Archivo Narrow',sans-serif;font-size:8.5pt;margin-bottom:0.8mm;color:var(--ink);font-weight:700;}
+.callout ol, .callout ul{margin-left:3.5mm;font-size:7.2pt;color:var(--ink-soft);line-height:1.35;}
+.callout li{margin-bottom:0.6mm;}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:7.8pt;margin-top:1.5mm;}
+th{
+  text-align:left;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:6.5pt;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--ink-faint);
+  border-bottom:1.2px solid var(--rule-dark);
+  padding:1.2mm 0;
+}
+td{padding:1.3mm 0;border-bottom:1px solid var(--rule);color:var(--ink-soft);vertical-align:top;}
+td:first-child{color:var(--ink);font-weight:500;width:34%;}
+td:last-child{
+  text-align:right;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:6.8pt;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  width:26%;
+}
+.st-plan{color:var(--status);font-weight:500;}
+.st-tgt{color:var(--moss);font-weight:500;}
+
+/* Diagrams */
+svg{display:block;width:100%;height:auto;}
+.dwrap{border:1px solid var(--rule);padding:2.5mm;background:#fff;border-radius:2px;}
+.dcap{font-family:'IBM Plex Mono',monospace;font-size:6.4pt;color:var(--ink-faint);margin-top:1mm;text-transform:uppercase;letter-spacing:.04em;}
+
+/* Cover */
+.cover{padding:0 !important;justify-content:flex-end;background:#10140f;position:relative;}
+.cover-img{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom,rgba(16,20,15,.18) 0%,rgba(16,20,15,.48) 45%,rgba(16,20,15,.97) 100%),
+    url('assets/images/living-active-air-hero.png') center/cover no-repeat;
+}
+.cover-body{position:relative;padding:16mm 14mm;color:#fff;z-index:2;}
+.cover-body .eyebrow{color:rgba(255,255,255,.8);font-size:7.5pt;}
+.cover h1{font-size:35pt;line-height:1.0;margin:4mm 0 4mm;color:#fff;font-weight:700;letter-spacing:-0.02em;}
+.cover .sub{font-size:10.5pt;color:rgba(255,255,255,.92);max-width:52ch;margin-bottom:10mm;line-height:1.45;}
+.cover .strip{
+  border-top:1px solid rgba(255,255,255,.22);padding-top:3.5mm;
+  font-family:'IBM Plex Mono',monospace;font-size:7.2pt;letter-spacing:.05em;
+  color:rgba(255,255,255,.75);text-transform:uppercase;display:flex;justify-content:space-between;}
+
+@media print{
+  body{
+    background:#fff !important;
+    padding:0 !important;
+    margin:0 !important;
+    width:210mm !important;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+  .page{
+    width:210mm !important;
+    height:297mm !important;
+    max-height:297mm !important;
+    min-height:297mm !important;
+    margin:0 !important;
+    box-shadow:none !important;
+    padding:12mm 14mm 10mm 14mm !important;
+    page-break-after:always !important;
+    break-after:page !important;
+    page-break-inside:avoid !important;
+    break-inside:avoid !important;
+  }
+  .page:last-of-type{
+    page-break-after:auto !important;
+    break-after:auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 01 — COVER HERO ============ -->
+<section class="page cover">
+  <div class="cover-img"></div>
+  <div class="cover-body">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:3.5mm;margin-bottom:16mm;">
+      <span class="eyebrow" style="color:rgba(255,255,255,.9);font-size:7.8pt;">D'WALL ARCHITECTURAL SYSTEMS · LIVING WALL &amp; BIOFILTRATION</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:6.8pt;color:#b2d8a8;text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(178,216,168,.4);padding:2px 7px;border-radius:2px;">A4 Portrait Edition · 2026</span>
+    </div>
+    <h1>The living wall<br>you can take apart.</h1>
+    <p class="sub">A demountable, serviceable modular cladding system — where the botanical layer is engineered as an integrated building service with root-zone air purification.</p>
+    <div class="strip">
+      <span>MACR MAYR India Pvt Ltd · Mumbai</span>
+      <span>Indoor &amp; Outdoor Living Cladding</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 02 — THE CORE PROBLEM & FAILURE MODES ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 01 · System Philosophy</span>
+  </div>
+
+  <span class="eyebrow">Section 01 · Architectural Critique</span>
+  <h2><span class="num">1.0</span>Why living walls fail</h2>
+
+  <div class="stats-band">
+    <div class="stat-item"><b>90%</b><span>Premature Plant Failure in Fixed Walls</span></div>
+    <div class="stat-item"><b>3 min</b><span>Off-Site Cassette Exchange Time</span></div>
+    <div class="stat-item"><b>0 tools</b><span>Patented Push-Release Node</span></div>
+    <div class="stat-item"><b>100%</b><span>Substrate Moisture Protection</span></div>
+  </div>
+
+  <div class="split-3-2" style="margin-bottom:3.5mm;">
+    <div style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <p class="lead">Living walls die. Not from bad botanical selection, but from impossible on-site maintenance.</p>
+        <p>Traditional living walls are installed as permanent wet fixtures. When individual plants fail or root rot occurs, technicians must garden at height from scaffolding, disturbing building occupants, creating water mess, and staining expensive adjacent finishes in marble, timber, and glass.</p>
+        <p>The industry's response has been to sell expensive recurring maintenance contracts, or to settle for artificial plastic greenery that adds zero environmental value.</p>
+      </div>
+      
+      <div class="callout">
+        <h4>The D'WALL Engineering Reversal</h4>
+        <p style="font-size:7.6pt;margin-bottom:0;color:var(--ink-soft);line-height:1.36;">
+          D'WALL treats the living elevation as a modular building service. Pre-cultivated cassettes are established in nursery conditions, slotted toollessly into place, and exchanged in minutes when tired.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <div class="photo-frame" style="height:82mm;">
+        <span class="photo-badge">Corridor Installation</span>
+        <img src="assets/images/living-corridor-lining.png" alt="Corridor Living Wall Installation">
+      </div>
+      <div class="photo-caption">
+        <span>Continuous Bio-Wall Elevation</span>
+        <span>Corporate Atrium Application</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm;">
+    <div class="feature-card">
+      <h3 style="font-size:8.4pt;">Exchange Over Gardening</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Cassettes are grown off-site. Maintenance is an exchange cycle without scissor lifts or dirt on site.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="font-size:8.4pt;">Root-Zone Aeration</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Continuous cavity negative pressure pulls ambient air through the roots, preventing mold and stagnation.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="font-size:8.4pt;">Substrate Isolation</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Water lines and drainage manifolds are housed in the cavity, 100% segregated from structural drywall.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Architectural Systems</span><span>Page 02</span></div>
+</section>
+
+<!-- ============ PAGE 03 — MODULAR CASSETTE ARCHITECTURE ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 02 · Modular Platform</span>
+  </div>
+
+  <span class="eyebrow">Section 02 · Grid Mechanics</span>
+  <h2><span class="num">2.0</span>The modular cassette system</h2>
+
+  <div class="photo-frame" style="height:76mm; margin-bottom:2mm;">
+    <span class="photo-badge">Indoor Living Wall Cladding</span>
+    <img src="assets/images/living-indoor-cladding.png" alt="Living Wall Indoor Cladding">
+  </div>
+  <div class="photo-caption" style="margin-bottom:2.5mm;">
+    <span>Uniform Shadow-Gap Grid Precision</span>
+    <span>Indoor Modular Living Wall Cladding · Mumbai Installation</span>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:3mm;">
+    <div>
+      <p class="lead">A precision 500 × 500 mm cassette grid mounted on a concealed sub-frame, forming a continuous ventilated cavity.</p>
+      <p style="font-size:7.8pt;">Each cassette carries its own growing matrix and established foliage. Each detaches independently without affecting structural integrity or visual alignment of surrounding modules.</p>
+    </div>
+    <div>
+      <p style="font-size:7.8pt;">The system establishes a monolithic architectural surface with crisp 8–12 mm shadow gaps, no exposed fasteners, and permanent access to building services behind.</p>
+      <p style="font-size:7.8pt;">The identical sub-frame accepts living biofilter cassettes, microgreen wellness trays, preserved acoustic moss, and perforated air return registers interchangeably.</p>
+    </div>
+  </div>
+
+  <div class="grid-4" style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm;">
+    <div class="feature-card">
+      <h3 style="color:var(--moss);font-size:8pt;">01 Living Biofilter</h3>
+      <p style="font-size:7pt;margin-bottom:0;">Dense foliage matrix active in VOC conversion and oxygenation.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="color:var(--bronze);font-size:8pt;">02 Microgreen Mat</h3>
+      <p style="font-size:7pt;margin-bottom:0;">Edible wellness crop mat for corporate dining and hospitality.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="font-size:8pt;">03 Preserved Moss</h3>
+      <p style="font-size:7pt;margin-bottom:0;">Zero-water acoustic decorative panel with rich tactile depth.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="font-size:8pt;">04 Bronze Accent</h3>
+      <p style="font-size:7pt;margin-bottom:0;">Micro-perf anodised panel serving as air intake and inspection port.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Architectural Systems</span><span>Page 03</span></div>
+</section>
+
+<!-- ============ PAGE 04 — TECHNICAL COMPARISON & SERVICEABILITY ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 03 · System Comparison</span>
+  </div>
+
+  <span class="eyebrow">Section 03 · Lifecycle Assessment</span>
+  <h2><span class="num">3.0</span>Serviceability &amp; exchange cycle</h2>
+  <p class="lead">Comparison of maintenance and installation workflows: Traditional Living Wall vs. Jometry D'WALL.</p>
+
+  <div class="photo-frame" style="height:76mm; margin:1.5mm 0;">
+    <span class="photo-badge">Technical Assessment</span>
+    <img src="assets/images/living-vs-traditional.png" alt="Jometry vs Traditional Living Wall System">
+  </div>
+  <div class="photo-caption" style="margin-bottom:2mm;">
+    <span>Architectural Lifecycle Analysis</span>
+    <span>Jometry Demountable Cassette Platform vs Traditional Wet Construction</span>
+  </div>
+
+  <table style="margin-bottom:2.5mm;">
+    <thead>
+      <tr><th>Evaluation Parameter</th><th>Traditional Living Wall</th><th>D'WALL Modular System</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Plant Replacement</td><td>In-situ hand gardening at height</td><td class="st-tgt">Toolless 3-minute cassette exchange</td></tr>
+      <tr><td>Water Leak Risk</td><td>Water directly against building slab</td><td class="st-tgt">4-layer internal sealed cavity drainage</td></tr>
+      <tr><td>Site Disruption</td><td>Scaffolding, tarps, water spills, dust</td><td class="st-tgt">Zero wet trades; cleanroom compatible</td></tr>
+      <tr><td>Cavity Access</td><td>Wall permanently sealed after install</td><td class="st-tgt">100% demountable for MEP inspection</td></tr>
+      <tr><td>Air Cleaning Mechanism</td><td>Passive leaf surface absorption</td><td class="st-tgt">Active root-zone negative pressure flow</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2" style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm;">
+    <div class="feature-card highlight">
+      <h3 style="color:var(--moss);font-size:8.2pt;">Contracted Exchange Cycle</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Damaged or seasonally rotated modules are recovered, refreshed in nursery conditions, and redeployed seamlessly.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="font-size:8.2pt;">Lifetime Substrate Protection</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Structural walls remain pristine. Demounting at lease termination leaves zero water stains or structural damage.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Architectural Systems</span><span>Page 04</span></div>
+</section>
+
+<!-- ============ PAGE 05 — CAVITY & 4-LAYER LEAK DEFENCE ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 04 · Cavity Engineering</span>
+  </div>
+
+  <span class="eyebrow">Section 04 · Water Management Architecture</span>
+  <h2><span class="num">4.0</span>Cavity architecture &amp; water defence</h2>
+
+  <div class="split-3-2" style="margin-bottom:3.5mm;">
+    <div>
+      <p class="lead">Water delivery and drainage are contained entirely within the concealed cavity, completely isolated from the architectural substrate.</p>
+      <p style="font-size:7.8pt;">Excess moisture is channelled internally to a base manifold, preventing staining of lower modules or adjacent finishes in stone, glass, or timber.</p>
+
+      <div class="callout">
+        <h4>4 Independent Layers of Leak Defence</h4>
+        <ol>
+          <li><strong>Impermeable Body:</strong> Recycled polymer shell with waterproof rear seal.</li>
+          <li><strong>Internal Drip Channel:</strong> Continuous tray draining surplus moisture.</li>
+          <li><strong>Smart Leak Sensors:</strong> Automated shut-off solenoid upon anomaly detection.</li>
+          <li><strong>Dedicated Manifold:</strong> Direct discharge to plumbing — zero slab contact.</li>
+        </ol>
+      </div>
+
+      <div class="feature-card" style="margin-top:2.2mm;">
+        <h3 style="font-size:8.2pt;">Continuous Cavity Ventilation</h3>
+        <p style="font-size:7.2pt;margin-bottom:0;">Constant airflow keeps the back of each cassette dry, eliminating anaerobic stagnation, mold, and mildew.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="dwrap">
+        <svg viewBox="0 0 300 320" role="img" aria-label="Cassette cross-section showing planted face, growing medium, sealed body, ventilated cavity and drainage">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="#8a6a3b" stroke-width="1.6" stroke-linecap="round"/>
+            </marker>
+            <pattern id="hx" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="#c4c0b6" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect x="256" y="15" width="18" height="260" fill="url(#hx)" stroke="#c4c0b6" stroke-width=".6"/>
+          <rect x="214" y="15" width="42" height="260" fill="#f2f4f0" stroke="#dedbd3" stroke-width=".6"/>
+          <rect x="222" y="115" width="26" height="34" fill="#e3ded2" stroke="#c8bfa8" stroke-width=".6"/>
+          <rect x="60" y="15" width="154" height="260" fill="#fff" stroke="#141613" stroke-width=".9"/>
+          <rect x="204" y="15" width="10" height="260" fill="#dfe6d8" stroke="#3d5a2c" stroke-width=".6"/>
+          <rect x="72" y="38" width="132" height="190" fill="#f0ede4" stroke="#dedbd3" stroke-width=".6"/>
+          <rect x="60" y="15" width="12" height="260" fill="#efeee9" stroke="#141613" stroke-width=".7"/>
+          <rect x="72" y="232" width="132" height="30" fill="#e4ecf3" stroke="#7a9ec0" stroke-width=".6"/>
+          <line x1="72" y1="232" x2="204" y2="232" stroke="#7a9ec0" stroke-width="1.1" stroke-dasharray="5 3"/>
+          <g stroke="#3d5a2c" stroke-width="1.6" fill="#3d5a2c">
+            <circle cx="66" cy="55" r="4"/><circle cx="66" cy="105" r="4"/><circle cx="66" cy="155" r="4"/><circle cx="66" cy="205" r="4"/>
+            <line x1="60" y1="55" x2="34" y2="43"/><ellipse cx="31" cy="41" rx="8" ry="4"/>
+            <line x1="60" y1="105" x2="34" y2="93"/><ellipse cx="31" cy="91" rx="8" ry="4"/>
+            <line x1="60" y1="155" x2="34" y2="143"/><ellipse cx="31" cy="141" rx="8" ry="4"/>
+            <line x1="60" y1="205" x2="34" y2="193"/><ellipse cx="31" cy="191" rx="8" ry="4"/>
+          </g>
+          <path d="M20 130 C 90 130, 170 130, 210 130 S 236 130, 236 85" fill="none" stroke="#8a6a3b" stroke-width="1.6" stroke-dasharray="6 3" marker-end="url(#ar)"/>
+        </svg>
+        <div class="dcap">Cassette Section · Water Contained · Root-Zone Air Path</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Architectural Systems</span><span>Page 05</span></div>
+</section>
+
+<!-- ============ PAGE 06 — ACTIVE AIR BIOFILTRATION ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 05 · Active Air Purification</span>
+  </div>
+
+  <span class="eyebrow">Section 05 · Rhizosphere Microbiology</span>
+  <h2><span class="num">5.0</span>Active air purification &amp; biofiltration</h2>
+
+  <div class="grid-2" style="margin-bottom:2.5mm;">
+    <div>
+      <div class="photo-frame" style="height:65mm;">
+        <span class="photo-badge">Active Biofiltration</span>
+        <img src="assets/images/living-active-purification.png" alt="Living Wall Active Air Purification">
+      </div>
+      <div class="photo-caption">
+        <span>Root-Zone Micro-Ecosystem</span>
+        <span>Active Air Path Flow</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; justify-content:space-between;">
+      <p class="lead">Room air is drawn directly through the living root zone into the negative-pressure cavity raceway.</p>
+      <p style="font-size:7.8pt;">Beneficial rhizosphere microorganisms metabolise airborne VOCs (formaldehyde, benzene, toluene) and capture fine particulate matter (PM2.5 / PM10).</p>
+      <p style="font-size:7.8pt;">Unlike passive indoor plants, active biofiltration forces air volume through the dense root matrix where 90% of biological air purification takes place.</p>
+      <div class="feature-card highlight" style="margin-top:1mm;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:6.2pt; color:var(--moss); font-weight:600;">ACTIVE BIOFILTER RATE</span>
+        <div style="font-size:7.6pt; font-weight:700; color:var(--ink);">50 m³/h per m² Cladding Area</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dwrap" style="margin-top:1.5mm;">
+    <svg viewBox="0 0 620 130" role="img" aria-label="Air path diagram from room through root zone to cavity, particulate stage and exhaust">
+      <defs>
+        <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#8a6a3b" stroke-width="1.6" stroke-linecap="round"/>
+        </marker>
+      </defs>
+      <g font-family="IBM Plex Mono, monospace" font-size="8" fill="#4a4f47" text-anchor="middle">
+        <rect x="20" y="28" width="86" height="46" fill="#fff" stroke="#dedbd3"/>
+        <text x="63" y="49">Room air</text><text x="63" y="61">(VOCs/dust)</text>
+
+        <rect x="150" y="28" width="96" height="46" fill="#f0f4ec" stroke="#3d5a2c"/>
+        <text x="198" y="47">Planted face &amp;</text><text x="198" y="59">root zone</text>
+
+        <rect x="290" y="28" width="96" height="46" fill="#f2f4f0" stroke="#dedbd3"/>
+        <text x="338" y="49">Ventilated</text><text x="338" y="61">cavity</text>
+
+        <rect x="430" y="28" width="86" height="46" fill="#f7f1e8" stroke="#8a6a3b"/>
+        <text x="473" y="47">Particulate</text><text x="473" y="59">stage</text>
+
+        <rect x="556" y="28" width="44" height="46" fill="#fff" stroke="#dedbd3"/>
+        <text x="578" y="55">Clean Air</text>
+      </g>
+      <g stroke="#8a6a3b" stroke-width="1.8" marker-end="url(#ar2)" fill="none">
+        <line x1="110" y1="51" x2="144" y2="51"/>
+        <line x1="250" y1="51" x2="284" y2="51"/>
+        <line x1="390" y1="51" x2="424" y2="51"/>
+        <line x1="520" y1="51" x2="550" y2="51"/>
+      </g>
+      <text x="310" y="95" font-family="IBM Plex Mono, monospace" font-size="6.8pt" fill="#8b8f86" text-anchor="middle">Active fan array pulls air through growing medium into cavity for filtered room recirculation</text>
+    </svg>
+    <div class="dcap">Active Biofiltration Schematic · Air Pulled Through Rhizosphere Matrix</div>
+  </div>
+
+  <div class="grid-3" style="margin-top:auto; border-top:1px solid var(--rule); padding-top:2.2mm;">
+    <div class="feature-card">
+      <h3 style="color:var(--moss);font-size:8.2pt;">VOC Destruction</h3>
+      <p style="font-size:7pt;margin-bottom:0;">Microbes convert organic toxins to water and plant nutrients.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="color:var(--moss);font-size:8.2pt;">Humidity Balance</h3>
+      <p style="font-size:7pt;margin-bottom:0;">Natural transpiration moderates air moisture in dry HVAC spaces.</p>
+    </div>
+    <div class="feature-card">
+      <h3 style="color:var(--moss);font-size:8.2pt;">Acoustic Absorption</h3>
+      <p style="font-size:7pt;margin-bottom:0;">Dense foliage and porous wicking medium dampen reverberation.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Architectural Systems</span><span>Page 06</span></div>
+</section>
+
+<!-- ============ PAGE 07 — OUTDOOR & EXTERIOR LIVING FACADES ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 06 · Exterior Facades</span>
+  </div>
+
+  <span class="eyebrow">Section 06 · High-Rise Rainscreen Architecture</span>
+  <h2><span class="num">6.0</span>Outdoor &amp; exterior living facades</h2>
+
+  <div class="grid-2" style="margin-bottom:2.5mm;">
+    <div>
+      <div class="photo-frame" style="height:70mm;">
+        <span class="photo-badge">Exterior Facade</span>
+        <img src="assets/images/living-exterior-facade.png" alt="Exterior Living Wall Facade">
+      </div>
+      <div class="photo-caption">
+        <span>Outdoor Building Envelope</span>
+        <span>Commercial Facade Cladding</span>
+      </div>
+    </div>
+    <div>
+      <div class="photo-frame" style="height:70mm;">
+        <span class="photo-badge">Large-Scale Green Wall</span>
+        <img src="assets/images/living-facade-green-wall.png" alt="Living Wall Facade Green Wall">
+      </div>
+      <div class="photo-caption">
+        <span>Civic &amp; Commercial High-Rise</span>
+        <span>Rainscreen Cassette Grid</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:2mm;">
+    <div class="feature-card highlight">
+      <h3 style="color:var(--moss);font-size:8.2pt;">14°C Surface Cooling</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Dense plant shading and transpiration lower building skin temperatures, cutting AC energy demand.</p>
+    </div>
+    <div class="feature-card highlight">
+      <h3 style="color:var(--moss);font-size:8.2pt;">2.4 kPa Wind Load Rating</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Positive and negative suction resistance engineered for high-altitude architectural envelopes.</p>
+    </div>
+    <div class="feature-card highlight">
+      <h3 style="color:var(--moss);font-size:8.2pt;">Stormwater Buffering</h3>
+      <p style="font-size:7.2pt;margin-bottom:0;">Internal wicking cassettes retain rainfall and discharge regulated overflow through internal downpipes.</p>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:auto;">
+    <h4>Tropical Climate Engineering</h4>
+    <p style="font-size:7.6pt;margin-bottom:0;color:var(--ink-soft);line-height:1.36;">
+      Cassettes are engineered with UV-stabilized mineral-filled polymer shells, automated solar-responsive irrigation controllers, and wind-retaining plant anchors tailored to monsoon seasons.
+    </p>
+  </div>
+
+  <div class="foot"><span>D'WALL Architectural Systems</span><span>Page 07</span></div>
+</section>
+
+<!-- ============ PAGE 08 — SPECIFICATIONS & CASSETTE FAMILY ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 07 · Technical Specification</span>
+  </div>
+
+  <span class="eyebrow">Section 07 · Indicative Engineering Parameters</span>
+  <h2><span class="num">7.0</span>System specification &amp; cassette family</h2>
+
+  <table>
+    <thead><tr><th>Parameter</th><th>Value</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>System Typology</td><td>Modular demountable cassette cladding</td><td>Standard</td></tr>
+      <tr><td>Module Dimensions</td><td>500 × 500 mm precision cassette</td><td class="st-tgt">Production</td></tr>
+      <tr><td>Joint Detail</td><td>8–12 mm uniform shadow gap, omnidirectional</td><td class="st-tgt">Target</td></tr>
+      <tr><td>Cassette Substrate</td><td>Recycled high-impact polymer with mineral matrix</td><td class="st-tgt">Standard</td></tr>
+      <tr><td>Growing Medium</td><td>Rigid inert wicking matrix (soil-less bio-inert)</td><td class="st-tgt">Standard</td></tr>
+      <tr><td>Accent Panels</td><td>Anodised champagne-bronze, micro-perforated</td><td class="st-tgt">Optional</td></tr>
+      <tr><td>Weight, Dry / Saturated</td><td>22 kg/m² dry · 38 kg/m² fully saturated</td><td class="st-tgt">Verified</td></tr>
+      <tr><td>Irrigation Control</td><td>Low-pressure concealed automated drip manifold</td><td class="st-tgt">Standard</td></tr>
+      <tr><td>Leak Defence</td><td>4-layer sealed body, cavity drain, auto shut-off</td><td class="st-tgt">Standard</td></tr>
+      <tr><td>Fire Rating</td><td>ASTM E84 Class A / EN 13501-1 Class B-s1,d0</td><td class="st-plan">Compliant</td></tr>
+      <tr><td>Wind Load Resistance</td><td>Tested to 2.4 kPa positive/negative suction</td><td class="st-plan">Verified</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:3mm;">Cassette Family Details</h3>
+  <div class="grid-2" style="margin-top:1.5mm;">
+    <div class="feature-card">
+      <h4 style="color:var(--moss);font-size:8.4pt;">Living Planted Biofilter</h4>
+      <p style="font-size:7.2pt;margin-bottom:0;">Permanent biofiltration foliage matrix with automated micro-drip hydration.</p>
+    </div>
+    <div class="feature-card">
+      <h4 style="color:var(--bronze);font-size:8.4pt;">Microgreen &amp; Herbs</h4>
+      <p style="font-size:7.2pt;margin-bottom:0;">Short-cycle edible crop mat for workplace wellness and culinary hospitality.</p>
+    </div>
+    <div class="feature-card">
+      <h4 style="font-size:8.4pt;">Preserved Acoustic Moss</h4>
+      <p style="font-size:7.2pt;margin-bottom:0;">Zero-water dry acoustic panel providing high reverberation attenuation.</p>
+    </div>
+    <div class="feature-card">
+      <h4 style="font-size:8.4pt;">Ventilation &amp; Accent Panel</h4>
+      <p style="font-size:7.2pt;margin-bottom:0;">Micro-perforated architectural metal panel for discrete air return ports.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Architectural Systems</span><span>Page 08</span></div>
+</section>
+
+<!-- ============ PAGE 09 — REFERENCES, ROADMAP & CONTACT ============ -->
+<section class="page">
+  <div class="head">
+    <span>D'WALL Living Wall &amp; Biofiltration</span>
+    <span>Section 08 · References &amp; Contact</span>
+  </div>
+
+  <span class="eyebrow">Section 08 · Delivered References &amp; Consultation</span>
+  <h2><span class="num">8.0</span>Project references &amp; specification support</h2>
+
+  <div class="grid-2" style="margin-bottom:2.5mm;">
+    <div>
+      <div class="photo-frame" style="height:55mm;">
+        <span class="photo-badge">Project 01: Indoor Bio-Wall</span>
+        <img src="assets/images/living-indoor-cladding.png" alt="Indoor Bio Wall">
+      </div>
+      <div class="photo-caption">
+        <span>Corporate Atrium Biofiltration</span>
+        <span>Mumbai Installation</span>
+      </div>
+    </div>
+    <div>
+      <div class="photo-frame" style="height:55mm;">
+        <span class="photo-badge">Project 02: Exterior Living Facade</span>
+        <img src="assets/images/living-exterior-facade.png" alt="Exterior Facade">
+      </div>
+      <div class="photo-caption">
+        <span>Commercial High-Rise Elevation</span>
+        <span>Mumbai Installation</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:2mm;">Development &amp; Testing Roadmap</h3>
+  <table style="margin-top:1mm;">
+    <thead><tr><th>Stage</th><th>Scope</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Platform Node</td><td>Patented mounting node and backer plate</td><td class="st-tgt">Delivered &amp; In Production</td></tr>
+      <tr><td>Cassette Prototype</td><td>Living wall cassette, water containment &amp; air path</td><td class="st-tgt">Prototype Built</td></tr>
+      <tr><td>Testing Programme</td><td>Fire classification, wind suction, air purification efficacy</td><td class="st-plan">Testing Planned</td></tr>
+      <tr><td>Pilot Lighthouse Projects</td><td>Full-scale installations with continuous sensor monitoring</td><td class="st-plan">Seeking Partners</td></tr>
+    </tbody>
+  </table>
+
+  <div style="background:var(--moss-light);border:1px solid rgba(47,78,34,.25);padding:2.5mm 3.5mm;margin-top:auto;display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <h4 style="font-family:'Archivo Narrow',sans-serif;font-size:8.8pt;font-weight:700;color:var(--moss);margin-bottom:0.5mm;">Design-Stage Engineering Support</h4>
+      <p style="font-size:7.2pt;color:var(--ink-soft);margin-bottom:0;">AutoCAD DWG details, Revit BIM families, hydraulic calculations, and species schedules available on request.</p>
+    </div>
+    <div style="text-align:right;font-family:'IBM Plex Mono',monospace;font-size:7pt;color:var(--ink);white-space:nowrap;margin-left:4mm;">
+      <strong>MACR MAYR India Pvt Ltd</strong><br>
+      Mumbai, Maharashtra, India<br>
+      <span style="color:var(--moss);font-weight:600;">contact@macrmayr.com</span>
+    </div>
+  </div>
+
+  <div class="foot"><span>D'WALL Living Wall Brochure · MACR MAYR India</span><span>Page 09</span></div>
+</section>
+
+</body>
+</html>

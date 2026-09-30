@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOMETRY Service Wall — Modular Demountable Partition System</title>
+  <meta name="description" content="Precision demountable dry wall cladding platform with tool-less access in 3 moves, multi-tier raceway segregation, and WallClick node mechanics. MACR MAYR India Pvt Ltd.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  
+  <!-- Anti-FOUC Theme Initializer -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('dwall_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body class="page-transition">
+
+  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <span class="brand-sub">MACR MAYR INDIA · MUMBAI</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="service-wall.html" class="nav-link active">Service Wall</a></li>
+          <li><a href="acoustics.html" class="nav-link">Acoustic Control</a></li>
+          <li><a href="living-wall.html" class="nav-link">Living Bio-Wall</a></li>
+          <li><a href="facade-light.html" class="nav-link">Facade &amp; Light</a></li>
+          <li><a href="specifications.html" class="nav-link">Catalogue &amp; Specs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="theme-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button id="nav-enquire-btn" class="btn-nav-action">Specification Enquiry</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-menu" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <div class="brand-logo">
+          <div class="brand-symbol">J</div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">00. Overview</a></li>
+        <li><a href="service-wall.html" class="mobile-nav-link active">01. Service Wall System</a></li>
+        <li><a href="acoustics.html" class="mobile-nav-link">02. Acoustic Control &amp; Studio</a></li>
+        <li><a href="living-wall.html" class="mobile-nav-link">03. Living Bio-Wall &amp; Facades</a></li>
+        <li><a href="facade-light.html" class="mobile-nav-link">04. Facade &amp; Light</a></li>
+        <li><a href="specifications.html" class="mobile-nav-link">05. Catalogue &amp; CSI Specs</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+          Request Specification Package
+        </button>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+          MACR MAYR India Pvt Ltd · Mumbai<br>
+          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+      <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== PAGE HERO BANNER ===== -->
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('assets/images/architectural-feature-wall.png');"></div>
+      <div class="container page-hero-content">
+        <div class="hero-metric-tag" style="background: rgba(20, 88, 153, 0.25); border-color: rgba(20, 88, 153, 0.5);">
+          <span class="status-beacon"></span>Typology 01 · Production Ready · Mumbai Commercial Installations
+        </div>
+        <span class="eyebrow" style="color: rgba(255,255,255,0.7);">Section 01 &amp; 03 · Platform Mechanics</span>
+        <h1>The Wall Surface That Opens.<br>Zero Dust. Zero Trades. Zero Downtime.</h1>
+        <p class="lead">
+          Every cable, conduit, and connection behind the elevation stays reachable for the life of the building. Unclip, route, and reclip in under 3 minutes — eliminating cutting, patching, sanding, and repainting.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+          <a href="#node-simulator-section" class="btn-primary" style="width: auto; padding: 12px 24px; text-decoration: none;">
+            Launch 3-Move Demount Simulator
+          </a>
+          <a href="#cavity-anatomy" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 12px 24px; text-decoration: none;">
+            Anatomy of the Cavity
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 03: 3-MOVE INTERACTIVE SIMULATOR ===== -->
+    <section id="node-simulator-section" class="section">
+      <div class="container" id="node-simulator-container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-service-blue);">Section 03 · Toolless Operation Simulator</span>
+            <h2 class="section-title"><span class="section-num">01</span> Access in Three Moves</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-service-blue);">
+            Patented WallClick Node Engagement
+          </div>
+        </div>
+
+        <p class="lead reveal" style="max-width: 78ch; margin-bottom: var(--space-lg);">
+          Repeatable toolless engagement that leaves zero trace of maintenance works. Click the step controls below to simulate the physical uncoupling and snap-indexing of the 500 × 500 mm cassette.
+        </p>
+
+        <!-- Interactive Simulation Stage -->
+        <div class="split-layout reveal">
+          <!-- Step Controls & Technical Gauges -->
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: var(--space-md); flex-wrap: wrap;">
+              <button class="sim-step-btn active" data-step="1">Step 01: Press &amp; Disengage</button>
+              <button class="sim-step-btn" data-step="2">Step 02: Lift Straight Off</button>
+              <button class="sim-step-btn" data-step="3">Step 03: Snap &amp; Self-Index</button>
+            </div>
+
+            <div class="cavity-info-card" style="min-height: 220px;">
+              <h3 id="sim-step-title" style="margin-bottom: 8px; color: var(--color-ink);">
+                STEP 01 — RELEASE: Press &amp; Disengage
+              </h3>
+              <p id="sim-step-desc" style="font-size: 0.95rem; line-height: 1.6; color: var(--color-ink-soft); margin-bottom: var(--space-md);">
+                Technician applies calibrated inward pressure (180 N) to release the concealed spring clips without face tools, suction lifters, or pry bars. Surrounding panels remain 100% undisturbed.
+              </p>
+
+              <!-- Mechanical Telemetry Gauges -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--color-rule); padding-top: 12px;">
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-ink-faint); text-transform: uppercase;">Calibrated Force Gauge</div>
+                  <div id="sim-force-gauge" style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--color-service-blue);">
+                    180 N Calibrated Inward Pressure
+                  </div>
+                </div>
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-ink-faint); text-transform: uppercase;">Alignment True Position</div>
+                  <div id="sim-alignment-gauge" style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--color-service-blue);">
+                    ±0.00 mm (Locked in Grid)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button id="sim-action-btn" class="btn-primary" style="margin-top: var(--space-md); width: 100%; padding: 14px;">
+              Next: Lift Straight Off &rarr;
+            </button>
+          </div>
+
+          <!-- 3D Assembly Diagram Stage -->
+          <div class="diagram-wrap hover-lift reveal-delay-1" style="border-radius: var(--radius-card); background: #0b0d11; padding: 24px;">
+            <div id="sim-stage" class="sim-stage-canvas state-pressed" style="height: 320px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <svg viewBox="0 0 400 320" style="width: 100%; height: 100%;">
+                <!-- Substrate back plate -->
+                <rect x="40" y="40" width="320" height="240" fill="#171b24" stroke="#2d3748" stroke-width="1.5" rx="4"/>
+                <text x="55" y="65" font-family="IBM Plex Mono" font-size="9" fill="#64748b">SUBSTRATE &amp; CONCEALED SUB-FRAME</text>
+
+                <!-- 4-Tier Continuous Raceway Rails -->
+                <line x1="50" y1="90" x2="350" y2="90" stroke="#1d4ed8" stroke-width="2" class="raceway-tier-path" data-tier="1"/>
+                <text x="60" y="84" font-family="IBM Plex Mono" font-size="7.5" fill="#60a5fa">TIER 01: 230V Mains &amp; UPS</text>
+
+                <line x1="50" y1="140" x2="350" y2="140" stroke="#0ea5e9" stroke-width="2" class="raceway-tier-path" data-tier="2"/>
+                <text x="60" y="134" font-family="IBM Plex Mono" font-size="7.5" fill="#38bdf8">TIER 02: Cat6A / Fiber Conduits</text>
+
+                <line x1="50" y1="190" x2="350" y2="190" stroke="#a855f7" stroke-width="2" class="raceway-tier-path" data-tier="3"/>
+                <text x="60" y="184" font-family="IBM Plex Mono" font-size="7.5" fill="#c084fc">TIER 03: 45 kg/m³ Acoustic Infill</text>
+
+                <line x1="50" y1="240" x2="350" y2="240" stroke="#10b981" stroke-width="2" class="raceway-tier-path" data-tier="4"/>
+                <text x="60" y="234" font-family="IBM Plex Mono" font-size="7.5" fill="#34d399">TIER 04: Negative Pressure Airflow</text>
+
+                <!-- 4 WallClick Mounting Nodes -->
+                <circle cx="90" cy="90" r="6" class="sim-node-point node-trigger" data-node="1"/>
+                <circle cx="310" cy="90" r="6" class="sim-node-point node-trigger" data-node="2"/>
+                <circle cx="90" cy="230" r="6" class="sim-node-point node-trigger" data-node="3"/>
+                <circle cx="310" cy="230" r="6" class="sim-node-point node-trigger" data-node="4"/>
+
+                <!-- Demountable 500x500 Face Panel (Animated in 3D perspective) -->
+                <g class="sim-demount-panel" style="transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                  <rect x="70" y="60" width="260" height="200" fill="#262d3d" stroke="#3b82f6" stroke-width="1.8" rx="2" opacity="0.92"/>
+                  <!-- 6 Ribs on panel face -->
+                  <line x1="113" y1="60" x2="113" y2="260" stroke="#334155" stroke-width="1"/>
+                  <line x1="156" y1="60" x2="156" y2="260" stroke="#334155" stroke-width="1"/>
+                  <line x1="200" y1="60" x2="200" y2="260" stroke="#334155" stroke-width="1"/>
+                  <line x1="243" y1="60" x2="243" y2="260" stroke="#334155" stroke-width="1"/>
+                  <line x1="286" y1="60" x2="286" y2="260" stroke="#334155" stroke-width="1"/>
+
+                  <!-- Flush Outlet in Face -->
+                  <rect x="235" y="145" width="36" height="42" fill="#0f172a" stroke="#60a5fa" stroke-width="1.2" rx="2"/>
+                  <text x="253" y="162" font-family="IBM Plex Mono" font-size="7" fill="#93c5fd" text-anchor="middle">230V</text>
+                  <text x="253" y="176" font-family="IBM Plex Mono" font-size="6.5" fill="#38bdf8" text-anchor="middle">RJ45</text>
+
+                  <text x="200" y="100" font-family="IBM Plex Mono" font-size="9" fill="#f8fafc" text-anchor="middle" font-weight="600">500 × 500 mm CASSETTE</text>
+                  <text x="200" y="115" font-family="IBM Plex Mono" font-size="7.5" fill="#94a3b8" text-anchor="middle">Patented WallClick Interface</text>
+                </g>
+              </svg>
+            </div>
+            <div class="diagram-caption" style="color: #94a3b8;">
+              Interactive mechanical assembly — WallClick spring detent &amp; multi-tier raceway
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Mechanical Attributes (Page 4) -->
+        <div class="grid-3 reveal" style="margin-top: var(--space-xl);">
+          <div class="product-card hover-lift">
+            <span class="eyebrow" style="color: var(--color-service-blue);">Attribute 01</span>
+            <h4>100% Toolless Operation</h4>
+            <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin: 4px 0 0;">
+              No suction lifters, allen keys, or pry bars needed. One-handed calibrated push-release.
+            </p>
+          </div>
+
+          <div class="product-card hover-lift">
+            <span class="eyebrow" style="color: var(--color-service-blue);">Attribute 02</span>
+            <h4>Isolated Removal</h4>
+            <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin: 4px 0 0;">
+              Surrounding panels remain fully undisturbed. Swap coordinates or replace damaged tiles in seconds.
+            </p>
+          </div>
+
+          <div class="product-card hover-lift">
+            <span class="eyebrow" style="color: var(--color-service-blue);">Attribute 03</span>
+            <h4>Vibration Dampened Interface</h4>
+            <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin: 4px 0 0;">
+              EPDM elastomeric isolation rings on all nodes eliminate acoustic flanking transmission and panel rattle.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 04: CAVITY ANATOMY & MULTI-TIER RACEWAY ===== -->
+    <section id="cavity-anatomy" class="section" style="background: var(--color-paper-alt);">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 04 · Cavity Engineering</span>
+            <h2 class="section-title"><span class="section-num">02</span> Anatomy of the Continuous Cavity</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-faint);">
+            Zone-Configured Standoff Depth: 50 mm to 220 mm
+          </div>
+        </div>
+
+        <p class="lead reveal" style="max-width: 80ch; margin-bottom: var(--space-lg);">
+          Panels stand clear of the substrate on adjustable standoffs, creating a continuous, ventilated raceway behind the finished elevation. This cavity organizes power, high-speed data, HVAC distribution, and acoustic absorption into isolated rails rather than burying them haphazardly inside studs.
+        </p>
+
+        <!-- Multi-Tier Raceway Interactive Tabs -->
+        <div class="split-layout reveal">
+          <div>
+            <span class="eyebrow" style="margin-bottom: 8px;">Multi-Tier Raceway Segregation Architecture:</span>
+            <div style="display: flex; gap: 6px; margin-bottom: var(--space-md); flex-wrap: wrap;">
+              <button class="raceway-tier-tab active" data-tier="1">Tier 01: Power</button>
+              <button class="raceway-tier-tab" data-tier="2">Tier 02: Data</button>
+              <button class="raceway-tier-tab" data-tier="3">Tier 03: Acoustics</button>
+              <button class="raceway-tier-tab" data-tier="4">Tier 04: Airflow</button>
+            </div>
+
+            <div id="raceway-tier-info" class="cavity-info-card" style="min-height: 160px;">
+              <h4 style="margin: 0 0 6px 0; color: var(--color-service-blue);">TIER 01 · POWER (230V Mains &amp; UPS)</h4>
+              <p style="margin: 0; font-size: 0.92rem; color: var(--color-ink-soft); line-height: 1.55;">
+                Grounded metallic raceway isolating high-voltage lines from data interference with continuous EMI barrier.
+              </p>
+            </div>
+
+            <div class="callout-box" style="margin-top: var(--space-md);">
+              <h4 style="color: var(--color-service-blue); margin-bottom: 4px;">Universal Frame-Free Grid Mounting</h4>
+              <p style="margin: 0; font-size: 0.88rem; line-height: 1.5;">
+                The identical cold-rolled aluminum sub-frame rail mounts acoustic fluted tiles, living bio-cassettes, and illuminated panels interchangeably on the same node geometry.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section SVG Plan Diagram (Page 5) -->
+          <div class="diagram-wrap hover-lift reveal-delay-1" style="border-radius: var(--radius-card);">
+            <svg viewBox="0 0 300 340" role="img" aria-label="Plan section through the service wall showing panel, standoff, cavity with cable rails and substrate">
+              <defs>
+                <pattern id="sub-web-srv" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                  <line x1="0" y1="0" x2="0" y2="6" stroke="#bfc5cc" stroke-width="1"/>
+                </pattern>
+                <marker id="dm-srv" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                  <path d="M0 5L9 2M0 5L9 8" fill="none" stroke="#868d97" stroke-width="1"/>
+                </marker>
+              </defs>
+              <rect x="248" y="20" width="22" height="276" fill="url(#sub-web-srv)" stroke="#bfc5cc" stroke-width=".6"/>
+              <rect x="168" y="20" width="80" height="276" fill="#eef1f4" stroke="#d8dce1" stroke-width=".6"/>
+              <rect x="196" y="70" width="46" height="8" fill="#dfe4e9" stroke="#5a6472" stroke-width=".6"/>
+              <rect x="196" y="160" width="46" height="8" fill="#dfe4e9" stroke="#5a6472" stroke-width=".6"/>
+              <rect x="196" y="250" width="46" height="8" fill="#dfe4e9" stroke="#5a6472" stroke-width=".6"/>
+              <g stroke="#1d5b8f" stroke-width="2.2" fill="none">
+                <path d="M180 60 C 210 60, 214 92, 240 92"/>
+                <path d="M180 68 C 214 68, 218 100, 240 100"/>
+              </g>
+              <g stroke="#a86a1f" stroke-width="2.2" fill="none">
+                <path d="M180 150 C 212 150, 216 182, 240 182"/>
+              </g>
+              <g stroke="#5a6472" stroke-width="2.6" fill="none">
+                <path d="M180 240 C 212 240, 216 272, 240 272"/>
+              </g>
+              <rect x="216" y="112" width="32" height="26" fill="#e4e9ee" stroke="#1d5b8f" stroke-width=".8"/>
+              <rect x="128" y="20" width="40" height="276" fill="#fff" stroke="#12151a" stroke-width=".9"/>
+              <g fill="#f1f3f5" stroke="#12151a" stroke-width=".5">
+                <rect x="128" y="24" width="40" height="42"/><rect x="128" y="72" width="40" height="42"/>
+                <rect x="128" y="120" width="40" height="42"/><rect x="128" y="168" width="40" height="42"/>
+                <rect x="128" y="216" width="40" height="42"/><rect x="128" y="264" width="40" height="28"/>
+              </g>
+              <rect x="120" y="176" width="12" height="26" fill="#fff" stroke="#12151a" stroke-width=".8"/>
+              <line x1="132" y1="189" x2="180" y2="189" stroke="#1d5b8f" stroke-width="1.6" stroke-dasharray="3 3"/>
+              <line x1="168" y1="312" x2="248" y2="312" stroke="#868d97" stroke-width=".8" marker-start="url(#dm-srv)" marker-end="url(#dm-srv)"/>
+              <text x="208" y="328" font-family="IBM Plex Mono, monospace" font-size="9" fill="#464c55" text-anchor="middle">50–220 mm Adjustable Standoff</text>
+              <text x="208" y="42" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#868d97" text-anchor="middle">continuous service cavity</text>
+              <text x="40" y="196" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#12151a">flush outlet in face</text>
+              <text x="40" y="128" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#1d5b8f">demountable tile</text>
+            </svg>
+            <div class="diagram-caption">Plan Section · Standoff &amp; Multi-Tier Raceway Architecture</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 05: TECHNICAL PARAMETERS TABLE (PAGE 6) ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 05 · Technical Parameters</span>
+            <h2 class="section-title"><span class="section-num">03</span> JOMETRY Service Wall Specification</h2>
+          </div>
+          <span class="prod-badge">BIM Revit 2026 Ready</span>
+        </div>
+
+        <div class="reveal">
+          <div class="table-responsive">
+            <table class="spec-table table-theme-card">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Standard Specification</th>
+                  <th>Project Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Module Dimensions</strong></td>
+                  <td>500 × 500 mm precision cassette (30 mm profile)</td>
+                  <td>Custom dimensions up to 1200 × 600 mm</td>
+                </tr>
+                <tr>
+                  <td><strong>Mounting Methodology</strong></td>
+                  <td>Patented WallClick Node (Die-Cast Zinc &amp; SS304)</td>
+                  <td>Marine Grade Plastic / Aluminum</td>
+                </tr>
+                <tr>
+                  <td><strong>Standoff Range</strong></td>
+                  <td>50 mm to 220 mm adjustable depth from substrate</td>
+                  <td>Custom offsets up to 350 mm for deep MEP</td>
+                </tr>
+                <tr>
+                  <td><strong>Raceway Capacity</strong></td>
+                  <td>Dual-rail power/data segregation with EMI barrier</td>
+                  <td>Triple-chamber optical &amp; medical gas trunking</td>
+                </tr>
+                <tr>
+                  <td><strong>Face Typologies</strong></td>
+                  <td>Solid matte, fluted ribbed, slotted acoustic, perforated</td>
+                  <td>Natural wood veneer / Anodised architectural metal</td>
+                </tr>
+                <tr>
+                  <td><strong>Healthcare Variant</strong></td>
+                  <td>Seamless antimicrobial wipeable finish (ISO Class 5)</td>
+                  <td>Hermetically gasketed shadow lines</td>
+                </tr>
+                <tr>
+                  <td><strong>Hardware Integration</strong></td>
+                  <td>Flush switch plates, Cat6A RJ45, USB-C PD, HDMI AV</td>
+                  <td>Factory CNC precision openings</td>
+                </tr>
+                <tr>
+                  <td><strong>Cycle Durability</strong></td>
+                  <td>Rated &gt;500 toolless demount cycles without mechanical play</td>
+                  <td>Lifetime structural platform warranty</td>
+                </tr>
+                <tr>
+                  <td><strong>Fire Classification</strong></td>
+                  <td>Class 1 / Class A flame spread rated (ASTM E84 / EN 13501)</td>
+                  <td>BS 476 Part 6 &amp; 7 Compliant</td>
+                </tr>
+                <tr>
+                  <td><strong>Acoustic Isolation</strong></td>
+                  <td>STC 48–54 with cavity infill and isolation gaskets</td>
+                  <td>Tested to ISO 10140 / ASTM E90</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-ink-faint); border-top: 1px solid var(--color-rule); padding-top: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <div>CSI MASTERFORMAT™: Div 09 22 00 · Div 10 22 19 · Div 27 11 00</div>
+            <div>DWG / BIM Revit 2026 Ready</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer style="background: var(--color-ink-deep); color: #fff; padding: var(--space-lg) 0; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-sm);">
+      <div>JOMETRY · Service Wall Platform</div>
+      <div>MACR MAYR India Pvt Ltd · Mumbai, Maharashtra, India</div>
+      <div>A4 Portrait Edition · 2026</div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

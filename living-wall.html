@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOMETRY Living Bio-Wall &amp; Exterior Living Facades</title>
+  <meta name="description" content="Modular botanical cladding with active root-zone biofiltration, 4-layer internal leak defense, and 2.4 kPa high-rise exterior living rainscreens. MACR MAYR India Pvt Ltd.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  
+  <!-- Anti-FOUC Theme Initializer -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('dwall_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body class="page-transition">
+
+  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <span class="brand-sub">MACR MAYR INDIA · MUMBAI</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="service-wall.html" class="nav-link">Service Wall</a></li>
+          <li><a href="acoustics.html" class="nav-link">Acoustic Control</a></li>
+          <li><a href="living-wall.html" class="nav-link active">Living Bio-Wall</a></li>
+          <li><a href="facade-light.html" class="nav-link">Facade &amp; Light</a></li>
+          <li><a href="specifications.html" class="nav-link">Catalogue &amp; Specs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="theme-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button id="nav-enquire-btn" class="btn-nav-action">Specification Enquiry</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-menu" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <div class="brand-logo">
+          <div class="brand-symbol">J</div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">00. Overview</a></li>
+        <li><a href="service-wall.html" class="mobile-nav-link">01. Service Wall System</a></li>
+        <li><a href="acoustics.html" class="mobile-nav-link">02. Acoustic Control &amp; Studio</a></li>
+        <li><a href="living-wall.html" class="mobile-nav-link active">03. Living Bio-Wall &amp; Facades</a></li>
+        <li><a href="facade-light.html" class="mobile-nav-link">04. Facade &amp; Light</a></li>
+        <li><a href="specifications.html" class="mobile-nav-link">05. Catalogue &amp; CSI Specs</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+          Request Specification Package
+        </button>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+          MACR MAYR India Pvt Ltd · Mumbai<br>
+          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-progress-container">
+      <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== PAGE HERO BANNER ===== -->
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('assets/images/living-active-air-hero.png');"></div>
+      <div class="container page-hero-content">
+        <div class="hero-metric-tag" style="background: rgba(36, 77, 45, 0.25); border-color: rgba(36, 77, 45, 0.5);">
+          <span class="status-beacon moss"></span>Typology 03 · Active Air Biofiltration · 4-Layer Leak Defense
+        </div>
+        <span class="eyebrow" style="color: rgba(255,255,255,0.7);">Section 08 · Active Biofiltration System</span>
+        <h1>The Living Wall You Can Take Apart.<br>Living Plants As An Engineered Service.</h1>
+        <p class="lead">
+          Traditional living walls fail from high-altitude maintenance and difficult root access. JOMETRY replaces tedious on-site gardening with pre-cultivated cassette exchange and active root rhizosphere biofiltration.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+          <a href="#air-purification" class="btn-primary" style="width: auto; padding: 12px 24px; text-decoration: none;">
+            Launch Biofiltration Simulator
+          </a>
+          <a href="#leak-defense" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 12px 24px; text-decoration: none;">
+            4-Layer Leak Defense
+          </a>
+          <a href="#exterior-facade" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 12px 24px; text-decoration: none;">
+            Exterior Facades &amp; Rainscreens
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERFORMANCE PILLARS (PAGE 9) ===== -->
+    <section class="section" style="padding-top: var(--space-lg); padding-bottom: var(--space-lg);">
+      <div class="container">
+        <div class="grid-3 reveal">
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-living-moss);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-living-moss); text-transform: uppercase;">BOTANICAL SELECTION</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">Epipremnum &amp; Philodendron</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Curated low-light, high-transpiration species proven for active indoor air purification.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-living-moss);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-living-moss); text-transform: uppercase;">VOC PURIFICATION</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">Up to 85% Formaldehyde</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Microbial root-zone active filtration metabolizes airborne VOC pollutants into plant nutrients.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-living-moss);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-living-moss); text-transform: uppercase;">SMART IRRIGATION</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">Closed-Loop Sub-Drip</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">IoT moisture sensor telemetry with automated fertigation and 1.2s overflow cutoff.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 08: ACTIVE BIOFILTRATION SIMULATOR ===== -->
+    <section id="air-purification" class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-living-moss);">Active Air Biofiltration · Root Rhizosphere Fluid Dynamics</span>
+            <h2 class="section-title">
+              <span class="section-num" style="color: var(--color-living-moss);">01</span> Active Root-Zone Air Purification
+            </h2>
+          </div>
+          <span class="prod-badge" style="background: var(--color-living-moss);">Active Engineered Service</span>
+        </div>
+
+        <div class="split-layout">
+          <!-- Animated Canvas Particle Visualizer -->
+          <div class="biofilter-container hover-lift reveal" style="border-radius: var(--radius-card); background: var(--color-paper-card); border: 1px solid var(--color-rule); padding: var(--space-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); flex-wrap: wrap; gap: 8px;">
+              <h4 style="color: var(--color-living-moss); margin: 0;">Root Rhizosphere Dynamic Particle Flow</h4>
+              <div class="fan-control-group" style="display: flex; gap: 4px;">
+                <button class="fan-speed-btn" data-speed="off">Off (0 dB)</button>
+                <button class="fan-speed-btn active" data-speed="standard">Whisper (21 dB)</button>
+                <button class="fan-speed-btn" data-speed="boost">Boost (32 dB)</button>
+              </div>
+            </div>
+
+            <!-- Dynamic Fluid Particle Canvas -->
+            <div style="position: relative; width: 100%; height: 240px; background: #0b0d11; border-radius: 2px; overflow: hidden;">
+              <canvas id="biofilter-particle-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+              
+              <!-- Zone Labels Overlay -->
+              <div style="position: absolute; bottom: 8px; left: 12px; right: 12px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: rgba(255,255,255,0.7); pointer-events: none;">
+                <span style="color: #f59e0b;">● Ambient Room Air (VOCs)</span>
+                <span style="color: #4ade80;">● Rhizosphere Microbial Biofilter</span>
+                <span style="color: #38bdf8;">● Purified Oxygen Exhaust</span>
+              </div>
+            </div>
+
+            <div id="bio-metrics-display" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-faint); margin-top: 12px; border-top: 1px solid var(--color-rule); padding-top: 8px;">
+              <span><strong>Air Exchange:</strong> 240 m³/h</span> &nbsp;·&nbsp;
+              <span><strong>Acoustic Emission:</strong> 21 dB (Whisper Silent)</span> &nbsp;·&nbsp;
+              <span><strong>VOC Purification:</strong> Up to 85% Formaldehyde</span>
+            </div>
+          </div>
+
+          <!-- Technical Explanation -->
+          <div class="reveal reveal-delay-1">
+            <p class="lead" style="font-weight: 600; color: var(--color-ink);">
+              Air passes through the living root medium, not simply across outer foliage.
+            </p>
+            <p>
+              In conventional green walls, air only touches the leaf surface. In JOMETRY's active biofiltration configuration, ambient room air is drawn into the negative-pressure cavity directly through the inorganic wicking matrix and root rhizosphere.
+            </p>
+            <p>
+              The beneficial symbiotic microbes residing on plant roots break down hazardous VOC pollutants (formaldehyde, benzene, toluene) and particulate matter, converting them into non-toxic plant nourishment.
+            </p>
+
+            <div class="callout-box moss" style="margin-top: var(--space-md);">
+              <h4 style="color: var(--color-living-moss); margin-bottom: 4px;">Zero Soil · Zero Pathogens</h4>
+              <p style="margin: 0; font-size: 0.88rem; line-height: 1.5;">
+                100% soil-free rigid inorganic wicking substrate. Eliminates soil gnats, mold spores, and bacterial contamination in occupied commercial and healthcare spaces.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 08: 4-LAYER LEAK DEFENSE ARCHITECTURE ===== -->
+    <section id="leak-defense" class="section" style="background: var(--color-paper-alt);">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-living-moss);">Engineering Redundancy · Fail-Safe Waterproofing</span>
+            <h2 class="section-title">
+              <span class="section-num" style="color: var(--color-living-moss);">02</span> 4-Layer Leak Defence Architecture
+            </h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-faint);">
+            Never Touches Building Slab
+          </div>
+        </div>
+
+        <div class="split-layout">
+          <div class="reveal">
+            <p class="lead">
+              Waterproofing is engineered with 4 layers of mechanical and electronic redundancy to protect host building structures:
+            </p>
+
+            <!-- Stepper Buttons -->
+            <div style="display: flex; gap: 6px; margin: var(--space-md) 0 var(--space-sm); flex-wrap: wrap;">
+              <button class="leak-step-btn active">01. Sealed Body</button>
+              <button class="leak-step-btn">02. Cavity Drip Tray</button>
+              <button class="leak-step-btn">03. Smart Sensors</button>
+              <button class="leak-step-btn">04. Base Manifold</button>
+            </div>
+
+            <!-- Dynamic Leak Step Card -->
+            <div id="leak-step-card" class="cavity-info-card" style="min-height: 190px;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-living-moss); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">
+                4-Layer Leak Defense — Layer 01 / 04
+              </div>
+              <h4 style="font-size: 1.2rem; margin-bottom: 8px; color: var(--color-ink);">1. Impermeable Recycled Polymer Cassette Body</h4>
+              <p style="font-size: 0.92rem; line-height: 1.6; color: var(--color-ink-soft); margin-bottom: 14px;">
+                Each 500 × 500 mm cassette is thermoformed from recycled polymer with a 100% watertight rear body. Water is wicked evenly through a rigid inert inorganic medium with zero soil, preventing soil-borne pathogens and mold.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; background: var(--color-living-moss-light); color: var(--color-living-moss); padding: 10px 16px; border-radius: 2px; display: inline-block; font-weight: 600;">
+                🛡️ 100% Watertight Backing · Zero Soil / Zero Pathogens
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+              <img src="assets/images/living-indoor-cladding.png" alt="Modular Living Cassettes" style="width: 100%; height: 320px; object-fit: cover; display: block;" />
+              <div style="padding: var(--space-md);">
+                <span class="prod-badge" style="background: var(--color-living-moss);">Contracted Cassette Exchange</span>
+                <h4 style="margin: 6px 0;">Pre-Cultivated Greenhouse Exchange</h4>
+                <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">
+                  Cassettes are pre-cultivated off-site in controlled greenhouses. Replacement or seasonal refresh takes under 2 minutes per cassette with clean hands.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 09: EXTERIOR LIVING FACADES & HIGH-RISE ENGINEERING (PAGE 10) ===== -->
+    <section id="exterior-facade" class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-living-moss);">Section 09 · High-Rise Building Envelopes</span>
+            <h2 class="section-title"><span class="section-num">03</span> Exterior Living Facades &amp; Engineering</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-faint);">
+            Architectural Scale Rainscreen Cladding
+          </div>
+        </div>
+
+        <p class="lead reveal" style="max-width: 80ch; margin-bottom: var(--space-lg);">
+          Architectural scale rainscreen cladding integrating native flora, thermal dampening, and rainwater buffering. Engineered for high wind load and tropical climate extremes, JOMETRY exterior cassettes mount securely to primary building substructures while maintaining 100% demountability.
+        </p>
+
+        <!-- Exterior Engineering Metrics (Page 10) -->
+        <div class="grid-3 reveal">
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-service-blue);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-service-blue); text-transform: uppercase;">WIND &amp; SEISMIC</div>
+            <div style="font-size: 1.5rem; font-weight: 700; margin: 4px 0;">Tested for 2.4 kPa</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Positive/negative pressure cycles withstand cyclonic gusts and building sway.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-living-moss);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-living-moss); text-transform: uppercase;">MICROCLIMATE COOLING</div>
+            <div style="font-size: 1.5rem; font-weight: 700; margin: 4px 0;">-14°C Surface Temp</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Evapotranspiration slashes building HVAC cooling loads and urban heat island effect.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-acoustic-clay);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-acoustic-clay); text-transform: uppercase;">STORMWATER BUFFERING</div>
+            <div style="font-size: 1.5rem; font-weight: 700; margin: 4px 0;">45 L/m² Water Retention</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Buffers monsoon downpours and integrates with building greywater systems.</p>
+          </div>
+        </div>
+
+        <!-- Technical Specification Matrix (Page 10 Table) -->
+        <div class="reveal" style="margin-top: var(--space-xl);">
+          <h3 style="margin-bottom: var(--space-md);">Exterior Living Facade Parameters</h3>
+          <div class="table-responsive">
+            <table class="spec-table table-theme-card">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Design Value</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Substrate Medium</strong></td>
+                  <td>Rigid inert inorganic wicking matrix</td>
+                  <td><span class="status-badge production">CERTIFIED</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Wind Load Resistance</strong></td>
+                  <td>Tested to 2.4 kPa positive/negative</td>
+                  <td><span class="status-badge production">VERIFIED</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Irrigation Control</strong></td>
+                  <td>Concealed closed-loop automated drip</td>
+                  <td><span class="status-badge production">STANDARD</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Thermal Attenuation</strong></td>
+                  <td>Reduces facade temp by up to 14°C</td>
+                  <td><span class="status-badge production">FIELD TESTED</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Fire Performance</strong></td>
+                  <td>Non-combustible sub-frame (ASTM E84)</td>
+                  <td><span class="status-badge production">COMPLIANT</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Project Reference Photos -->
+        <div class="grid-2 reveal" style="margin-top: var(--space-xl);">
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 240px; overflow: hidden; position: relative;">
+              <img src="assets/images/living-exterior-facade.png" alt="Commercial High-Rise Exterior" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Commercial High-Rise Exterior</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <h4 style="margin: 0 0 4px;">Architectural Living Facade</h4>
+              <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Engineered for cyclonic wind loads and tropical climate extremes.</p>
+            </div>
+          </div>
+
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 240px; overflow: hidden; position: relative;">
+              <img src="assets/images/Living walls facade green wall.png" alt="Civic Exterior Integration" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Modular Cassette Rainscreen</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <h4 style="margin: 0 0 4px;">Civic &amp; Commercial Exterior Integration</h4>
+              <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Large-scale rainwater retention and urban heat mitigation.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer style="background: var(--color-ink-deep); color: #fff; padding: var(--space-lg) 0; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-sm);">
+      <div>JOMETRY · Living Bio-Wall &amp; Exterior Facades</div>
+      <div>MACR MAYR India Pvt Ltd · Mumbai, Maharashtra, India</div>
+      <div>A4 Portrait Edition · 2026</div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

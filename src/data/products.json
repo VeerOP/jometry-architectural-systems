@@ -1,0 +1,263 @@
+{
+  "platform": {
+    "name": "JOMETRY Modular Wall Architectural Systems",
+    "shortName": "JOMETRY",
+    "mountingPlatform": "WallClick Node DEMOUNTABLE PLATFORM",
+    "edition": "A4 Portrait Edition · 2026",
+    "tagline": "The Wall Surface construction technology that Adapts evolving Needs",
+    "manufacturer": "MACR MAYR India Pvt Ltd",
+    "location": "Mumbai, Maharashtra, India",
+    "email": "project@jometry.in",
+    "phone": "+91 (022) 6700-DWALL",
+    "description": "Demountable precision dry wall cladding platform, engineered for tool-less access for the life of the building. Adapting utilisation of wall surface for acoustic control, air bio-filtration, exterior rainscreens, illuminated elevations and MEP service raceways.",
+    "standardModule": "500 × 500 mm precision cassette (30 mm profile)",
+    "customDimensions": "Custom dimensions up to 1200 × 600 mm",
+    "mountingMethodology": "Patented WallClick Node (Architectural Die-Cast Zinc & SS304)",
+    "standoffRange": "50 mm to 220 mm adjustable depth from substrate (Custom offsets up to 350 mm for deep MEP)",
+    "pullOffForce": "180 N Calibrated Pull-Off",
+    "alignmentTolerance": "±0.25 mm True Position (Conical indexing pins)",
+    "vibrationDampening": "EPDM elastomeric isolation rings on all nodes",
+    "cycleDurability": "Rated >500 toolless demount cycles without mechanical play",
+    "fireClassification": "Class 1 / Class A flame spread rated (ASTM E84 / EN 13501, BS 476 Part 6 & 7 compliant)",
+    "acousticIsolation": "STC 48–54 with cavity infill and isolation gaskets (ISO 10140 / ASTM E90)",
+    "csiReferences": [
+      "Div 09 22 00 (Supports for Plaster/Gypsum)",
+      "Div 10 22 19 (Demountable Partitions)",
+      "Div 27 11 00 (Communications Equipment Rooms)"
+    ],
+    "bimStatus": "DWG / BIM Revit 2026 Ready"
+  },
+  "typologies": [
+    {
+      "id": "service-wall",
+      "num": "01",
+      "name": "Service Wall",
+      "tagline": "Concealed raceways for power, data, and medical gas lines with toolless unclip",
+      "status": "Production",
+      "speed": "<3 min cavity access speed",
+      "wetTrades": "0 wet trades needed",
+      "image": "assets/images/architectural-feature-wall.png",
+      "description": "A precision modular dry wall cladding system where every cable, conduit, and connection behind the surface stays reachable for the life of the building. Add, move, or maintain services in minutes without cutting, plastering, or repainting.",
+      "keyBenefits": [
+        "Access in three moves: Press & Disengage, Lift Straight Off, Snap & Self-Index",
+        "Multi-Tier Raceway: Tier 1 Power (230V & UPS), Tier 2 Data (Cat6A / Fiber), Tier 3 Acoustics (45 kg/m³ infill), Tier 4 Airflow (Negative Pressure)",
+        "100% Toolless: No suction lifters, allen keys, or pry bars needed",
+        "Isolated Removal: Surrounding panels remain fully undisturbed",
+        "Integrated Face Outlets: Flush switch plates, Cat6A RJ45, USB-C PD, HDMI AV",
+        "High-Hygiene Healthcare Variant: Non-porous solid antimicrobial face (ISO Class 5) with hermetically gasketed shadow lines"
+      ],
+      "variants": [
+        {
+          "id": "service-commercial",
+          "name": "Primary Commercial Service Wall",
+          "type": "Demountable Commercial MEP Partition",
+          "description": "Designed for high-frequency infrastructure reconfiguration in corporate HQs, tech campuses, broadcast control rooms, and server corridors.",
+          "faceOption": "Solid matte, fluted ribbed, slotted acoustic, or perforated",
+          "outlets": "Flush switch plates, Cat6A RJ45, USB-C PD, HDMI AV",
+          "image": "assets/images/architectural-feature-wall.png",
+          "status": "Production"
+        },
+        {
+          "id": "service-healthcare",
+          "name": "High-Hygiene Healthcare Wall",
+          "type": "Cleanroom & Clinical Wall",
+          "description": "Non-porous solid antimicrobial face with sealed shadow-gap gaskets for operating suites, diagnostic labs, and sterile pharmaceutical environments (ISO Class 5).",
+          "faceOption": "Seamless antimicrobial wipeable finish",
+          "outlets": "Hermetically gasketed medical gas and power ports",
+          "image": "assets/images/acoustic-hygiene.png",
+          "status": "Production"
+        }
+      ]
+    },
+    {
+      "id": "acoustic-control",
+      "num": "02",
+      "name": "Acoustic Control",
+      "tagline": "Adjustable cavity depth tunes Helmholtz absorption (NRC 0.80–0.95) to room geometry",
+      "status": "Production",
+      "nrc": "0.80 to 0.95 NRC",
+      "sti": "STI > 0.75 Excellent",
+      "image": "assets/images/acoustic-hero.png",
+      "description": "Most acoustic panels are a material problem. Ours is a geometry problem. A slotted face over an air cavity acts as a Helmholtz resonant absorber. The depth of that cavity determines which frequencies are absorbed — deeper cavity, lower bass resonance.",
+      "octaveData": [
+        {
+          "standoff": "50 mm Shallow Standoff",
+          "focus": "High frequency / Circulation",
+          "c125": 0.18, "c250": 0.38, "c500": 0.72, "c1000": 0.94, "c2000": 0.92, "c4000": 0.86,
+          "nrc": 0.80
+        },
+        {
+          "standoff": "100 mm Medium Standoff",
+          "focus": "Speech band / Boardrooms",
+          "c125": 0.35, "c250": 0.72, "c500": 0.95, "c1000": 0.96, "c2000": 0.90, "c4000": 0.88,
+          "nrc": 0.90
+        },
+        {
+          "standoff": "180 mm Deep Bass Cavity",
+          "focus": "Low bass tuning / Studios & AV",
+          "c125": 0.62, "c250": 0.92, "c500": 0.98, "c1000": 0.94, "c2000": 0.88, "c4000": 0.85,
+          "nrc": 0.95
+        }
+      ],
+      "roomTypologies": [
+        { "roomType": "AV / Screening Room", "band": "Low-to-Mid Broadband", "depth": "120–180 mm" },
+        { "roomType": "Boardroom / Video Conf", "band": "Speech Intelligibility", "depth": "75–100 mm" },
+        { "roomType": "Corridor / Open Office", "band": "Reverberation Control", "depth": "50–75 mm" }
+      ],
+      "variants": [
+        {
+          "id": "acoustic-slotted",
+          "name": "Precision Slotted Fluted Tile",
+          "type": "Helmholtz Resonant Absorber",
+          "description": "500 × 500 mm six-rib fluted face with precision laser-cut slot array (18% open area). Rotatable in 90° increments.",
+          "faceOption": "Matte architectural lacquer, natural veneer, or anodised metal",
+          "image": "assets/images/acoustic-hero.png",
+          "status": "Production"
+        },
+        {
+          "id": "acoustic-terracotta",
+          "name": "Terracotta AV Screening Tile",
+          "type": "Cinema & AV Suite Tile",
+          "description": "Warm architectural terracotta finish tuned with 140–180 mm standoff for targeted low-frequency modal damping.",
+          "faceOption": "Terracotta finish with 6-rib laser slotted flutes",
+          "image": "assets/images/acoustic-red.png",
+          "status": "Production"
+        }
+      ]
+    },
+    {
+      "id": "living-bio-wall",
+      "num": "03",
+      "name": "Living Bio-Wall",
+      "tagline": "Modular cassette exchange with active root-zone biofiltration, zero on-site gardening",
+      "status": "Advanced System",
+      "vocReduction": "Up to 85% Formaldehyde breakdown",
+      "cooling": "-14°C Surface Temp Microclimate",
+      "stormwater": "45 L/m² Water Retention",
+      "windLoad": "Tested to 2.4 kPa positive/negative",
+      "image": "assets/images/living-active-air-hero.png",
+      "description": "Modular botanical cladding where living plants become an engineered building service. Replaces tedious high-altitude maintenance with pre-cultivated cassette exchange. Ambient room air is drawn through the living root zone into the negative-pressure cavity, cleansing VOCs and particulates.",
+      "leakDefense": [
+        "1. Impermeable recycled polymer cassette body",
+        "2. Cavity drip tray and internal collection channel",
+        "3. Automated smart moisture sensors with shut-off",
+        "4. Dedicated drainage manifold — never touches building slab"
+      ],
+      "botanicals": "Epipremnum aureum, Philodendron cordatum (curated low-light, high-transpiration air-purifying species)",
+      "irrigation": "Closed-Loop Sub-Drip with IoT moisture sensor telemetry and automated fertigation",
+      "variants": [
+        {
+          "id": "living-indoor",
+          "name": "Indoor Active Bio-Wall Cassette",
+          "type": "Root-Zone Air Purifier",
+          "description": "Pre-cultivated indoor cassettes with active root-zone biofiltration cleansing up to 85% formaldehyde and airborne VOCs.",
+          "image": "assets/images/living-indoor-cladding.png",
+          "status": "Production"
+        },
+        {
+          "id": "living-facade",
+          "name": "Exterior Living Rainscreen Facade",
+          "type": "High-Rise Building Envelope",
+          "description": "Architectural scale exterior living facade engineered for 2.4 kPa wind load, -14°C thermal attenuation, and 45 L/m² stormwater retention.",
+          "image": "assets/images/living-exterior-facade.png",
+          "status": "Commissioned"
+        }
+      ]
+    },
+    {
+      "id": "facade-light",
+      "num": "04",
+      "name": "Facade & Light",
+      "tagline": "Concealed LED backlighting and exterior rainscreens sharing identical node geometry",
+      "status": "Production",
+      "cri": "High CRI > 90 museum-grade concealed LED",
+      "cct": "2700K / 3000K / Tunable White",
+      "dimming": "DALI-2 / 0–10V Flicker-Free down to 0.1%",
+      "lifespan": "50,000h L80 rating with integrated heat sink",
+      "image": "assets/images/illuminated-facade-01.png",
+      "description": "Dual-function architectural elevation sharing the universal JOMETRY mounting platform. Reads as a solid precision-fluted architectural elevation by day; radiates fine glowing linear accents at night.",
+      "variants": [
+        {
+          "id": "illuminated-backlit",
+          "name": "Concealed LED Backlit Elevation",
+          "type": "Architectural Feature Wall",
+          "description": "Warm 2700K/3000K museum-grade LED channels embedded within aluminum heat sinks behind laser-cut acoustic slots.",
+          "image": "assets/images/illuminated-facade-01.png",
+          "status": "Production"
+        },
+        {
+          "id": "illuminated-night-glow",
+          "name": "Linear Night Glow Facade",
+          "type": "Ambient Lighting Cladding",
+          "description": "Linear architectural glow system dimmable via DALI-2 protocols down to 0.1% depth for hospitality and exterior entrances.",
+          "image": "assets/images/illuminated-facade-02.png",
+          "status": "Production"
+        }
+      ]
+    }
+  ],
+  "projectReferences": [
+    {
+      "id": "ref-01",
+      "client": "Saket World",
+      "location": "Mumbai",
+      "typology": "Commercial AV Screening Suite Acoustic Wall (180mm Cavity)",
+      "status": "Delivered & Handed Over",
+      "image": "assets/images/acoustic-red.png",
+      "details": "Full-height terracotta 6-rib acoustic wall with 180 mm deep cavity Helmholtz absorption, basket-weave 90° orientation, eliminating standing waves."
+    },
+    {
+      "id": "ref-02",
+      "client": "Oyster Housing",
+      "location": "Mumbai",
+      "typology": "Corporate Headquarters Active Air Bio-Wall Cladding (120 m²)",
+      "status": "Delivered & Handed Over",
+      "image": "assets/images/living-indoor-cladding.png",
+      "details": "120 m² indoor active biofiltration living wall drawing corporate atrium air through root rhizospheres with 4-layer leak defense."
+    },
+    {
+      "id": "ref-03",
+      "client": "Oyster Housing",
+      "location": "Mumbai",
+      "typology": "High-Rise Exterior Living Wall Rainscreen Facade (450 m²)",
+      "status": "Commissioned",
+      "image": "assets/images/living-exterior-facade.png",
+      "details": "450 m² exterior rainscreen facade tested to 2.4 kPa cyclonic wind load, delivering 14°C surface thermal reduction and 45 L/m² stormwater buffering."
+    },
+    {
+      "id": "ref-04",
+      "client": "Bombay Presidency Club",
+      "location": "Mumbai",
+      "typology": "Backlit Illuminated Architectural Feature Elevation (2700K LED)",
+      "status": "Delivered & Handed Over",
+      "image": "assets/images/illuminated-facade-01.png",
+      "details": "Concealed 2700K museum-grade LED illumination integrated behind laser-cut acoustic slots with DALI-2 flicker-free architectural dimming."
+    }
+  ],
+  "operationalComparison": {
+    "title": "The same job, two ways: Adding a data outlet or repairing an internal line in an existing wall elevation",
+    "conventional": {
+      "name": "Conventional Drywall Partition",
+      "steps": [
+        "1. Isolate area & erect plastic dust containment tent",
+        "2. Cut open board with power drywall saw",
+        "3. Pull new cabling / chase electrical fault",
+        "4. Patch backing board, tape joints, skim wet plaster",
+        "5. Wait 24–48 hours curing and drying time",
+        "6. Sand smooth — generating fine airborne silica dust",
+        "7. Repaint entire wall elevation for color match",
+        "8. Clean down and reinstate occupied space"
+      ],
+      "metrics": "3 to 5 Days Disruption · Room Out of Service · Heavy Dust & Fumes"
+    },
+    "jometry": {
+      "name": "WallClick Node Demountable Platform",
+      "steps": [
+        "1. Tool-less unclip of targeted Panel Surface",
+        "2. Route new cabling through segregated raceway / Change of Function",
+        "3. Clip cassette firmly back onto concealed node"
+      ],
+      "metrics": "Under 3 Minutes · Zero Dust · Zero Trades · Zero Downtime"
+    }
+  }
+}

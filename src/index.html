@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOMETRY — Modular Wall Architectural Systems | Mumbai</title>
+  <meta name="description" content="Demountable precision dry wall cladding platform engineered for tool-less access for the life of the building. Manufactured by MACR MAYR India Pvt Ltd, Mumbai.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  
+  <!-- Anti-FOUC Theme Initializer -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('dwall_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body class="page-transition">
+
+  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <span class="brand-sub">MACR MAYR INDIA · MUMBAI</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Overview</a></li>
+          <li><a href="service-wall.html" class="nav-link">Service Wall</a></li>
+          <li><a href="acoustics.html" class="nav-link">Acoustic Control</a></li>
+          <li><a href="living-wall.html" class="nav-link">Living Bio-Wall</a></li>
+          <li><a href="facade-light.html" class="nav-link">Facade &amp; Light</a></li>
+          <li><a href="specifications.html" class="nav-link">Catalogue &amp; Specs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="theme-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button id="nav-enquire-btn" class="btn-nav-action">Specification Enquiry</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-menu" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <div class="brand-logo">
+          <div class="brand-symbol">J</div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link active">00. Overview</a></li>
+        <li><a href="service-wall.html" class="mobile-nav-link">01. Service Wall System</a></li>
+        <li><a href="acoustics.html" class="mobile-nav-link">02. Acoustic Control &amp; Studio</a></li>
+        <li><a href="living-wall.html" class="mobile-nav-link">03. Living Bio-Wall &amp; Facades</a></li>
+        <li><a href="facade-light.html" class="mobile-nav-link">04. Facade &amp; Light</a></li>
+        <li><a href="specifications.html" class="mobile-nav-link">05. Catalogue &amp; CSI Specs</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+          Request Specification Package
+        </button>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+          MACR MAYR India Pvt Ltd · Mumbai<br>
+          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+      <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== CINEMATIC HERO (4-TYPOLOGY SWITCHER) ===== -->
+    <section id="cover" class="hero-wrapper">
+      <div class="hero-bg-layer active" style="background-image: linear-gradient(180deg, rgba(6,7,9,0.6) 0%, rgba(6,7,9,0.96) 100%), url('assets/images/architectural-feature-wall.png');"></div>
+      <div class="hero-bg-layer" style="background-image: linear-gradient(180deg, rgba(6,7,9,0.6) 0%, rgba(6,7,9,0.96) 100%), url('assets/images/acoustic-hero.png');"></div>
+      <div class="hero-bg-layer" style="background-image: linear-gradient(180deg, rgba(6,7,9,0.6) 0%, rgba(6,7,9,0.96) 100%), url('assets/images/living-active-air-hero.png');"></div>
+      <div class="hero-bg-layer" style="background-image: linear-gradient(180deg, rgba(6,7,9,0.6) 0%, rgba(6,7,9,0.96) 100%), url('assets/images/illuminated-facade-01.png');"></div>
+
+      <div class="container hero-content">
+        <!-- 4-Typology Switcher Tabs (Page 2) -->
+        <div class="hero-pillar-tabs" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: var(--space-md);">
+          <button class="hero-pillar-tab active" data-pillar="service">01. Service Wall</button>
+          <button class="hero-pillar-tab" data-pillar="acoustic">02. Acoustic Control</button>
+          <button class="hero-pillar-tab" data-pillar="living">03. Living Bio-Wall</button>
+          <button class="hero-pillar-tab" data-pillar="facade-light">04. Facade &amp; Light</button>
+        </div>
+
+        <div class="hero-metric-tag" id="hero-metric-badge">
+          ⚡ Access in &lt;3 Min · 0 Wet Trades · Patented WallClick Node
+        </div>
+
+        <span class="eyebrow" id="hero-subhead" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">
+          J MODULAR WALL ARCHITECTURAL SYSTEMS · 2026 EDITION
+        </span>
+        
+        <h1 id="hero-headline" style="color: #fff; margin: var(--space-xs) 0 var(--space-md); max-width: 24ch; transition: opacity 0.2s ease;">
+          The Wall Surface construction technology that Adapts evolving Needs
+        </h1>
+
+        <p class="lead" id="hero-lead" style="color: rgba(255,255,255,0.88); max-width: 70ch; margin-bottom: var(--space-xl); line-height: 1.65;">
+          Demountable precision Dry wall cladding platform, Engineered for Tool-less access for the life of the building. Adapting utilisation of wall surface for Acoustic control, Air Bio-filtration, Exterior Rainscreens, illuminated elevations &amp; more.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center;">
+          <a href="service-wall.html" id="hero-cta-btn" class="btn-primary btn-hero-primary" style="width: auto; padding: 14px 28px; text-decoration: none;">
+            Explore Service Wall System
+          </a>
+          <a href="specifications.html" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 14px 24px; text-decoration: none;">
+            Browse Specifications &amp; BIM
+          </a>
+        </div>
+      </div>
+
+      <!-- Footprint Band -->
+      <div class="container hero-content" style="margin-top: var(--space-xl);">
+        <div style="border-top: 1px solid rgba(255,255,255,0.18); padding-top: var(--space-md); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); font-family: var(--font-mono); font-size: 0.78rem; color: rgba(255,255,255,0.65); text-transform: uppercase;">
+          <div><span class="status-beacon"></span>MACR MAYR INDIA PVT LTD · MUMBAI</div>
+          <div>500 × 500 mm Module Baseline · Patented WallClick Node</div>
+          <div>Continuous Cavity Standoff: 50–220 mm</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS TICKER BAND (PAGE 2 METRICS) ===== -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-band" style="margin: 0; border: none; padding: 0;">
+          <div class="stat-item">
+            <b>0</b>
+            <span>Wet Trades Needed</span>
+          </div>
+          <div class="stat-item">
+            <b>&lt;3 min</b>
+            <span>Cavity Access Speed</span>
+          </div>
+          <div class="stat-item">
+            <b>180 N</b>
+            <span>Calibrated Pull-Off Force</span>
+          </div>
+          <div class="stat-item">
+            <b>±0.25 mm</b>
+            <span>True Position Alignment</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 01: PLATFORM PHILOSOPHY ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 01 · Brand &amp; System Introduction</span>
+            <h2 class="section-title"><span class="section-num">01</span> Platform Philosophy: Buildings change. Walls don't.</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-service-blue);">
+            The Modular Platform Principle
+          </div>
+        </div>
+
+        <div class="split-layout">
+          <div class="reveal">
+            <p class="lead" style="font-weight: 600; color: var(--color-ink);">
+              A drywall partition is a one-way decision. Everything placed behind it is permanently sealed in.
+            </p>
+            <p>
+              Add a workstation, move a server rack, pull a new data run, chase an electrical fault, or upgrade IT cabling and the conventional wall must be cut open, contained, rebuilt, skimmed, sanded, and repainted. Dust, noise, fumes, drying time, and rooms out of service for days.
+            </p>
+            <p>
+              In an occupied corporate headquarters or hospital, that costs time twice: once in the works order, and again in the lost operational hours the space cannot be used.
+            </p>
+            <div class="callout-box" style="margin-top: var(--space-md);">
+              <h4 style="color: var(--color-service-blue); margin-bottom: 6px;">The Modular Platform Principle</h4>
+              <p style="margin: 0; font-size: 0.92rem; line-height: 1.55;">
+                <strong>JOMETRY</strong> unites aesthetic surface cladding with accessible MEP infrastructure. Patented toolless nodes and continuous raceway cavities allow any tile to be removed and re-clipped in under 3 minutes without tools.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <div class="product-card hover-lift" style="padding: 0; overflow: hidden; border-radius: var(--radius-card);">
+              <div style="height: 340px; position: relative; overflow: hidden;">
+                <img src="assets/images/architectural-feature-wall.png" alt="JOMETRY Platform Installation" style="width: 100%; height: 100%; object-fit: cover;" />
+                <span class="prod-badge">Platform Installation · Mumbai</span>
+              </div>
+              <div style="padding: var(--space-md); background: var(--color-paper-card);">
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-service-blue); text-transform: uppercase;">
+                  Precision Demountable Engineering
+                </div>
+                <h4 style="margin: 4px 0 6px;">One Universal Platform Sub-Frame</h4>
+                <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">
+                  Mounts service walls, acoustic fluted tiles, living bio-cassettes, and illuminated panels interchangeably on the same structural node coordinates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOUR ARCHITECTURAL TYPOLOGIES · ONE UNIVERSAL PLATFORM ===== -->
+    <section class="section" style="background: var(--color-paper-alt);">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Integrated Architecture · Single Sub-Frame</span>
+            <h2 class="section-title"><span class="section-num">02</span> Four Architectural Typologies · One Universal Platform</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-service-blue);">
+            Shared 500 × 500 mm Node Geometry
+          </div>
+        </div>
+
+        <div class="grid-4 reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-md);">
+          
+          <!-- Typology 01: Service Wall -->
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-service-blue); padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden; position: relative;">
+              <img src="assets/images/architectural-feature-wall.png" alt="Service Wall" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Production · Mumbai</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-service-blue);">01. Service Wall</span>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 8px;">Concealed MEP Raceways</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: var(--space-md);">
+                Concealed raceways for power, data, and medical gas lines with toolless unclip in under 3 minutes.
+              </p>
+              <a href="service-wall.html" class="btn-secondary" style="display: block; text-align: center; text-decoration: none; font-weight: 600; color: var(--color-service-blue); border-color: var(--color-service-blue); font-size: 0.8rem; padding: 10px;">
+                Explore Service Wall &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Typology 02: Acoustic Control -->
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-acoustic-clay); padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden; position: relative;">
+              <img src="assets/images/acoustic-hero.png" alt="Acoustic Control" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Production · Mumbai</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-acoustic-clay);">02. Acoustic Control</span>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 8px;">Helmholtz Absorption</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: var(--space-md);">
+                Adjustable cavity depth tunes Helmholtz absorption (NRC 0.80–0.95) precisely to room geometry.
+              </p>
+              <a href="acoustics.html" class="btn-secondary" style="display: block; text-align: center; text-decoration: none; font-weight: 600; color: var(--color-acoustic-clay); border-color: var(--color-acoustic-clay); font-size: 0.8rem; padding: 10px;">
+                Launch Tile Studio &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Typology 03: Living Bio-Wall -->
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-living-moss); padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden; position: relative;">
+              <img src="assets/images/living-active-air-hero.png" alt="Living Bio-Wall" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge" style="background: var(--color-living-moss);">Advanced System</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-living-moss);">03. Living Bio-Wall</span>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 8px;">Active Biofiltration</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: var(--space-md);">
+                Modular cassette exchange with active root-zone biofiltration, zero on-site gardening &amp; 4-layer leak defense.
+              </p>
+              <a href="living-wall.html" class="btn-secondary" style="display: block; text-align: center; text-decoration: none; font-weight: 600; color: var(--color-living-moss); border-color: var(--color-living-moss); font-size: 0.8rem; padding: 10px;">
+                Explore Living Wall &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Typology 04: Facade & Light -->
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-backlit-amber); padding: 0; overflow: hidden;">
+            <div style="height: 180px; overflow: hidden; position: relative;">
+              <img src="assets/images/illuminated-facade-01.png" alt="Facade & Light" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Production · Mumbai</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-backlit-amber);">04. Facade &amp; Light</span>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 8px;">Concealed LED Backlighting</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: var(--space-md);">
+                Concealed LED backlighting (2700K/3000K, DALI-2) and exterior rainscreens sharing identical node geometry.
+              </p>
+              <a href="facade-light.html" class="btn-secondary" style="display: block; text-align: center; text-decoration: none; font-weight: 600; color: var(--color-backlit-amber); border-color: var(--color-backlit-amber); font-size: 0.8rem; padding: 10px;">
+                Explore Facade &amp; Light &rarr;
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 02: OPERATIONAL ASSESSMENT (PAGE 3) ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 02 · Engineering Comparison</span>
+            <h2 class="section-title"><span class="section-num">03</span> The same job, two ways</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-faint);">
+            Adding a data outlet or repairing an internal line in an existing wall elevation
+          </div>
+        </div>
+
+        <!-- Comparison Boxes -->
+        <div class="comparison-box hover-lift reveal" style="margin-bottom: var(--space-xl);">
+          <div class="comparison-col old">
+            <span class="eyebrow" style="color: var(--color-status-development);">Traditional Wet Method</span>
+            <h4>Conventional Drywall Partition</h4>
+            <ol class="comparison-list">
+              <li data-step="1">Isolate area &amp; erect plastic dust containment tent</li>
+              <li data-step="2">Cut open board with power drywall saw</li>
+              <li data-step="3">Pull new cabling / chase electrical fault</li>
+              <li data-step="4">Patch backing board, tape joints, skim wet plaster</li>
+              <li data-step="5">Wait 24–48 hours curing and drying time</li>
+              <li data-step="6">Sand smooth — generating fine airborne silica dust</li>
+              <li data-step="7">Repaint entire wall elevation for color match</li>
+              <li data-step="8">Clean down and reinstate occupied space</li>
+            </ol>
+            <div class="comparison-tally" style="color: var(--color-status-development);">
+              ⏱ 3 to 5 Days Disruption · Room Out of Service · Heavy Dust &amp; Fumes
+            </div>
+          </div>
+
+          <div class="comparison-col new" style="background: var(--color-service-blue-light);">
+            <span class="eyebrow" style="color: var(--color-service-blue);">JOMETRY Mechanical Method</span>
+            <h4>WallClick Node Demountable Platform</h4>
+            <ol class="comparison-list">
+              <li data-step="1">Tool-less unclip of targeted Panel Surface</li>
+              <li data-step="2">Route new cabling through segregated raceway / Change of Function</li>
+              <li data-step="3">Clip cassette firmly back onto concealed node</li>
+            </ol>
+            <div class="comparison-tally" style="color: var(--color-service-blue);">
+              ⏱ Under 3 Minutes · Zero Dust · Zero Trades · Zero Downtime
+            </div>
+          </div>
+        </div>
+
+        <!-- Lifecycle Value Assessment (Page 3) -->
+        <div class="grid-3 reveal">
+          <div class="product-card hover-lift">
+            <span class="eyebrow" style="color: var(--color-service-blue);">Value Pillar 01</span>
+            <h3>Schedule Agility</h3>
+            <p style="font-size: 0.9rem; color: var(--color-ink-soft); line-height: 1.55; margin: 8px 0 0;">
+              Facilities managers execute alterations immediately during regular working hours without contractor lead time or night permits.
+            </p>
+          </div>
+
+          <div class="product-card hover-lift">
+            <span class="eyebrow" style="color: var(--color-living-moss);">Value Pillar 02</span>
+            <h3>Clean Environment Safety</h3>
+            <p style="font-size: 0.9rem; color: var(--color-ink-soft); line-height: 1.55; margin: 8px 0 0;">
+              No airborne gypsum or silica dust. Fully compliant for sterile healthcare suites, operating theatres, diagnostic labs, and ISO cleanrooms.
+            </p>
+          </div>
+
+          <div class="product-card hover-lift">
+            <span class="eyebrow" style="color: var(--color-acoustic-clay);">Value Pillar 03</span>
+            <h3>Capex Amortization</h3>
+            <p style="font-size: 0.9rem; color: var(--color-ink-soft); line-height: 1.55; margin: 8px 0 0;">
+              Eliminates recurring wall demolition, skim plastering, and repainting costs over a 15+ year facility lifecycle. Panels remain 100% reusable.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 03 & 04: PLATFORM MECHANICS PREVIEW ===== -->
+    <section class="section" style="background: var(--color-paper-alt);">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 03 · Platform Mechanics</span>
+            <h2 class="section-title"><span class="section-num">04</span> Access in Three Moves</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-service-blue);">
+            Repeatable toolless engagement that leaves zero trace of maintenance works
+          </div>
+        </div>
+
+        <div class="sequence-grid reveal">
+          <div class="sequence-card hover-lift">
+            <div class="sequence-media">
+              <span class="sequence-ref">STEP 01 — RELEASE</span>
+              <h4 style="margin: 6px 0 4px;">Press &amp; Disengage</h4>
+              <span class="sequence-desc">Technician applies calibrated inward pressure (180 N) to release the concealed spring clips without face tools.</span>
+            </div>
+            <div class="sequence-caption">01 — Press &amp; Disengage (180 N)</div>
+          </div>
+
+          <div class="sequence-card hover-lift">
+            <div class="sequence-media">
+              <span class="sequence-ref">STEP 02 — OPEN</span>
+              <h4 style="margin: 6px 0 4px;">Lift Straight Off</h4>
+              <span class="sequence-desc">Panel lifts off parallel to the elevation, exposing the full cavity width with segregated raceways (50–220 mm).</span>
+            </div>
+            <div class="sequence-caption">02 — Lift Straight Off</div>
+          </div>
+
+          <div class="sequence-card hover-lift">
+            <div class="sequence-media">
+              <span class="sequence-ref">STEP 03 — CLOSE</span>
+              <h4 style="margin: 6px 0 4px;">Snap &amp; Self-Index</h4>
+              <span class="sequence-desc">Panel snaps flush into the grid. Sub-millimeter alignment is retained by conical indexing nodes (±0.25 mm true position).</span>
+            </div>
+            <div class="sequence-caption">03 — Snap &amp; Self-Index (±0.25 mm)</div>
+          </div>
+        </div>
+
+        <!-- Key Mechanical Attributes Grid (Page 4) -->
+        <div class="grid-3 reveal" style="margin-top: var(--space-xl);">
+          <div class="metric-card hover-lift" style="background: var(--color-paper-card); padding: var(--space-md); border: 1px solid var(--color-rule);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-service-blue); text-transform: uppercase;">NODE RETENTION</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">180 N Calibrated Pull-Off</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Prevents accidental dislodgement while allowing deliberate one-handed release.</p>
+          </div>
+
+          <div class="metric-card hover-lift" style="background: var(--color-paper-card); padding: var(--space-md); border: 1px solid var(--color-rule);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-service-blue); text-transform: uppercase;">MATERIAL COMPOSITION</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">Architectural Die-Cast Zinc &amp; SS304</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Corrosion-proof alloy designed for internal humidity and marine coastal air.</p>
+          </div>
+
+          <div class="metric-card hover-lift" style="background: var(--color-paper-card); padding: var(--space-md); border: 1px solid var(--color-rule);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-service-blue); text-transform: uppercase;">ALIGNMENT TOLERANCE</div>
+            <div style="font-size: 1.4rem; font-weight: 700; margin: 4px 0;">±0.25 mm True Position</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Conical indexing pins lock shadow-gaps into razor-sharp collinear lines.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 10: DELIVERED PROJECTS IN MUMBAI (PAGE 11) ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 10 · Project References &amp; Consultation</span>
+            <h2 class="section-title"><span class="section-num">05</span> Delivered Commercial Projects</h2>
+          </div>
+          <a href="specifications.html#projects" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink); text-decoration: none; font-weight: 600;">
+            View All References &amp; Consultation &rarr;
+          </a>
+        </div>
+
+        <div class="grid-2 reveal">
+          <!-- Project 01: Saket World -->
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 250px; overflow: hidden; position: relative;">
+              <img src="assets/images/acoustic-red.png" alt="Saket World Mumbai" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Delivered &amp; Handed Over</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-acoustic-clay);">Saket World · Mumbai</span>
+              <h3 style="font-size: 1.3rem; margin: 4px 0 6px;">Commercial AV Screening Suite Acoustic Wall</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
+                180 mm Cavity Standoff Helmholtz absorption with terracotta fluted acoustic tiles, eliminating room modal resonances and flutter echoes.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-ink-faint);">
+                Status: Delivered &amp; Handed Over · Mumbai
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 02: Bombay Presidency Club -->
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 250px; overflow: hidden; position: relative;">
+              <img src="assets/images/illuminated-facade-01.png" alt="Bombay Presidency Club Mumbai" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Delivered &amp; Handed Over</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-backlit-amber);">Bombay Presidency Club · Mumbai</span>
+              <h3 style="font-size: 1.3rem; margin: 4px 0 6px;">Backlit Illuminated Feature Elevation</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
+                Concealed 2700K museum-grade LED channels embedded behind laser-cut acoustic slots with DALI-2 architectural dimming down to 0.1%.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-ink-faint);">
+                Status: Delivered &amp; Handed Over · Mumbai
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SPECIFICATION & ARCHITECTURAL CONSULTATION (PAGE 11) ===== -->
+    <section class="section" style="border-bottom: none; background: var(--color-ink-deep); color: #fff;">
+      <div class="container">
+        <div class="split-layout">
+          <div class="reveal">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.65);">MACR MAYR INDIA PVT LTD · MUMBAI</span>
+            <h2 style="color: #fff; margin-bottom: var(--space-sm);">Specification &amp; Architectural Technical Consultation</h2>
+            <p style="color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-md);">
+              DWG CAD details, Revit BIM 2026 families, acoustic chamber test reports, and custom standoff sizing calculations are available on request for architects and MEP consultants.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: rgba(255,255,255,0.7);">
+              Direct Mumbai Specification Desk: <span style="color: #38bdf8;">project@jometry.in</span> · +91 (022) 6700-DWALL
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1 spec-package-card">
+            <h3 style="margin-bottom: 8px;">Request Architectural Package</h3>
+            <p style="font-size: 0.88rem; color: var(--color-ink-soft); margin-bottom: var(--space-md);">
+              Submit your project parameters to receive technical CAD drawings, BIM models, and physical finish samples:
+            </p>
+            <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Platform Specification Package" style="font-size: 0.85rem; padding: 14px;">
+              Launch Specification Request Form
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer style="background: var(--color-ink-deep); color: #fff; padding: var(--space-lg) 0; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-sm);">
+      <div>JOMETRY · Modular Wall Architectural Systems</div>
+      <div>MACR MAYR India Pvt Ltd · Mumbai, Maharashtra, India</div>
+      <div>A4 Portrait Edition · 2026</div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOMETRY Acoustic Control &amp; Interactive Tile Studio</title>
+  <meta name="description" content="Helmholtz cavity tuning, interactive 500x500mm tile layout studio, live Web Audio chamber simulation, and certified lab octave test data. MACR MAYR India Pvt Ltd.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  
+  <!-- Anti-FOUC Theme Initializer -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('dwall_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body class="page-transition">
+
+  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <span class="brand-sub">MACR MAYR INDIA · MUMBAI</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="service-wall.html" class="nav-link">Service Wall</a></li>
+          <li><a href="acoustics.html" class="nav-link active">Acoustic Control</a></li>
+          <li><a href="living-wall.html" class="nav-link">Living Bio-Wall</a></li>
+          <li><a href="facade-light.html" class="nav-link">Facade &amp; Light</a></li>
+          <li><a href="specifications.html" class="nav-link">Catalogue &amp; Specs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="theme-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button id="nav-enquire-btn" class="btn-nav-action">Specification Enquiry</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-menu" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <div class="brand-logo">
+          <div class="brand-symbol">J</div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">00. Overview</a></li>
+        <li><a href="service-wall.html" class="mobile-nav-link">01. Service Wall System</a></li>
+        <li><a href="acoustics.html" class="mobile-nav-link active">02. Acoustic Control &amp; Studio</a></li>
+        <li><a href="living-wall.html" class="mobile-nav-link">03. Living Bio-Wall &amp; Facades</a></li>
+        <li><a href="facade-light.html" class="mobile-nav-link">04. Facade &amp; Light</a></li>
+        <li><a href="specifications.html" class="mobile-nav-link">05. Catalogue &amp; CSI Specs</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+          Request Specification Package
+        </button>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+          MACR MAYR India Pvt Ltd · Mumbai<br>
+          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+      <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== PAGE HERO BANNER ===== -->
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('assets/images/acoustic-hero.png');"></div>
+      <div class="container page-hero-content">
+        <div class="hero-metric-tag" style="background: rgba(184, 83, 51, 0.25); border-color: rgba(184, 83, 51, 0.5);">
+          <span class="status-beacon amber"></span>Typology 02 · Helmholtz Cavity Tuning · NRC 0.80 to 0.95
+        </div>
+        <span class="eyebrow" style="color: rgba(255,255,255,0.7);">Section 06 · Helmholtz Resonant Cavity Tuning</span>
+        <h1>The Cavity Is The Absorber.<br>Acoustic Physics Tuned To Geometry.</h1>
+        <p class="lead">
+          Most acoustic panels are a material problem. Ours is a geometry problem. A slotted face over an air cavity acts as a Helmholtz resonant absorber. The depth of that cavity determines which frequencies are absorbed — deeper cavity, lower bass resonance.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+          <a href="#tile-studio-section" class="btn-primary" style="width: auto; padding: 12px 24px; text-decoration: none;">
+            500 × 500 mm Tile Layout Studio
+          </a>
+          <a href="#acoustic-simulator-section" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 12px 24px; text-decoration: none;">
+            Live Web Audio Simulator
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERFORMANCE PILLARS (PAGE 7) ===== -->
+    <section class="section" style="padding-top: var(--space-lg); padding-bottom: var(--space-lg);">
+      <div class="container">
+        <div class="grid-3 reveal">
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-acoustic-clay);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-acoustic-clay); text-transform: uppercase;">ABSORPTION (NRC)</div>
+            <div style="font-size: 1.6rem; font-weight: 700; margin: 4px 0;">0.80 to 0.95 NRC</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Certified laboratory sound absorption tested in ISO 354 reverberation chamber.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-acoustic-clay);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-acoustic-clay); text-transform: uppercase;">SPEECH CLARITY</div>
+            <div style="font-size: 1.6rem; font-weight: 700; margin: 4px 0;">STI &gt; 0.75 Excellent</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Eliminates flutter echoes and standing waves in teleconference environments.</p>
+          </div>
+
+          <div class="product-card hover-lift" style="border-top: 4px solid var(--color-acoustic-clay);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-acoustic-clay); text-transform: uppercase;">FIRE &amp; SMOKE SAFETY</div>
+            <div style="font-size: 1.6rem; font-weight: 700; margin: 4px 0;">Class A / Class 1</div>
+            <p style="font-size: 0.85rem; color: var(--color-ink-soft); margin: 0;">Non-combustible core and low-smoke emission tested to ASTM E84 / BS 476.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 06: INTERACTIVE 500X500 TILE STUDIO & LIGHTING ===== -->
+    <section id="tile-studio-section" class="section" style="background: var(--color-ink-deep); color: #fff;">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-backlit-amber);">Interactive Design Tool · Architectural Grid Composer</span>
+            <h2 class="section-title" style="color: #fff; border-color: rgba(255,255,255,0.25);">
+              <span class="section-num" style="color: var(--color-backlit-amber);">01</span> 500 × 500 mm Tile Layout Studio
+            </h2>
+          </div>
+          <button id="backlit-toggle" class="btn-toggle-backlit">
+            💡 Toggle Backlit LED Night Mode
+          </button>
+        </div>
+
+        <p class="lead" style="color: rgba(255,255,255,0.88); max-width: 78ch; margin-bottom: var(--space-lg);">
+          The JOMETRY acoustic cassette features six broad ribs with precision laser-cut resonant slot arrays (18% open area). Tiles rotate in 90° increments to compose directional, basket-weave, gradient, or randomized elevations. <strong>Click any tile below to rotate it 90° interactively.</strong>
+        </p>
+
+        <!-- Studio Control Bar -->
+        <div class="studio-controls-bar reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md);">
+          <div>
+            <span class="eyebrow" style="color: rgba(255,255,255,0.6); margin-bottom: 6px;">1. Composition Presets</span>
+            <div class="preset-btn-group" style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <button class="preset-btn active" data-preset="basket-weave">Basket-Weave (90°)</button>
+              <button class="preset-btn" data-preset="directional">Directional (Fluted)</button>
+              <button class="preset-btn" data-preset="gradient">Gradient Perforation</button>
+              <button class="preset-btn" data-preset="solid-hygiene">Solid Hygiene</button>
+              <button class="preset-btn" data-preset="randomized" id="btn-randomize-grid">Randomize ⚄</button>
+            </div>
+          </div>
+
+          <div>
+            <span class="eyebrow" style="color: rgba(255,255,255,0.6); margin-bottom: 6px;">2. Architectural Finishes</span>
+            <div class="finish-btn-group" style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <button class="finish-swatch-btn active" data-finish="charcoal">Charcoal Matte</button>
+              <button class="finish-swatch-btn" data-finish="terracotta">Terracotta AV</button>
+              <button class="finish-swatch-btn" data-finish="bronze">Champagne Bronze</button>
+              <button class="finish-swatch-btn" data-finish="oak">Natural Oak</button>
+              <button class="finish-swatch-btn" data-finish="hygiene">ISO-5 Cleanroom</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DALI-2 Lighting & Dimmer Controls (Night Mode) -->
+        <div class="studio-controls-bar reveal" style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); border-top: 1px solid rgba(255,255,255,0.12); padding-top: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.6); margin: 0;">CCT Protocol:</span>
+            <div style="display: flex; gap: 6px;">
+              <button class="cct-select-btn active" data-cct="2700K">2700K Warm</button>
+              <button class="cct-select-btn" data-cct="3000K">3000K Neutral</button>
+              <button class="cct-select-btn" data-cct="4000K">Tunable White</button>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; flex: 1; min-width: 240px; max-width: 420px;">
+            <label class="eyebrow" style="color: rgba(255,255,255,0.6); margin: 0; white-space: nowrap;">DALI-2 Dimmer:</label>
+            <input type="range" id="studio-dimmer-slider" min="5" max="100" value="85" class="custom-range-slider" style="flex: 1;" />
+            <span id="studio-dimmer-value" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-backlit-amber); min-width: 40px;">85%</span>
+          </div>
+        </div>
+
+        <!-- Interactive 4x3 Grid Canvas (2000 × 1500 mm) -->
+        <div class="studio-container reveal reveal-delay-1" style="margin-top: var(--space-md);">
+          <div id="studio-grid" class="studio-grid-wrap">
+            <!-- 12 Tiles injected dynamically by tile-studio.js -->
+          </div>
+
+          <!-- Studio Status Footnote -->
+          <div id="studio-status-text" style="font-family: var(--font-mono); font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.15); padding-top: var(--space-sm); text-transform: uppercase;">
+            Grid: 12 Panels (4 × 3 Modules · 2000 × 1500 mm) · Click any tile to rotate 90°
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 07: RESONANT CAVITY & LIVE WEB AUDIO SIMULATOR ===== -->
+    <section id="acoustic-simulator-section" class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-acoustic-clay);">Section 07 · Reverberation Curve &amp; Data</span>
+            <h2 class="section-title">
+              <span class="section-num" style="color: var(--color-acoustic-clay);">02</span> Resonant Cavity Helmholtz Simulator
+            </h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-acoustic-clay);">
+            Certified Octave Band Sound Absorption (ISO 354)
+          </div>
+        </div>
+
+        <div class="split-layout">
+          <!-- Slider & Presets -->
+          <div class="reveal">
+            <p class="lead">
+              With JOMETRY's adjustable standoff, the same tile targets different parts of the spectrum simply by adjusting cavity depth (50–220 mm). The wall is tuned specifically to the room rather than forcing the room to accept generic foam.
+            </p>
+
+            <div class="slider-container" style="margin-top: var(--space-md);">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <label class="form-label" style="font-weight: 600;">Cavity Standoff Depth:</label>
+                <span id="cavity-depth-value" style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--color-acoustic-clay);">100 mm</span>
+              </div>
+
+              <input type="range" id="cavity-depth-slider" min="50" max="220" value="100" step="5" class="custom-range-slider" />
+              
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-ink-faint); text-transform: uppercase;">
+                <span>50 mm (Shallow)</span>
+                <span>100 mm (Medium)</span>
+                <span>180 mm (Deep Bass)</span>
+                <span>220 mm (Extended)</span>
+              </div>
+
+              <!-- Room Presets (Page 7 Table) -->
+              <div style="margin-top: var(--space-md); border-top: 1px solid var(--color-rule); padding-top: var(--space-sm);">
+                <span class="eyebrow" style="margin-bottom: 6px;">Room Typology Priority Presets:</span>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  <button class="acoustic-preset-btn" data-depth="180">AV / Screening Suite (180mm)</button>
+                  <button class="acoustic-preset-btn active" data-depth="100">Boardroom / Video Conf (100mm)</button>
+                  <button class="acoustic-preset-btn" data-depth="60">Corridor / Open Office (60mm)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Acoustic Ratings -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-sm); margin-top: var(--space-md);">
+              <div class="acoustic-metric-card">
+                <span class="eyebrow" style="margin-bottom: 2px;">Resonant Center</span>
+                <div id="acoustic-peak-hz" class="acoustic-metric-val">500 Hz</div>
+                <span style="font-size: 0.72rem; color: var(--color-ink-faint); font-family: var(--font-mono);">Peak Absorption</span>
+              </div>
+              <div class="acoustic-metric-card">
+                <span class="eyebrow" style="margin-bottom: 2px;">Noise Reduction</span>
+                <div id="acoustic-nrc-rating" class="acoustic-metric-val">NRC 0.90</div>
+                <span style="font-size: 0.72rem; color: var(--color-ink-faint); font-family: var(--font-mono);">Certified ISO 354</span>
+              </div>
+              <div class="acoustic-metric-card">
+                <span class="eyebrow" style="margin-bottom: 2px;">Speech Clarity</span>
+                <div id="acoustic-sti-rating" class="acoustic-metric-val" style="font-size: 1.15rem;">STI &gt; 0.85</div>
+                <span style="font-size: 0.72rem; color: var(--color-ink-faint); font-family: var(--font-mono);">Teleconference</span>
+              </div>
+            </div>
+
+            <p id="acoustic-zone-desc" style="margin-top: var(--space-sm); font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; background: var(--color-paper-alt); padding: 10px 14px; border-radius: 2px;">
+              <strong>Priority Target:</strong> Boardroom / Video Conference (75–100 mm)<br>
+              Optimized speech intelligibility band (500 Hz – 2 kHz) eliminating room flutter echoes.
+            </p>
+
+            <!-- Live Web Audio Simulation Controls -->
+            <div style="margin-top: var(--space-md); border-top: 1px solid var(--color-rule); padding-top: var(--space-sm);">
+              <span class="eyebrow" style="color: var(--color-acoustic-clay); margin-bottom: 6px;">Live Web Audio Chamber Simulator:</span>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <select id="acoustic-sample-select" class="form-select" style="flex: 1; min-width: 160px; padding: 10px; font-size: 0.82rem;">
+                  <option value="clap">Acoustic Clap / Transient Impulse</option>
+                  <option value="speech">Speech Teleconference Tone</option>
+                  <option value="bare">Bare Reflective Drywall (Uncontrolled)</option>
+                </select>
+                <button id="btn-play-acoustic-audio" class="btn-primary" style="padding: 10px 18px; font-size: 0.82rem; background: var(--color-acoustic-clay); border-color: var(--color-acoustic-clay);">
+                  ▶ Listen to Room Acoustic Simulation
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic SVG Absorption Curve (Page 8) -->
+          <div class="diagram-wrap hover-lift reveal reveal-delay-1" style="border-radius: var(--radius-card);">
+            <svg viewBox="0 0 640 270" role="img" aria-label="Dynamic absorption curve graph by standoff depth">
+              <!-- Grid Lines & Frequencies -->
+              <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#8d8a80">
+                <line x1="60" y1="200" x2="600" y2="200" stroke="#16150f" stroke-width="1.2"/>
+                <line x1="60" y1="30" x2="60" y2="200" stroke="#16150f" stroke-width="1.2"/>
+                
+                <!-- Y Axis Labels -->
+                <text x="50" y="204" text-anchor="end">0.0</text>
+                <text x="50" y="160" text-anchor="end">0.25</text>
+                <text x="50" y="120" text-anchor="end">0.50</text>
+                <text x="50" y="80" text-anchor="end">0.75</text>
+                <text x="50" y="40" text-anchor="end">1.0 α</text>
+                
+                <line x1="60" y1="160" x2="600" y2="160" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="60" y1="120" x2="600" y2="120" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="60" y1="80" x2="600" y2="80" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="60" y1="40" x2="600" y2="40" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3 3"/>
+
+                <!-- X Axis Frequencies -->
+                <text x="80" y="222" text-anchor="middle">125 Hz</text>
+                <text x="180" y="222" text-anchor="middle">250 Hz</text>
+                <text x="280" y="222" text-anchor="middle">500 Hz</text>
+                <text x="380" y="222" text-anchor="middle">1000 Hz</text>
+                <text x="480" y="222" text-anchor="middle">2000 Hz</text>
+                <text x="580" y="222" text-anchor="middle">4000 Hz</text>
+                <text x="330" y="248" text-anchor="middle" fill="#4c4a41" font-weight="600">Octave Band Frequency (Hz) →</text>
+              </g>
+
+              <!-- Dynamic Interactive Spline Path -->
+              <path id="curve-deep" d="M 80,180 C 130,120 180,80 280,60 C 380,80 480,140 580,160" fill="none" stroke="var(--color-acoustic-clay)" stroke-width="3.5"/>
+
+              <!-- Dots on active frequency values -->
+              <g id="curve-dots-group"></g>
+            </svg>
+            <div class="diagram-caption">Dynamic Absorption Spectrum (αp) vs. Standoff Depth — Real-time Acoustic Simulation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MEASURED OCTAVE BAND TEST DATA TABLE (PAGE 8) ===== -->
+    <section class="section" style="background: var(--color-paper-alt);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Laboratory Test Reports · Certified Chamber Data</span>
+          <h2>Measured Octave Band Sound Absorption Coefficients (αp)</h2>
+        </div>
+
+        <div class="reveal">
+          <div class="table-responsive">
+            <table class="spec-table table-theme-card">
+              <thead>
+                <tr>
+                  <th>Standoff Depth</th>
+                  <th>125 Hz</th>
+                  <th>250 Hz</th>
+                  <th>500 Hz</th>
+                  <th>1000 Hz</th>
+                  <th>2000 Hz</th>
+                  <th>4000 Hz</th>
+                  <th>NRC Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>50 mm Shallow Standoff</strong> (High Frequency)</td>
+                  <td>0.18</td>
+                  <td>0.38</td>
+                  <td>0.72</td>
+                  <td>0.94</td>
+                  <td>0.92</td>
+                  <td>0.86</td>
+                  <td><strong>0.80</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>100 mm Medium Standoff</strong> (Speech Band)</td>
+                  <td>0.35</td>
+                  <td>0.72</td>
+                  <td>0.95</td>
+                  <td>0.96</td>
+                  <td>0.90</td>
+                  <td>0.88</td>
+                  <td><strong>0.90</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>180 mm Deep Bass Cavity</strong> (Low Bass Tuning)</td>
+                  <td>0.62</td>
+                  <td>0.92</td>
+                  <td>0.98</td>
+                  <td>0.94</td>
+                  <td>0.88</td>
+                  <td>0.85</td>
+                  <td><strong>0.95</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint);">
+            * Certified laboratory sound absorption tested in ISO 354 reverberation chamber. ASTM C423 / ISO 10140 compliant.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer style="background: var(--color-ink-deep); color: #fff; padding: var(--space-lg) 0; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-sm);">
+      <div>JOMETRY · Acoustic Control Platform</div>
+      <div>MACR MAYR India Pvt Ltd · Mumbai, Maharashtra, India</div>
+      <div>A4 Portrait Edition · 2026</div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

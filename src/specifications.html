@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOMETRY Product Catalogue &amp; CSI 3-Part Specification Builder</title>
+  <meta name="description" content="Explore JOMETRY product variants, slide-out technical data drawers, generate CSI 3-part tender specifications, and view Mumbai project references. MACR MAYR India Pvt Ltd.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  
+  <!-- Anti-FOUC Theme Initializer -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('dwall_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body class="page-transition">
+
+  <!-- ===== GLOBAL ARCHITECTURAL NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <span class="brand-sub">MACR MAYR INDIA · MUMBAI</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Overview</a></li>
+          <li><a href="service-wall.html" class="nav-link">Service Wall</a></li>
+          <li><a href="acoustics.html" class="nav-link">Acoustic Control</a></li>
+          <li><a href="living-wall.html" class="nav-link">Living Bio-Wall</a></li>
+          <li><a href="facade-light.html" class="nav-link">Facade &amp; Light</a></li>
+          <li><a href="specifications.html" class="nav-link active">Catalogue &amp; Specs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn-theme-toggle" aria-label="Toggle Theme" title="Switch Theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" class="theme-icon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button id="nav-enquire-btn" class="btn-nav-action">Specification Enquiry</button>
+        <button id="mobile-menu-toggle" class="btn-mobile-menu" aria-label="Toggle Navigation Menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Overlay Menu -->
+    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <div class="brand-logo">
+          <div class="brand-symbol">J</div>
+          <div class="brand-title">JOMETRY</div>
+        </div>
+        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">00. Overview</a></li>
+        <li><a href="service-wall.html" class="mobile-nav-link">01. Service Wall System</a></li>
+        <li><a href="acoustics.html" class="mobile-nav-link">02. Acoustic Control &amp; Studio</a></li>
+        <li><a href="living-wall.html" class="mobile-nav-link">03. Living Bio-Wall &amp; Facades</a></li>
+        <li><a href="facade-light.html" class="mobile-nav-link">04. Facade &amp; Light</a></li>
+        <li><a href="specifications.html" class="mobile-nav-link active">05. Catalogue &amp; CSI Specs</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+          Request Specification Package
+        </button>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+          MACR MAYR India Pvt Ltd · Mumbai<br>
+          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-progress-container">
+      <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== PAGE HERO BANNER ===== -->
+    <section class="page-hero">
+      <div class="page-hero-bg" style="background-image: url('assets/images/architectural-feature-wall.png');"></div>
+      <div class="container page-hero-content">
+        <div class="hero-metric-tag" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.3);">
+          <span class="status-beacon"></span>Specifier Portal · CSI Division 09 / 10 / 12 / 27 · Mumbai
+        </div>
+        <span class="eyebrow" style="color: rgba(255,255,255,0.7);">Section 05, 10 &amp; 11 · System Specifications &amp; Consultation</span>
+        <h1>Product Catalogue &amp; CSI Specification Builder</h1>
+        <p class="lead">
+          Filter through platform variants across all 4 architectural typologies, view slide-out technical data drawers, generate tender-ready CSI 3-part specifications, and review delivered Mumbai project references.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+          <a href="#spec-builder-section" class="btn-primary" style="width: auto; padding: 12px 24px; text-decoration: none;">
+            Configure CSI Specification
+          </a>
+          <a href="#variants" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 12px 24px; text-decoration: none;">
+            Browse Variant Catalogue
+          </a>
+          <a href="#projects" class="btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3); padding: 12px 24px; text-decoration: none;">
+            Delivered Mumbai Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 05 & CSI SPECIFICATION BUILDER ===== -->
+    <section id="spec-builder-section" class="section" style="background: var(--color-paper-alt);">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow" style="color: var(--color-service-blue);">Interactive Tender Tool · CSI 3-Part MasterFormat</span>
+            <h2 class="section-title"><span class="section-num">01</span> CSI Specification Builder</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-service-blue);">
+            Div 09 22 00 · Div 10 22 19 · Div 27 11 00
+          </div>
+        </div>
+
+        <div class="split-layout">
+          <!-- Interactive Configuration Controls -->
+          <div class="reveal">
+            <div class="cavity-info-card">
+              <h3 style="margin-bottom: var(--space-md);">Configure Project Specification</h3>
+              
+              <div class="form-group">
+                <label class="form-label">1. Product Family &amp; Typology</label>
+                <select id="spec-family-select" class="form-select">
+                  <option value="service" selected>01. JOMETRY Service Wall (Demountable MEP)</option>
+                  <option value="acoustic">02. JOMETRY Acoustic Control (Helmholtz Resonant)</option>
+                  <option value="living">03. JOMETRY Living Bio-Wall (Active Botanical)</option>
+                  <option value="facade-light">04. JOMETRY Facade &amp; Light (Concealed LED)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">2. Standoff Cavity Depth (Continuous Service Raceway)</label>
+                <select id="spec-depth-select" class="form-select">
+                  <option value="50">50 mm (Shallow / High-frequency &amp; Cable runs)</option>
+                  <option value="75">75 mm (Medium / Speech band &amp; standard conduit)</option>
+                  <option value="100" selected>100 mm (Optimal / Boardroom &amp; MEP trunking)</option>
+                  <option value="140">140 mm (Deep / Cinema &amp; Screening room)</option>
+                  <option value="180">180 mm (Maximum / Studio Bass Trap &amp; Large MEP)</option>
+                  <option value="220">220 mm (Extended Cavity / Complex Multi-Trade)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">3. Tile Face Typology &amp; Finish</label>
+                <select id="spec-finish-select" class="form-select">
+                  <option value="charcoal-slotted" selected>Architectural Charcoal Matte (Laser Slotted)</option>
+                  <option value="terracotta-slotted">Terracotta AV Acoustic (Laser Slotted)</option>
+                  <option value="bronze-perforated">Anodised Champagne-Bronze (Micro-perforated)</option>
+                  <option value="oak-slotted">Warm Natural Oak Woodgrain (Laser Slotted)</option>
+                  <option value="hygiene-solid">Solid Smooth Wipeable (ISO Class 5 Healthcare)</option>
+                  <option value="living-cassette">Established Foliage Biofilter Cassette</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">4. Integrated Provisions &amp; Options</label>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.82rem; margin-top: 6px;">
+                  <label><input type="checkbox" class="spec-option-cb" value="LED" checked /> Backlit Concealed LED</label>
+                  <label><input type="checkbox" class="spec-option-cb" value="PWR" checked /> Flush 230V Face Sockets</label>
+                  <label><input type="checkbox" class="spec-option-cb" value="DATA" checked /> Cat6A / Fiber Outlets</label>
+                  <label><input type="checkbox" class="spec-option-cb" value="DALI2" /> DALI-2 Dimming Driver</label>
+                  <label><input type="checkbox" class="spec-option-cb" value="LEAK" /> IoT Moisture Telemetry</label>
+                  <label><input type="checkbox" class="spec-option-cb" value="GAS" /> Medical Gas Outlets</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generated CSI Specification Output -->
+          <div class="reveal reveal-delay-1">
+            <h3 style="margin-bottom: 8px;">Generated Model Code &amp; CSI 3-Part Clause</h3>
+            <p style="font-size: 0.88rem; margin-bottom: 12px; color: var(--color-ink-soft);">
+              Ready to paste directly into architectural tender specifications and BIM schedules:
+            </p>
+
+            <div class="spec-code-box" id="spec-generated-code">
+              JOM-SRVC-500-ST100-CHARCOAL_SLOTTED-LED-PWR-DATA
+            </div>
+
+            <pre class="csi-spec-box" id="spec-generated-csi" style="font-family: var(--font-mono); font-size: 0.78rem; max-height: 280px; overflow-y: auto; background: var(--color-paper-card); border: 1px solid var(--color-rule); padding: 16px; line-height: 1.55;">
+SECTION 10 22 19 (Demountable Partitions)
+PART 2 — PRODUCTS:
+2.01 MODULAR WALL SYSTEM: JOMETRY Architectural Platform
+  A. Manufacturer: MACR MAYR India Pvt Ltd (Mumbai, India).
+  B. Product Model: JOM-SRVC-500-ST100-CHARCOAL_SLOTTED-LED-PWR-DATA
+  C. Baseline Grid: 500 mm × 500 mm precision cassettes.
+  D. Mounting: Patented WallClick Node (Die-Cast Zinc &amp; SS304).
+  E. Alignment: ±0.25 mm True Position (Conical indexing pins).
+  F. Standoff Cavity Depth: 100 mm continuous service raceway.
+  G. Demountability: 100% toolless 3-move access, >500 removal cycles.
+            </pre>
+
+            <div style="display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap;">
+              <button id="spec-copy-btn" class="btn-secondary" style="flex: 1; padding: 12px; font-size: 0.82rem;">
+                📋 Copy CSI Specification
+              </button>
+              <button id="spec-download-btn" class="btn-secondary" style="flex: 1; padding: 12px; font-size: 0.82rem;">
+                💾 Download Spec Sheet (.TXT)
+              </button>
+              <button id="spec-request-sample-btn" class="btn-primary" style="flex: 100%; padding: 12px; font-size: 0.82rem;">
+                📦 Request Samples, CAD &amp; Revit BIM 2026 Files
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 05: PLATFORM VARIANT CATALOGUE ===== -->
+    <section id="variants" class="section">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Comprehensive Platform Range · 4 Typologies</span>
+            <h2 class="section-title"><span class="section-num">02</span> Platform Variant Catalogue</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-faint);">
+            Click "Quick Spec" for slide-out technical data drawers
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar reveal">
+          <button class="filter-btn active" data-filter="all">All Variants</button>
+          <button class="filter-btn" data-filter="service-wall">01. Service Wall</button>
+          <button class="filter-btn" data-filter="acoustic-control">02. Acoustic Control</button>
+          <button class="filter-btn" data-filter="living-bio-wall">03. Living Bio-Wall</button>
+          <button class="filter-btn" data-filter="facade-light">04. Facade &amp; Light</button>
+          <button class="filter-btn" data-filter="production">Production Ready (Mumbai)</button>
+        </div>
+
+        <!-- Dynamic Variants Grid -->
+        <div id="variants-grid" class="grid-3 reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md);">
+          <!-- Filtered variants injected dynamically by filters.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 10: DELIVERED MUMBAI PROJECTS SHOWCASE ===== -->
+    <section id="projects" class="section" style="background: var(--color-paper-alt);">
+      <div class="container">
+        <div class="section-header split-header reveal">
+          <div class="section-title-wrap">
+            <span class="eyebrow">Section 10 · Delivered Projects &amp; References</span>
+            <h2 class="section-title"><span class="section-num">03</span> Completed Installations in Mumbai</h2>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-service-blue);">
+            Manufactured &amp; Delivered by MACR MAYR India Pvt Ltd
+          </div>
+        </div>
+
+        <div class="grid-2 reveal">
+          <!-- Project 01: SAKET WORLD -->
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 260px; overflow: hidden; position: relative;">
+              <img src="assets/images/acoustic-red.png" alt="Saket World AV Screening Suite" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Delivered &amp; Handed Over</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-acoustic-clay);">SAKET WORLD · MUMBAI</span>
+              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">Commercial AV Screening Suite Acoustic Wall</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
+                180 mm Cavity Standoff Helmholtz absorption with terracotta fluted acoustic tiles, eliminating room modal resonances, flutter echoes, and standing waves.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> Acoustic Control (180mm Cavity) · Status: Delivered &amp; Handed Over
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 02: OYSTER HOUSING HQ -->
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 260px; overflow: hidden; position: relative;">
+              <img src="assets/images/living-indoor-cladding.png" alt="Oyster Housing Active Air Bio-Wall" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Delivered &amp; Handed Over</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-living-moss);">OYSTER HOUSING · MUMBAI</span>
+              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">Corporate Headquarters Active Air Bio-Wall (120 m²)</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
+                120 m² indoor active biofiltration living wall drawing corporate atrium air through root rhizospheres with 4-layer leak defense and zero on-site gardening.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> Living Bio-Wall (120 m²) · Status: Delivered &amp; Handed Over
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 03: OYSTER HOUSING HIGH-RISE -->
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 260px; overflow: hidden; position: relative;">
+              <img src="assets/images/living-exterior-facade.png" alt="Oyster Housing High-Rise Living Facade" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="status-badge testing" style="position: absolute; top: 12px; right: 12px;">COMMISSIONED</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-living-moss);">OYSTER HOUSING · MUMBAI</span>
+              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">High-Rise Exterior Living Wall Rainscreen (450 m²)</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
+                450 m² architectural scale exterior living facade engineered for 2.4 kPa cyclonic wind load, -14°C microclimate thermal attenuation, and 45 L/m² stormwater buffering.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> High-Rise Exterior Living Facade · Status: Commissioned
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 04: BOMBAY PRESIDENCY CLUB -->
+          <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
+            <div style="height: 260px; overflow: hidden; position: relative;">
+              <img src="assets/images/illuminated-facade-01.png" alt="Bombay Presidency Club Feature Wall" style="width:100%; height:100%; object-fit: cover;" />
+              <span class="prod-badge">Delivered &amp; Handed Over</span>
+            </div>
+            <div style="padding: var(--space-md);">
+              <span class="eyebrow" style="color: var(--color-backlit-amber);">BOMBAY PRESIDENCY CLUB · MUMBAI</span>
+              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">Backlit Illuminated Architectural Feature (2700K LED)</h3>
+              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
+                Concealed 2700K museum-grade LED illumination integrated behind laser-cut acoustic slots with DALI-2 flicker-free architectural dimming down to 0.1% depth.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> Facade &amp; Light (2700K LED) · Status: Delivered &amp; Handed Over
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 11: SPECIFICATION & TECHNICAL CONSULTATION ===== -->
+    <section class="section" style="background: var(--color-ink-deep); color: #fff;">
+      <div class="container">
+        <div class="split-layout">
+          <div class="reveal">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.65);">MACR MAYR INDIA PVT LTD · MUMBAI</span>
+            <h2 style="color: #fff; margin-bottom: var(--space-sm);">Specification &amp; Architectural Technical Consultation</h2>
+            <p style="color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-md);">
+              DWG CAD details, Revit BIM 2026 families, acoustic chamber reports, and custom standoff calculations available on request.
+            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6;">
+              <strong>MACR MAYR India Pvt Ltd</strong><br>
+              Mumbai, Maharashtra, India<br>
+              Direct Project Desk: <a href="mailto:project@jometry.in" style="color: #38bdf8; text-decoration: none;">project@jometry.in</a><br>
+              Phone: +91 (022) 6700-DWALL
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1 spec-package-card">
+            <h3 style="margin-bottom: 8px;">Request Architectural Consultation</h3>
+            <p style="font-size: 0.88rem; color: var(--color-ink-soft); margin-bottom: var(--space-md);">
+              Request custom standoff calculations against your building's MEP services and order material sample boxes:
+            </p>
+            <button class="btn-primary btn-enquire-spec" data-variant="Technical Consultation &amp; BIM Package" style="font-size: 0.85rem; padding: 14px;">
+              Dispatch Technical Request
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer style="background: var(--color-ink-deep); color: #fff; padding: var(--space-lg) 0; font-family: var(--font-mono); font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-sm);">
+      <div>JOMETRY · Specifications &amp; Project Catalogue</div>
+      <div>MACR MAYR India Pvt Ltd · Mumbai, Maharashtra, India</div>
+      <div>A4 Portrait Edition · 2026</div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

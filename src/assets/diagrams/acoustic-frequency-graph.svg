@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" role="img" aria-label="Absorption behaviour by standoff depth across the frequency range">
+  <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#8d8a80">
+    <line x1="60" y1="200" x2="580" y2="200" stroke="#16150f" stroke-width="1"/>
+    <line x1="60" y1="26" x2="60" y2="200" stroke="#16150f" stroke-width="1"/>
+    <text x="320" y="234" text-anchor="middle" fill="#4c4a41">frequency →</text>
+    <text x="26" y="113" text-anchor="middle" fill="#4c4a41" transform="rotate(-90 26 113)">absorption →</text>
+    <text x="130" y="216" text-anchor="middle">low</text>
+    <text x="300" y="216" text-anchor="middle">mid / speech</text>
+    <text x="500" y="216" text-anchor="middle">high</text>
+  </g>
+  <path d="M60 192 Q130 54 200 114 T340 158 T560 172" fill="none" stroke="#9a4a2c" stroke-width="2.4"/>
+  <path d="M60 196 Q190 64 300 124 T440 160 T560 170" fill="none" stroke="#8a6a3b" stroke-width="2.4" stroke-dasharray="7 4"/>
+  <path d="M60 199 Q250 78 390 134 T520 164 T560 168" fill="none" stroke="#4c4a41" stroke-width="2.4" stroke-dasharray="2 5"/>
+  <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#4c4a41">
+    <line x1="372" y1="42" x2="396" y2="42" stroke="#9a4a2c" stroke-width="2.4"/><text x="404" y="45">deep standoff — low frequency</text>
+    <line x1="372" y1="60" x2="396" y2="60" stroke="#8a6a3b" stroke-width="2.4" stroke-dasharray="7 4"/><text x="404" y="63">medium — speech band</text>
+    <line x1="372" y1="78" x2="396" y2="78" stroke="#4c4a41" stroke-width="2.4" stroke-dasharray="2 5"/><text x="404" y="81">shallow — high frequency</text>
+  </g>
+</svg>
