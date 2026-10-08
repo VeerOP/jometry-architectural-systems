@@ -1,6 +1,61 @@
 import { chromium } from 'playwright';
+import fs from 'fs';
+import path from 'path';
+import http from 'http';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.join(__dirname, '..');
+const srcDir = path.join(projectRoot, 'src');
+
+function createStaticServer(port = 3050) {
+  const mimeTypes = {
+    '.html': 'text/html',
+    '.css': 'text/css',
+    '.js': 'application/javascript',
+    '.json': 'application/json',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.svg': 'image/svg+xml'
+  };
+
+  const server = http.createServer((req, res) => {
+    let reqPath = req.url.split('?')[0];
+    if (reqPath === '/') reqPath = '/index.html';
+
+    let filePath = path.join(srcDir, reqPath);
+    if (reqPath.startsWith('/assets/')) {
+      filePath = path.join(projectRoot, reqPath);
+    }
+
+    if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Not Found');
+      return;
+    }
+
+    const ext = path.extname(filePath);
+    const contentType = mimeTypes[ext] || 'application/octet-stream';
+    res.writeHead(200, { 'Content-Type': contentType });
+    fs.createReadStream(filePath).pipe(res);
+  });
+
+  return new Promise((resolve, reject) => {
+    server.listen(port, () => {
+      resolve(server);
+    }).on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        resolve(null);
+      } else {
+        reject(err);
+      }
+    });
+  });
+}
 
 (async () => {
+  const server = await createStaticServer(3050);
   const browser = await chromium.launch();
   const pages = [
     'http://localhost:3050/index.html',
@@ -101,6 +156,9 @@ import { chromium } from 'playwright';
   }
 
   await browser.close();
+  if (server) {
+    server.close();
+  }
   if (hasErrors) {
     console.log('\n❌ Tests finished with issues.');
     process.exit(1);

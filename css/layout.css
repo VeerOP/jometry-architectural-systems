@@ -13,6 +13,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -24,47 +25,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   width: 100%;
+  min-height: 100vh;
   padding-top: var(--header-height);
 }
 
-/* Base Typography */
+/* Base Typography - Fluid & Responsive */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-ink);
   word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(2.0rem, 5vw, 3.8rem);
-  line-height: 1.06;
+  font-size: clamp(1.85rem, 5.5vw, 3.8rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(1.6rem, 3.6vw, 2.5rem);
-  line-height: 1.15;
+  font-size: clamp(1.45rem, 4.2vw, 2.5rem);
+  line-height: 1.18;
 }
 
 h3 {
-  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
   line-height: 1.25;
 }
 
 h4 {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
   line-height: 1.35;
 }
 
 p {
-  font-size: 0.98rem;
+  font-size: clamp(0.9rem, 1.8vw, 0.98rem);
   color: var(--color-ink-soft);
   max-width: 72ch;
+  line-height: 1.6;
 }
 
 p.lead {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: clamp(0.98rem, 2.2vw, 1.25rem);
   color: var(--color-ink);
   line-height: 1.55;
   font-weight: 400;
@@ -72,12 +76,13 @@ p.lead {
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: clamp(0.68rem, 1.5vw, 0.75rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-ink-faint);
   display: block;
   margin-bottom: var(--space-xs);
+  line-height: 1.4;
 }
 
 /* Layout Containers */
@@ -108,6 +113,7 @@ p.lead {
 
 .section-title-wrap {
   max-width: 760px;
+  flex: 1 1 300px;
 }
 
 .section-title {
@@ -122,7 +128,7 @@ p.lead {
 
 .section-num {
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
   color: var(--color-service-blue);
   font-weight: 500;
 }
@@ -203,6 +209,30 @@ p.lead {
   align-items: start;
 }
 
+/* Responsive Telemetry & Metrics Grids */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid var(--color-rule);
+  padding-top: 12px;
+}
+
+.acoustic-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.spec-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+
 /* Table Responsive Wrapper */
 .table-responsive {
   width: 100%;
@@ -212,15 +242,17 @@ p.lead {
   border: 1px solid var(--color-rule);
   border-radius: var(--radius-subtle);
   background: var(--color-paper-card);
+  position: relative;
 }
 
 .table-responsive table {
   margin-bottom: 0 !important;
-  min-width: 600px;
+  min-width: 580px;
+  width: 100%;
 }
 
 /* Responsive Breakpoints */
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -232,36 +264,75 @@ p.lead {
 
 @media (max-width: 768px) {
   :root {
+    --space-xxs: 4px;
+    --space-xs: 6px;
+    --space-sm: 12px;
     --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 32px;
-    --space-xxl: 48px;
-    --header-height: 68px;
+    --space-lg: 20px;
+    --space-xl: 28px;
+    --space-xxl: 40px;
+    --space-hero: 64px;
+    --header-height: 60px;
   }
   
   .container {
-    padding: 0 var(--space-md);
+    padding: 0 16px;
   }
   
   .grid-2, .grid-3, .grid-4 {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   
   .section {
     padding: var(--space-xl) 0;
   }
   
+  .section-header {
+    margin-bottom: var(--space-md);
+  }
+  
   .page-hero {
-    padding: calc(var(--space-xl) + 20px) 0 var(--space-lg);
+    padding: calc(var(--space-xl) + 15px) 0 var(--space-lg);
   }
   
   .stats-band {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px;
+    gap: 12px !important;
+    padding: 12px 0 !important;
+  }
+
+  .acoustic-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .stats-band {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .spec-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 10px;
+  }
+
   .stats-band {
     grid-template-columns: 1fr !important;
   }

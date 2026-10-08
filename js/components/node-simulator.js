@@ -59,7 +59,7 @@ export function initNodeSimulator() {
       spec: "Dedicated optical conduits with 50mm bend radii for high-speed IT networks and low-latency building backbone."
     },
     3: {
-      title: "TIER 03 · ACOUSTICS (45 kg/m³ Infill)",
+      title: "TIER 03 · Continuous Service Cavity (45 kg/m³ Acoustic Infill)",
       spec: "High-density mineral wool batts dampen reverberation and eliminate inter-room sound transmission (STC 48–54)."
     },
     4: {

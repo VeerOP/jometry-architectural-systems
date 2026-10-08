@@ -69,42 +69,43 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer Overlay Menu -->
-    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
-      <div class="mobile-menu-header">
-        <div class="brand-logo">
-          <div class="brand-symbol">J</div>
-          <div class="brand-title-wrap">
-            <span class="brand-title">JOMETRY</span>
-            <span class="brand-edition">2026</span>
-          </div>
-        </div>
-        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
-        <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
-        <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
-        <li><a href="living-wall.html" class="mobile-nav-link active"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
-        <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
-        <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
-      </ul>
-      <div class="mobile-menu-footer">
-        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
-          Request Specification Package
-        </button>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
-          MACR MAYR India Pvt Ltd · Mumbai<br>
-          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
-        </div>
-      </div>
-    </div>
-
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
       <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
     </div>
   </header>
+
+  <!-- Mobile Drawer Overlay Menu & Backdrop -->
+  <div id="mobile-menu-backdrop" class="mobile-menu-backdrop"></div>
+  <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">JOMETRY</span>
+          <span class="brand-edition">2026</span>
+        </div>
+      </div>
+      <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
+      <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
+      <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
+      <li><a href="living-wall.html" class="mobile-nav-link active"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
+      <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
+      <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+        Request Specification Package
+      </button>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+        MACR MAYR India Pvt Ltd · Mumbai<br>
+        <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+      </div>
+    </div>
+  </div>
 
   <main>
 
@@ -212,14 +213,27 @@
             <p>
               In conventional green walls, air only touches the leaf surface. In JOMETRY's active biofiltration configuration, ambient room air is drawn into the negative-pressure cavity directly through the inorganic wicking matrix and root rhizosphere.
             </p>
-            <p>
-              The beneficial symbiotic microbes residing on plant roots break down hazardous VOC pollutants (formaldehyde, benzene, toluene) and particulate matter, converting them into non-toxic plant nourishment.
-            </p>
+
+            <!-- Progressive Disclosure: Biofiltration Science -->
+            <div class="read-more-wrapper">
+              <button class="btn-read-more" data-target="#biofilter-science-details" data-close-label="+ Read Microbial Rhizosphere Science" data-open-label="− Show Less" aria-expanded="false">
+                + Read Microbial Rhizosphere Science <span class="read-more-icon">▾</span>
+              </button>
+
+              <div id="biofilter-science-details" class="read-more-content">
+                <p>
+                  <strong>Microbial Breakdown:</strong> Symbiotic microbes residing on plant root zones actively break down airborne VOC pollutants (formaldehyde, benzene, toluene) and particulate matter, converting them into harmless plant nutrients.
+                </p>
+                <p>
+                  <strong>Acoustic &amp; Airflow Telemetry:</strong> Ultra-quiet whisper fans (21 dB) exchange 240 m³/h of air continuously without disturbing meeting rooms or focused workspace environments.
+                </p>
+              </div>
+            </div>
 
             <div class="callout-box moss" style="margin-top: var(--space-md);">
               <h4 style="color: var(--color-living-moss); margin-bottom: 4px;">Zero Soil · Zero Pathogens</h4>
               <p style="margin: 0; font-size: 0.88rem; line-height: 1.5;">
-                100% soil-free rigid inorganic wicking substrate. Eliminates soil gnats, mold spores, and bacterial contamination in occupied commercial and healthcare spaces.
+                100% soil-free rigid inorganic wicking substrate. Eliminates soil gnats, mold spores, and bacterial contamination in commercial and healthcare spaces.
               </p>
             </div>
           </div>
@@ -325,46 +339,55 @@
           </div>
         </div>
 
-        <!-- Technical Specification Matrix (Page 10 Table) -->
-        <div class="reveal" style="margin-top: var(--space-xl);">
-          <h3 style="margin-bottom: var(--space-md);">Exterior Living Facade Parameters</h3>
-          <div class="table-responsive">
-            <table class="spec-table table-theme-card">
-              <thead>
-                <tr>
-                  <th>Parameter</th>
-                  <th>Design Value</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Substrate Medium</strong></td>
-                  <td>Rigid inert inorganic wicking matrix</td>
-                  <td><span class="status-badge production">CERTIFIED</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Wind Load Resistance</strong></td>
-                  <td>Tested to 2.4 kPa positive/negative</td>
-                  <td><span class="status-badge production">VERIFIED</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Irrigation Control</strong></td>
-                  <td>Concealed closed-loop automated drip</td>
-                  <td><span class="status-badge production">STANDARD</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Thermal Attenuation</strong></td>
-                  <td>Reduces facade temp by up to 14°C</td>
-                  <td><span class="status-badge production">FIELD TESTED</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Fire Performance</strong></td>
-                  <td>Non-combustible sub-frame (ASTM E84)</td>
-                  <td><span class="status-badge production">COMPLIANT</span></td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Technical Specification Matrix (Collapsible) -->
+        <div class="collapsible-section reveal" style="margin-top: var(--space-xl);">
+          <div class="collapsible-header" data-target="#exterior-facade-specs" aria-expanded="false">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span class="eyebrow" style="color: var(--color-living-moss); margin: 0;">Engineering Matrix</span>
+              <span>Exterior Living Facade Parameters &amp; Performance Standards</span>
+            </div>
+            <span class="collapsible-icon">▾</span>
+          </div>
+
+          <div id="exterior-facade-specs" class="collapsible-body">
+            <div class="table-responsive">
+              <table class="spec-table table-theme-card">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Design Value</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Substrate Medium</strong></td>
+                    <td>Rigid inert inorganic wicking matrix</td>
+                    <td><span class="status-badge production">CERTIFIED</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Wind Load Resistance</strong></td>
+                    <td>Tested to 2.4 kPa positive/negative</td>
+                    <td><span class="status-badge production">VERIFIED</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Irrigation Control</strong></td>
+                    <td>Concealed closed-loop automated drip</td>
+                    <td><span class="status-badge production">STANDARD</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Thermal Attenuation</strong></td>
+                    <td>Reduces facade temp by up to 14°C</td>
+                    <td><span class="status-badge production">FIELD TESTED</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fire Performance</strong></td>
+                    <td>Non-combustible sub-frame (ASTM E84)</td>
+                    <td><span class="status-badge production">COMPLIANT</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -383,7 +406,7 @@
 
           <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
             <div style="height: 240px; overflow: hidden; position: relative;">
-              <img src="assets/images/Living walls facade green wall.png" alt="Civic Exterior Integration" style="width:100%; height:100%; object-fit: cover;" />
+              <img src="assets/images/living-facade-green-wall.png" alt="Civic Exterior Integration" style="width:100%; height:100%; object-fit: cover;" />
               <span class="prod-badge">Modular Cassette Rainscreen</span>
             </div>
             <div style="padding: var(--space-md);">

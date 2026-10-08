@@ -69,42 +69,43 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer Overlay Menu -->
-    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
-      <div class="mobile-menu-header">
-        <div class="brand-logo">
-          <div class="brand-symbol">J</div>
-          <div class="brand-title-wrap">
-            <span class="brand-title">JOMETRY</span>
-            <span class="brand-edition">2026</span>
-          </div>
-        </div>
-        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
-        <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
-        <li><a href="acoustics.html" class="mobile-nav-link active"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
-        <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
-        <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
-        <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
-      </ul>
-      <div class="mobile-menu-footer">
-        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
-          Request Specification Package
-        </button>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
-          MACR MAYR India Pvt Ltd · Mumbai<br>
-          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
-        </div>
-      </div>
-    </div>
-
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
       <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
     </div>
   </header>
+
+  <!-- Mobile Drawer Overlay Menu & Backdrop -->
+  <div id="mobile-menu-backdrop" class="mobile-menu-backdrop"></div>
+  <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">JOMETRY</span>
+          <span class="brand-edition">2026</span>
+        </div>
+      </div>
+      <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
+      <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
+      <li><a href="acoustics.html" class="mobile-nav-link active"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
+      <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
+      <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
+      <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+        Request Specification Package
+      </button>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+        MACR MAYR India Pvt Ltd · Mumbai<br>
+        <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+      </div>
+    </div>
+  </div>
 
   <main>
 
@@ -274,15 +275,16 @@
               <div style="margin-top: var(--space-md); border-top: 1px solid var(--color-rule); padding-top: var(--space-sm);">
                 <span class="eyebrow" style="margin-bottom: 6px;">Room Typology Priority Presets:</span>
                 <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                  <button class="acoustic-preset-btn" data-depth="180">AV / Screening Suite (180mm)</button>
-                  <button class="acoustic-preset-btn active" data-depth="100">Boardroom / Video Conf (100mm)</button>
-                  <button class="acoustic-preset-btn" data-depth="60">Corridor / Open Office (60mm)</button>
+                  <button class="acoustic-preset-btn" data-depth="180">AV Suite (180mm)</button>
+                  <button class="acoustic-preset-btn" data-depth="140">Cinema / AV (140mm)</button>
+                  <button class="acoustic-preset-btn active" data-depth="100">Boardroom (100mm)</button>
+                  <button class="acoustic-preset-btn" data-depth="60">Corridor (60mm)</button>
                 </div>
               </div>
             </div>
 
             <!-- Dynamic Acoustic Ratings -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-sm); margin-top: var(--space-md);">
+            <div class="acoustic-metrics-grid">
               <div class="acoustic-metric-card">
                 <span class="eyebrow" style="margin-bottom: 2px;">Resonant Center</span>
                 <div id="acoustic-peak-hz" class="acoustic-metric-val">500 Hz</div>
@@ -300,9 +302,9 @@
               </div>
             </div>
 
-            <p id="acoustic-zone-desc" style="margin-top: var(--space-sm); font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; background: var(--color-paper-alt); padding: 10px 14px; border-radius: 2px;">
+            <p id="acoustic-zone-desc" style="margin-top: var(--space-sm); font-size: 0.85rem; color: var(--color-ink-soft); line-height: 1.5; background: var(--color-paper-alt); padding: 10px 14px; border-radius: 2px;">
               <strong>Priority Target:</strong> Boardroom / Video Conference (75–100 mm)<br>
-              Optimized speech intelligibility band (500 Hz – 2 kHz) eliminating room flutter echoes.
+              Optimized speech intelligibility band (500 Hz – 2 kHz) eliminating flutter echoes.
             </p>
 
             <!-- Live Web Audio Simulation Controls -->
@@ -315,7 +317,7 @@
                   <option value="bare">Bare Reflective Drywall (Uncontrolled)</option>
                 </select>
                 <button id="btn-play-acoustic-audio" class="btn-primary" style="padding: 10px 18px; font-size: 0.82rem; background: var(--color-acoustic-clay); border-color: var(--color-acoustic-clay);">
-                  ▶ Listen to Room Acoustic Simulation
+                  ▶ Listen to Simulation
                 </button>
               </div>
             </div>
@@ -361,71 +363,73 @@
             <div class="diagram-caption">Dynamic Absorption Spectrum (αp) vs. Standoff Depth — Real-time Acoustic Simulation</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ===== MEASURED OCTAVE BAND TEST DATA TABLE (PAGE 8) ===== -->
-    <section class="section" style="background: var(--color-paper-alt);">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Laboratory Test Reports · Certified Chamber Data</span>
-          <h2>Measured Octave Band Sound Absorption Coefficients (αp)</h2>
-        </div>
-
-        <div class="reveal">
-          <div class="table-responsive">
-            <table class="spec-table table-theme-card">
-              <thead>
-                <tr>
-                  <th>Standoff Depth</th>
-                  <th>125 Hz</th>
-                  <th>250 Hz</th>
-                  <th>500 Hz</th>
-                  <th>1000 Hz</th>
-                  <th>2000 Hz</th>
-                  <th>4000 Hz</th>
-                  <th>NRC Rating</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>50 mm Shallow Standoff</strong> (High Frequency)</td>
-                  <td>0.18</td>
-                  <td>0.38</td>
-                  <td>0.72</td>
-                  <td>0.94</td>
-                  <td>0.92</td>
-                  <td>0.86</td>
-                  <td><strong>0.80</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>100 mm Medium Standoff</strong> (Speech Band)</td>
-                  <td>0.35</td>
-                  <td>0.72</td>
-                  <td>0.95</td>
-                  <td>0.96</td>
-                  <td>0.90</td>
-                  <td>0.88</td>
-                  <td><strong>0.90</strong></td>
-                </tr>
-                <tr>
-                  <td><strong>180 mm Deep Bass Cavity</strong> (Low Bass Tuning)</td>
-                  <td>0.62</td>
-                  <td>0.92</td>
-                  <td>0.98</td>
-                  <td>0.94</td>
-                  <td>0.88</td>
-                  <td>0.85</td>
-                  <td><strong>0.95</strong></td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Collapsible Laboratory Octave Band Data Table -->
+        <div class="collapsible-section reveal" style="margin-top: var(--space-xl);">
+          <div class="collapsible-header" data-target="#acoustic-lab-data" aria-expanded="false">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span class="eyebrow" style="color: var(--color-acoustic-clay); margin: 0;">Certified Lab Data</span>
+              <span>Measured Octave Band Sound Absorption (ISO 354 Chamber Reports)</span>
+            </div>
+            <span class="collapsible-icon">▾</span>
           </div>
 
-          <div style="margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint);">
-            * Certified laboratory sound absorption tested in ISO 354 reverberation chamber. ASTM C423 / ISO 10140 compliant.
+          <div id="acoustic-lab-data" class="collapsible-body">
+            <div class="table-responsive">
+              <table class="spec-table table-theme-card">
+                <thead>
+                  <tr>
+                    <th>Standoff Depth</th>
+                    <th>125 Hz</th>
+                    <th>250 Hz</th>
+                    <th>500 Hz</th>
+                    <th>1000 Hz</th>
+                    <th>2000 Hz</th>
+                    <th>4000 Hz</th>
+                    <th>NRC Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>50 mm Shallow Standoff</strong> (High Frequency)</td>
+                    <td>0.18</td>
+                    <td>0.38</td>
+                    <td>0.72</td>
+                    <td>0.94</td>
+                    <td>0.92</td>
+                    <td>0.86</td>
+                    <td><strong>0.80</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>100 mm Medium Standoff</strong> (Speech Band)</td>
+                    <td>0.35</td>
+                    <td>0.72</td>
+                    <td>0.95</td>
+                    <td>0.96</td>
+                    <td>0.90</td>
+                    <td>0.88</td>
+                    <td><strong>0.90</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>180 mm Deep Bass Cavity</strong> (Low Bass Tuning)</td>
+                    <td>0.62</td>
+                    <td>0.92</td>
+                    <td>0.98</td>
+                    <td>0.94</td>
+                    <td>0.88</td>
+                    <td>0.85</td>
+                    <td><strong>0.95</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top: var(--space-sm); font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint);">
+              * Certified sound absorption tested in ISO 354 reverberation chamber. ASTM C423 / ISO 10140 compliant.
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 

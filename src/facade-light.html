@@ -69,42 +69,43 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer Overlay Menu -->
-    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
-      <div class="mobile-menu-header">
-        <div class="brand-logo">
-          <div class="brand-symbol">J</div>
-          <div class="brand-title-wrap">
-            <span class="brand-title">JOMETRY</span>
-            <span class="brand-edition">2026</span>
-          </div>
-        </div>
-        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
-        <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
-        <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
-        <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
-        <li><a href="facade-light.html" class="mobile-nav-link active"><span class="nav-num">04</span> Facade &amp; Light</a></li>
-        <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
-      </ul>
-      <div class="mobile-menu-footer">
-        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
-          Request Specification Package
-        </button>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
-          MACR MAYR India Pvt Ltd · Mumbai<br>
-          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
-        </div>
-      </div>
-    </div>
-
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
       <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
     </div>
   </header>
+
+  <!-- Mobile Drawer Overlay Menu & Backdrop -->
+  <div id="mobile-menu-backdrop" class="mobile-menu-backdrop"></div>
+  <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">JOMETRY</span>
+          <span class="brand-edition">2026</span>
+        </div>
+      </div>
+      <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
+      <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
+      <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
+      <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
+      <li><a href="facade-light.html" class="mobile-nav-link active"><span class="nav-num">04</span> Facade &amp; Light</a></li>
+      <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+        Request Specification Package
+      </button>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+        MACR MAYR India Pvt Ltd · Mumbai<br>
+        <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+      </div>
+    </div>
+  </div>
 
   <main>
 
@@ -269,6 +270,22 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <!-- Progressive Disclosure: Lighting Driver & Photometrics -->
+          <div class="read-more-wrapper">
+            <button class="btn-read-more" data-target="#facade-lighting-specs-details" data-close-label="+ View Lighting Driver &amp; Thermal Engineering Specs" data-open-label="− Show Less" aria-expanded="false">
+              + View Lighting Driver &amp; Thermal Engineering Specs <span class="read-more-icon">▾</span>
+            </button>
+
+            <div id="facade-lighting-specs-details" class="read-more-content">
+              <p>
+                <strong>DALI-2 Architectural Dimming:</strong> Micro-step logarithmic dimming down to 0.1% depth ensures zero visible strobe or high-frequency camera flicker during broadcast filming.
+              </p>
+              <p>
+                <strong>Thermal Dissipation &amp; Cavity Cooling:</strong> Extruded aluminum 6063-T6 carrier profiles act as dedicated heatsinks, maintaining LED junction temperatures below 65°C for L80 &gt; 50,000h operational lifespan.
+              </p>
+            </div>
           </div>
         </div>
 

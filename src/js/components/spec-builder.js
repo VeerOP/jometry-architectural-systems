@@ -29,20 +29,20 @@ export function initSpecBuilder() {
     });
 
     // Generate JOMETRY model code
-    let prefix = 'JOM-SRVC';
+    let prefix = 'DW-SERV-JOM';
     let divCode = 'SECTION 10 22 19 (Demountable Partitions)';
     let familyTitle = 'JOMETRY Service Wall Demountable MEP Platform';
 
     if (family === 'acoustic') {
-      prefix = 'JOM-ACST';
+      prefix = 'DW-ACST-JOM';
       divCode = 'SECTION 09 84 13 (Sound-Absorbing Wall Units)';
       familyTitle = 'JOMETRY Acoustic Control Helmholtz Resonant Wall System';
     } else if (family === 'living') {
-      prefix = 'JOM-LIVE';
+      prefix = 'DW-LIVE-JOM';
       divCode = 'SECTION 12 93 00 (Interior Botanical & Biofiltration Cladding)';
       familyTitle = 'JOMETRY Living Bio-Wall Active Botanical System';
     } else if (family === 'facade-light') {
-      prefix = 'JOM-LITE';
+      prefix = 'DW-LITE-JOM';
       divCode = 'SECTION 09 54 00 / 26 51 00 (Illuminated Architectural Cladding)';
       familyTitle = 'JOMETRY Facade & Light Concealed LED Backlit System';
     }

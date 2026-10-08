@@ -69,42 +69,43 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer Overlay Menu -->
-    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
-      <div class="mobile-menu-header">
-        <div class="brand-logo">
-          <div class="brand-symbol">J</div>
-          <div class="brand-title-wrap">
-            <span class="brand-title">JOMETRY</span>
-            <span class="brand-edition">2026</span>
-          </div>
-        </div>
-        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
-        <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
-        <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
-        <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
-        <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
-        <li><a href="specifications.html" class="mobile-nav-link active"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
-      </ul>
-      <div class="mobile-menu-footer">
-        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
-          Request Specification Package
-        </button>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
-          MACR MAYR India Pvt Ltd · Mumbai<br>
-          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
-        </div>
-      </div>
-    </div>
-
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
       <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
     </div>
   </header>
+
+  <!-- Mobile Drawer Overlay Menu & Backdrop -->
+  <div id="mobile-menu-backdrop" class="mobile-menu-backdrop"></div>
+  <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">JOMETRY</span>
+          <span class="brand-edition">2026</span>
+        </div>
+      </div>
+      <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
+      <li><a href="service-wall.html" class="mobile-nav-link"><span class="nav-num">01</span> Service Wall System</a></li>
+      <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
+      <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
+      <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
+      <li><a href="specifications.html" class="mobile-nav-link active"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+        Request Specification Package
+      </button>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+        MACR MAYR India Pvt Ltd · Mumbai<br>
+        <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+      </div>
+    </div>
+  </div>
 
   <main>
 
@@ -190,7 +191,7 @@
 
               <div class="form-group">
                 <label class="form-label">4. Integrated Provisions &amp; Options</label>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.82rem; margin-top: 6px;">
+                <div class="spec-options-grid">
                   <label><input type="checkbox" class="spec-option-cb" value="LED" checked /> Backlit Concealed LED</label>
                   <label><input type="checkbox" class="spec-option-cb" value="PWR" checked /> Flush 230V Face Sockets</label>
                   <label><input type="checkbox" class="spec-option-cb" value="DATA" checked /> Cat6A / Fiber Outlets</label>
@@ -288,72 +289,72 @@ PART 2 — PRODUCTS:
         <div class="grid-2 reveal">
           <!-- Project 01: SAKET WORLD -->
           <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
-            <div style="height: 260px; overflow: hidden; position: relative;">
+            <div style="height: 240px; overflow: hidden; position: relative;">
               <img src="assets/images/acoustic-red.png" alt="Saket World AV Screening Suite" style="width:100%; height:100%; object-fit: cover;" />
               <span class="prod-badge">Delivered &amp; Handed Over</span>
             </div>
             <div style="padding: var(--space-md);">
               <span class="eyebrow" style="color: var(--color-acoustic-clay);">SAKET WORLD · MUMBAI</span>
-              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">Commercial AV Screening Suite Acoustic Wall</h3>
-              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
-                180 mm Cavity Standoff Helmholtz absorption with terracotta fluted acoustic tiles, eliminating room modal resonances, flutter echoes, and standing waves.
+              <h3 style="font-size: 1.25rem; margin: 4px 0 6px;">Commercial AV Screening Suite Acoustic Wall</h3>
+              <p style="font-size: 0.85rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 8px;">
+                180 mm Cavity Standoff Helmholtz absorption with terracotta fluted tiles, eliminating modal resonances (NRC 0.95).
               </p>
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
-                <strong>Typology:</strong> Acoustic Control (180mm Cavity) · Status: Delivered &amp; Handed Over
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> Acoustic Control (180mm Cavity) · Status: Delivered
               </div>
             </div>
           </div>
 
           <!-- Project 02: OYSTER HOUSING HQ -->
           <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
-            <div style="height: 260px; overflow: hidden; position: relative;">
+            <div style="height: 240px; overflow: hidden; position: relative;">
               <img src="assets/images/living-indoor-cladding.png" alt="Oyster Housing Active Air Bio-Wall" style="width:100%; height:100%; object-fit: cover;" />
               <span class="prod-badge">Delivered &amp; Handed Over</span>
             </div>
             <div style="padding: var(--space-md);">
               <span class="eyebrow" style="color: var(--color-living-moss);">OYSTER HOUSING · MUMBAI</span>
-              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">Corporate Headquarters Active Air Bio-Wall (120 m²)</h3>
-              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
-                120 m² indoor active biofiltration living wall drawing corporate atrium air through root rhizospheres with 4-layer leak defense and zero on-site gardening.
+              <h3 style="font-size: 1.25rem; margin: 4px 0 6px;">Corporate HQ Active Air Bio-Wall (120 m²)</h3>
+              <p style="font-size: 0.85rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 8px;">
+                120 m² indoor active biofiltration wall drawing atrium air through root rhizospheres with 4-layer leak defense.
               </p>
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
-                <strong>Typology:</strong> Living Bio-Wall (120 m²) · Status: Delivered &amp; Handed Over
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> Living Bio-Wall (120 m²) · Status: Delivered
               </div>
             </div>
           </div>
 
           <!-- Project 03: OYSTER HOUSING HIGH-RISE -->
           <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
-            <div style="height: 260px; overflow: hidden; position: relative;">
+            <div style="height: 240px; overflow: hidden; position: relative;">
               <img src="assets/images/living-exterior-facade.png" alt="Oyster Housing High-Rise Living Facade" style="width:100%; height:100%; object-fit: cover;" />
               <span class="status-badge testing" style="position: absolute; top: 12px; right: 12px;">COMMISSIONED</span>
             </div>
             <div style="padding: var(--space-md);">
               <span class="eyebrow" style="color: var(--color-living-moss);">OYSTER HOUSING · MUMBAI</span>
-              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">High-Rise Exterior Living Wall Rainscreen (450 m²)</h3>
-              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
-                450 m² architectural scale exterior living facade engineered for 2.4 kPa cyclonic wind load, -14°C microclimate thermal attenuation, and 45 L/m² stormwater buffering.
+              <h3 style="font-size: 1.25rem; margin: 4px 0 6px;">High-Rise Living Rainscreen Facade (450 m²)</h3>
+              <p style="font-size: 0.85rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 8px;">
+                450 m² exterior living facade engineered for 2.4 kPa wind loads, -14°C cooling, and 45 L/m² stormwater buffering.
               </p>
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
-                <strong>Typology:</strong> High-Rise Exterior Living Facade · Status: Commissioned
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> Exterior Living Facade · Status: Commissioned
               </div>
             </div>
           </div>
 
           <!-- Project 04: BOMBAY PRESIDENCY CLUB -->
           <div class="product-card hover-lift" style="padding: 0; overflow: hidden;">
-            <div style="height: 260px; overflow: hidden; position: relative;">
+            <div style="height: 240px; overflow: hidden; position: relative;">
               <img src="assets/images/illuminated-facade-01.png" alt="Bombay Presidency Club Feature Wall" style="width:100%; height:100%; object-fit: cover;" />
               <span class="prod-badge">Delivered &amp; Handed Over</span>
             </div>
             <div style="padding: var(--space-md);">
               <span class="eyebrow" style="color: var(--color-backlit-amber);">BOMBAY PRESIDENCY CLUB · MUMBAI</span>
-              <h3 style="font-size: 1.3rem; margin: 4px 0 8px;">Backlit Illuminated Architectural Feature (2700K LED)</h3>
-              <p style="font-size: 0.88rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px;">
-                Concealed 2700K museum-grade LED illumination integrated behind laser-cut acoustic slots with DALI-2 flicker-free architectural dimming down to 0.1% depth.
+              <h3 style="font-size: 1.25rem; margin: 4px 0 6px;">Backlit Illuminated Architectural Feature</h3>
+              <p style="font-size: 0.85rem; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 8px;">
+                Concealed 2700K museum-grade LED illumination behind acoustic slots with DALI-2 dimming to 0.1%.
               </p>
-              <div style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
-                <strong>Typology:</strong> Facade &amp; Light (2700K LED) · Status: Delivered &amp; Handed Over
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; background: var(--color-paper-card); padding: 8px 12px; border: 1px solid var(--color-rule);">
+                <strong>Typology:</strong> Facade &amp; Light (2700K LED) · Status: Delivered
               </div>
             </div>
           </div>

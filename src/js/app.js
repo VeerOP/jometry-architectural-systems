@@ -15,12 +15,16 @@ import { initFacadeSimulator } from './components/facade-simulator.js';
 import { initProductFilters } from './components/filters.js';
 import { initSpecBuilder } from './components/spec-builder.js';
 import { initEnquiryModal, openEnquiryModal } from './components/modal.js';
+import { initReadMore } from './components/read-more.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   console.log("Initializing JOMETRY Architectural Platform (2026 Edition)...");
 
   // 1. Initialize Theme (Dark / Light Mode)
   initTheme();
+
+  // 1b. Initialize Progressive Disclosure / Read More
+  initReadMore();
 
   // 2. Fetch Core Product Data
   const productData = await fetchProductData();
@@ -103,18 +107,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     initSpecBuilder();
   }
 
-  // Scroll Reveal Animations via IntersectionObserver
+  // Scroll Reveal Animations via IntersectionObserver with robust mobile handling
   const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-revealed');
-        revealObserver.unobserve(entry.target);
+  
+  function checkInitialVisibility() {
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= windowHeight + 100) {
+        el.classList.add('is-revealed');
       }
     });
-  }, { threshold: 0.08 });
+  }
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px 80px 0px',
+      threshold: 0
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+  }
+
+  checkInitialVisibility();
+  window.addEventListener('resize', checkInitialVisibility, { passive: true });
 
   // Header Scroll Progress Bar & Fixed Sticky Elevation
   const progressBar = document.getElementById('scroll-progress-bar');
@@ -144,31 +169,43 @@ function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-menu-toggle');
   const closeBtn = document.getElementById('mobile-menu-close');
   const drawer = document.getElementById('mobile-menu-drawer');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
 
   if (!toggleBtn || !drawer) return;
 
   function openMenu() {
     drawer.classList.add('active');
+    if (backdrop) backdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
     drawer.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  toggleBtn.addEventListener('click', openMenu);
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (drawer.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
 
-  // Close when clicking backdrop
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+  // Close when clicking outside drawer
   document.addEventListener('click', (e) => {
     if (drawer.classList.contains('active') && !drawer.contains(e.target) && !toggleBtn.contains(e.target)) {
       closeMenu();
     }
   });
 
-  // Close when clicking any nav link
-  drawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+  // Close when clicking any link in drawer
+  drawer.querySelectorAll('.mobile-nav-link, .btn-enquire-spec').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 }

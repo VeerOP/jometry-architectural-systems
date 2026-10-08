@@ -69,42 +69,43 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer Overlay Menu -->
-    <div id="mobile-menu-drawer" class="mobile-menu-drawer">
-      <div class="mobile-menu-header">
-        <div class="brand-logo">
-          <div class="brand-symbol">J</div>
-          <div class="brand-title-wrap">
-            <span class="brand-title">JOMETRY</span>
-            <span class="brand-edition">2026</span>
-          </div>
-        </div>
-        <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
-        <li><a href="service-wall.html" class="mobile-nav-link active"><span class="nav-num">01</span> Service Wall System</a></li>
-        <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
-        <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
-        <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
-        <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
-      </ul>
-      <div class="mobile-menu-footer">
-        <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
-          Request Specification Package
-        </button>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
-          MACR MAYR India Pvt Ltd · Mumbai<br>
-          <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
-        </div>
-      </div>
-    </div>
-
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
       <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
     </div>
   </header>
+
+  <!-- Mobile Drawer Overlay Menu & Backdrop -->
+  <div id="mobile-menu-backdrop" class="mobile-menu-backdrop"></div>
+  <div id="mobile-menu-drawer" class="mobile-menu-drawer">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <div class="brand-symbol">J</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">JOMETRY</span>
+          <span class="brand-edition">2026</span>
+        </div>
+      </div>
+      <button id="mobile-menu-close" class="btn-mobile-close" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link"><span class="nav-num">00</span> Overview</a></li>
+      <li><a href="service-wall.html" class="mobile-nav-link active"><span class="nav-num">01</span> Service Wall System</a></li>
+      <li><a href="acoustics.html" class="mobile-nav-link"><span class="nav-num">02</span> Acoustic Control &amp; Studio</a></li>
+      <li><a href="living-wall.html" class="mobile-nav-link"><span class="nav-num">03</span> Living Bio-Wall &amp; Facades</a></li>
+      <li><a href="facade-light.html" class="mobile-nav-link"><span class="nav-num">04</span> Facade &amp; Light</a></li>
+      <li><a href="specifications.html" class="mobile-nav-link"><span class="nav-num">05</span> Catalogue &amp; CSI Specs</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <button class="btn-primary btn-enquire-spec" data-variant="JOMETRY Mobile Specification Request" style="width: 100%; padding: 14px; margin-bottom: 12px; font-size: 0.85rem;">
+        Request Specification Package
+      </button>
+      <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-faint); text-align: center; line-height: 1.5;">
+        MACR MAYR India Pvt Ltd · Mumbai<br>
+        <a href="mailto:project@jometry.in" style="color: var(--color-service-blue); text-decoration: none;">project@jometry.in</a>
+      </div>
+    </div>
+  </div>
 
   <main>
 
@@ -168,7 +169,7 @@
               </p>
 
               <!-- Mechanical Telemetry Gauges -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 1px solid var(--color-rule); padding-top: 12px;">
+              <div class="telemetry-grid">
                 <div>
                   <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-ink-faint); text-transform: uppercase;">Calibrated Force Gauge</div>
                   <div id="sim-force-gauge" style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--color-service-blue);">
@@ -294,23 +295,42 @@
           <div>
             <span class="eyebrow" style="margin-bottom: 8px;">Multi-Tier Raceway Segregation Architecture:</span>
             <div style="display: flex; gap: 6px; margin-bottom: var(--space-md); flex-wrap: wrap;">
-              <button class="raceway-tier-tab active" data-tier="1">Tier 01: Power</button>
-              <button class="raceway-tier-tab" data-tier="2">Tier 02: Data</button>
-              <button class="raceway-tier-tab" data-tier="3">Tier 03: Acoustics</button>
-              <button class="raceway-tier-tab" data-tier="4">Tier 04: Airflow</button>
+              <button class="raceway-tier-tab cavity-layer-tab active" data-tier="1" data-layer="1">Tier 01: Power</button>
+              <button class="raceway-tier-tab cavity-layer-tab" data-tier="2" data-layer="2">Tier 02: Data</button>
+              <button class="raceway-tier-tab cavity-layer-tab" data-tier="3" data-layer="3">Tier 03: Acoustics</button>
+              <button class="raceway-tier-tab cavity-layer-tab" data-tier="4" data-layer="4">Tier 04: Airflow</button>
             </div>
 
-            <div id="raceway-tier-info" class="cavity-info-card" style="min-height: 160px;">
-              <h4 style="margin: 0 0 6px 0; color: var(--color-service-blue);">TIER 01 · POWER (230V Mains &amp; UPS)</h4>
-              <p style="margin: 0; font-size: 0.92rem; color: var(--color-ink-soft); line-height: 1.55;">
+            <div id="raceway-tier-info" class="cavity-info-card" style="min-height: 140px;">
+              <h4 id="cavity-info-title" style="margin: 0 0 6px 0; color: var(--color-service-blue);">TIER 01 · POWER (230V Mains &amp; UPS)</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: var(--color-ink-soft); line-height: 1.55;">
                 Grounded metallic raceway isolating high-voltage lines from data interference with continuous EMI barrier.
               </p>
+            </div>
+
+            <!-- Progressive Disclosure: Raceway Standards -->
+            <div class="read-more-wrapper">
+              <button class="btn-read-more" data-target="#raceway-specs-details" data-close-label="+ Read Full Raceway Segregation &amp; EMI Standards" data-open-label="− Show Less" aria-expanded="false">
+                + Read Full Raceway Segregation &amp; EMI Standards <span class="read-more-icon">▾</span>
+              </button>
+
+              <div id="raceway-specs-details" class="read-more-content">
+                <p>
+                  <strong>High &amp; Low Voltage Isolation:</strong> Physical metallic barriers prevent 50Hz electromagnetic coupling onto Cat6A/fiber communication channels, meeting TIA-569 and IEEE-1100 standards.
+                </p>
+                <p>
+                  <strong>Optical Fiber Integrity:</strong> 50 mm minimum bend radius channels protect high-density OM4 / OS2 optical fiber lines from micro-bending signal losses.
+                </p>
+                <p>
+                  <strong>Acoustic &amp; Thermal Plenums:</strong> Cavity accommodates 45 kg/m³ rockwool infill (STC 48–54) while maintaining continuous ventilation paths for active systems.
+                </p>
+              </div>
             </div>
 
             <div class="callout-box" style="margin-top: var(--space-md);">
               <h4 style="color: var(--color-service-blue); margin-bottom: 4px;">Universal Frame-Free Grid Mounting</h4>
               <p style="margin: 0; font-size: 0.88rem; line-height: 1.5;">
-                The identical cold-rolled aluminum sub-frame rail mounts acoustic fluted tiles, living bio-cassettes, and illuminated panels interchangeably on the same node geometry.
+                Cold-rolled aluminum sub-frame mounts acoustic fluted tiles, living bio-cassettes, and illuminated panels interchangeably on the same node coordinates.
               </p>
             </div>
           </div>
